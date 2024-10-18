@@ -1,2 +1,2 @@
 <?php
-include('Registrations\customer_registration.php');
+include('Registrations & Login\supplier_registration.php');

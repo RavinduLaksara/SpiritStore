@@ -87,6 +87,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <input type="text" name="state" placeholder="State" required><br>
             <input type="text" name="city" placeholder="City" required><br>
             <input type="text" name="po-code" placeholder="Postal Code" required><br><br>
+            <input type="checkbox" name="terms" required>
+            <label for="terms">I agree to the <a href="#" target="_blank">terms and conditions</a>.</label><br><br>
             <input type="submit" name="submit" value="Register" required>
         </form>
     </div>
