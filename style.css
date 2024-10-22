@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+    
+
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'roboto';
+}
+
+
+.container{
+    position: absolute;
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    flex-direction: column;
+    left:50%;
+    top:80%;
+    width: 400px;
+    padding: 40px;
+    transform: translate(-50%,-50%);
+    background: rgb(245, 245, 245);
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px black;
+    border-radius: 10px;
+    gap: 15px;
+
+    }
+
+    .container h1{
+        font-family: sans-serif;
+        font-size: 25px;
+    }
+
+    label{
+        font-family: 'roboto';
+        text-align: start;
+        font-size: 15px;
+
+    }
+    
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="number"] {
+      width: 100%;
+      padding: 12px;
+      background-color: rgb(165, 162, 162);
+      color: white;
+      border: none;
+      border-bottom: 2px solid black; 
+      border-radius: 4px;
+    }
+    
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    input[type="password"]:focus,
+    input[type="number"]:focus {
+      border-bottom: 2px solid rgb(165, 162, 162);
+      outline: none;
+    }
+
+    input[type="checkbox"] {
+        margin-right: 10px;
+      }
+
+
+      input[type="submit"] {
+        position: absolute;
+        display: inline-block;
+        padding: 10px 10px;
+        color: white;
+        font-size: 16px;
+        background-color: rgb(37, 36, 36) ;
+
+
+      }
+    
+    
+
+#header{
+    background-color:white ;
+    color: black;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-self: flex-start;
+    align-items: center;
+    
+    }
+    
+    #header h2 {
+        font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        margin: 0;
+        font-size: 24px;
+      }
+    
+    .navbar{
+        display: flex;
+        align-items: flex-end;
+        justify-content: end;
+    }
+    
+      
+      .navbar li {
+        margin-left: 20px;
+        list-style-type: none;
+      }
+      
+      .navbar li a {
+        color: rgb(8, 8, 8);
+        text-decoration: none;
+        font-size: 16px;
+        padding: 8px 12px;
+      }
+      
+      .navbar li a:hover,
+      .navbar li a.active {
+        background-color:rgb(165, 162, 162);
+        border-radius: 5px;
+        color: white;
+      }
+      
+    
+      .navbar li a i {
+        font-size: 18px;
+        vertical-align: middle;
+      }
+      
+      @media (max-width: 768px) {
+        #header {
+          flex-direction: column;
+          text-align: center;
+        }
+      
+        .navbar {
+          flex-direction: column;
+          margin-top: 10px;
+        }
+      
+        .navbar li {
+          margin: 10px 0;
+        }
+      }
+
+
+
+    
