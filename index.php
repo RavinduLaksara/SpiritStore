@@ -1,2 +1,3 @@
 <?php
-include('Registrations & Login\supplier_registration.php');
+header("Forms\store_registration.php");
+// echo "afee";
