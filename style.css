@@ -144,7 +144,7 @@ font-size: 70px;
     color: #fff;
 }
 
-/* css for about us page */
+/*------------------------------------- CSS for ABOUT US page ----------------------------------------------------------------------*/
 .about-content{
     margin:0 80px 80px;
 }
@@ -179,3 +179,42 @@ font-size: 70px;
     color: #000000;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   }
+
+
+  /*------------------------------------- CSS for CONTACT US page ----------------------------------------------------------------------*/
+  .contact-content{
+    margin:0 80px 80px;
+}
+
+.contact-content h1 {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    font-size: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #000000;
+    line-height: 30px;  
+    margin-top: 35px;
+    margin-bottom: 50px;
+}
+
+  .contact-content p {
+    font-family: sans-serif;
+    margin-top: 10px;
+    font-weight:100;
+    line-height: 30px;
+  }
+
+  
+  .contact-content a{
+    text-decoration: none;
+    color: #000000;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+  .contact-content .location-container{
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+
+  }
+
