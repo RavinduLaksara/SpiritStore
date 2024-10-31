@@ -1,6 +1,6 @@
 <?php
-include('Headers\supplierHeadder.html');
-include('dbconnect.php');
+session_start();
+include(__DIR__ . '/../dbconnect.php');
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $name = $_POST['name'];
@@ -19,8 +19,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             echo "Invalid query";
             break;
         }
-        // **************add session check the chat gpt note**************
 
+        $new_brand_id = $connection->insert_id;
+        $_SESSION['new_brand_id'] = $new_brand_id;
+        header("Location: ../Forms/products._add.php");
+        exit();
     } while (false);
 }
 ?>
