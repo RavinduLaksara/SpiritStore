@@ -1,6 +1,6 @@
 <?php
 include("dbconnect.php");
-include("Headers/customerHeader.html");
+include("Headers/customerHeader.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,6 +9,7 @@ include("Headers/customerHeader.html");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HomePage</title>
     <link rel="stylesheet" href="style.css"  />
+    
 
 </head>
 <body>
@@ -16,7 +17,7 @@ include("Headers/customerHeader.html");
 <section class="hero">
 
      <div class="slide">
-    <img src="image/home1 (3).jpg" alt="liquor bottle 3" class="animated-image">
+    <img src="https://picsum.photos/200/300" alt="liquor bottle 3" class="animated-image">
    
     </div>
 
@@ -29,7 +30,7 @@ include("Headers/customerHeader.html");
     </div>
 
     <h1 class="hero-heading">Welcome to Spirit Store</h1>
-    <!-- Optional: additional text -->
+    
     <p class="hero-subheading">Discover Our Exclusive Collection</p>
 
 </section>
@@ -39,7 +40,7 @@ include("Headers/customerHeader.html");
 <section class="brandshow">
 <div class="brand-marquee">
     <div class="marquee-content">
-        <img src="image/brand1.PNG" alt="Brand 1">
+        <img src="image/brand1.PNG" alt="Brand 1" width="25">
         <img src="image/brand2.PNG" alt="Brand 2">
         <img src="image/brand3.PNG" alt="Brand 3">
         <img src="image/brand4.PNG" alt="Brand 4">
@@ -60,13 +61,12 @@ include("Headers/customerHeader.html");
         <img src="image/brand8.PNG" alt="Brand 8">
         <img src="image/brand9.PNG" alt="Brand 9">
         <img src="image/brand10.PNG" alt="Brand 10">
-        
     </div>
 </div>
 </section>
 
 <section class="shop-section">
-    <!-- Shop by Category Section -->
+    
     <div class="shop-category">
         <h2>Shop by Category</h2>
         <div class="category-items">
@@ -84,13 +84,13 @@ include("Headers/customerHeader.html");
                 <img src="image/homepage (3).jpg" alt="Category 2">
                 <p>Category 2</p>
             </div>
-            <!-- Add more categories as needed -->
+            
         </div>
     </div>
 
 
 
-    <!-- Shop by Brand Section -->
+    
     <div class="shop-brand">
         <h2>Shop by Brand</h2>
         <div class="brand-items">
@@ -108,7 +108,7 @@ include("Headers/customerHeader.html");
                 <img src="image/homepage (3).jpg" alt="Brand 2">
                 <p>Brand 2</p>
             </div>
-            <!-- Add more brands as needed -->
+            
         </div>
     </div>
 </section>

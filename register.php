@@ -12,11 +12,11 @@
           <form action=""
        </div>
   <style>
-    /* Body and background setup */
+    
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background-image: url('image/login\ page\ image.jpg'); /* Replace with your background image path */
+      background-image: url('image/login\ page\ image.jpg'); 
       background-size: cover;
       background-position: center;
       display: flex;
@@ -26,10 +26,10 @@
       color: #fff;
     }
 
-    /* Frosted glass effect for the form */
+    
     .form-container {
-      background: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
-      backdrop-filter: blur(20px); /* Blur effect */
+      background: rgba(255, 255, 255, 0.1); 
+      backdrop-filter: blur(20px); 
       width: 350px;
       padding: 20px;
       border-radius: 10px;

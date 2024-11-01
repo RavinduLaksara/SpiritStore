@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -40,8 +44,24 @@
             <a href="#"><i class="fas fa-shopping-cart"></i> </a>
             <a href="#"><i class="fas fa-user"></i> </a>
           
-            <button class="btnlogin-popup">Login</button>
+           
+              <?php 
+                if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true): ?>
+                    <a href="logout.php" class="btn">Logout</a>
+                <?php else: ?>
+                    <a href="../SpiritStore/login/customer_login.php" class="btn">Login</a>
+                <?php endif; 
+                ?>
+                
+            
+            
+            
+           
+               
+            
+            
       </div>
     </section>
   </body>
 </html>
+

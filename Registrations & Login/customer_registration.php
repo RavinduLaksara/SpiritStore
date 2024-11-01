@@ -1,5 +1,5 @@
 <?php
-include('../Headers\customerHeader.html');
+include('../Headers\customerHeader.php');
 include('../dbconnect.php');
 
 function verifyPhoneNumber($phoneNumber)

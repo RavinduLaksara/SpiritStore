@@ -47,7 +47,7 @@
 
 <style>
 
-    /* Footer Styling */
+  
 
 .footer {
   display: flex;
