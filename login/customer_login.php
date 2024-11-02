@@ -1,6 +1,5 @@
 <?php
 include('../Headers/customerHeader.php');
-include('../dbconnect.php');
 ?>
 
 <head>
@@ -22,6 +21,7 @@ include('../dbconnect.php');
         
         <input type="submit" value="Login">
     </form>
+    <a href="../register.php">Register Now</a>
 
 </div>
 
@@ -64,17 +64,13 @@ include('../dbconnect.php');
 </style>
 </body>
 <?php
-include ('footer.php');
+include ('../footer.php');
 session_start();
 
-include('../dbconnect.php');
+if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true){
+    header("Location: ../homepage.php");
+}
 
-
-// Start the session
-session_start();
-
-
-include('../dbconnect.php');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = mysqli_real_escape_string($connection, $_POST['name']);

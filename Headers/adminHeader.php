@@ -13,22 +13,21 @@
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
       
-      <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+      <link 
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" 
+      rel="stylesheet">
   </head>
   <body>
     <section id="header">
         <nav class="navbar">
 
           <h2 class="logo">SPIRIT STORE</h2>
-
           <a href="#">Manage Suppliers</a>
           <a href="#">Manage Orders</a>
           <a href="#">Manage Stores</a>
           <a href="#">Manage Products</a>
           <a href="#">Add new Admin</a>
-
-          
-            <a href="user.html"><i class="fas fa-user"></i></a>
+          <a href="user.html"><i class="fas fa-user"></i></a>
 
         </nav>
     </section>

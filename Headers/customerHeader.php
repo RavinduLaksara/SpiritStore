@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 ?>
 
 <!DOCTYPE html>
@@ -34,11 +35,21 @@ session_start();
           
             <a class="active" href="#">HOME</a>
           
-          <a href="#">Liquor and spirits</a>
-          <a href="#">whiskey</a>
-          <a href="#">wine</a>
-          <a href="#">build a gift box</a>
-          <a href="#">blog</a>
+            <?php
+          include($_SERVER['DOCUMENT_ROOT'] . "/SpiritStore/dbconnect.php");
+                // Query to get all categories
+                $sql = "SELECT * FROM category";
+                $result = mysqli_query($connection, $sql);
+
+                if (mysqli_num_rows($result) > 0) {
+                  // Loop through each category and display as a link
+                  while ($row = mysqli_fetch_assoc($result)) {
+                      echo '<a href="category.php?id=' . urlencode($row['id']) . '">' . htmlspecialchars($row['name']) . '</a>';
+                  }
+                } else {
+                    echo "No categories found.";
+                }
+                ?>
 
 
             <a href="#"><i class="fas fa-shopping-cart"></i> </a>
@@ -47,20 +58,12 @@ session_start();
            
               <?php 
                 if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true): ?>
-                    <a href="logout.php" class="btn">Logout</a>
+                    <a href="../SpiritStore/logout.php" class="btn">Logout</a>
                 <?php else: ?>
                     <a href="../SpiritStore/login/customer_login.php" class="btn">Login</a>
                 <?php endif; 
                 ?>
-                
-            
-            
-            
-           
-               
-            
-            
-      </div>
+        </div>
     </section>
   </body>
 </html>
