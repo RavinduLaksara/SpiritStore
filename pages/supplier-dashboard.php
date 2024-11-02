@@ -16,10 +16,10 @@ include('../Headers\supplierHeadder.html');
 
 <body>
 
-<section class="heros">
-    <img src="../image/dashboard.jpeg" class="animated-images">
+<div id="wrapper">
+    <div class="ccontainer">
         <h1>SUPPLIER DASHBOARD</h1>
-    </section>
-
+    </div>
+</div>
 </body>
 </html>
