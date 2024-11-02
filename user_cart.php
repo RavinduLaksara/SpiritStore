@@ -106,7 +106,7 @@ if (mysqli_num_rows($cart_result) > 0) {
         echo "<td>$" . htmlspecialchars($row['Price']) . "</td>";
         echo "<td>$" . htmlspecialchars($row['SubTotal']) . "</td>";
         
-        // Form to update quantity and remove item
+        
         echo "<td>
                 <form method='POST' action='user_cart.php' style='display:inline;'>
                     <input type='hidden' name='item_id' value='" . $row['itemID'] . "'>
@@ -123,7 +123,7 @@ if (mysqli_num_rows($cart_result) > 0) {
     
     echo "</table>";
     
-    // Add the Order Complete button
+    
     echo "<form method='POST' action='user_cart.php'>";
     echo "<input type='hidden' name='cart_id' value='" . htmlspecialchars($row['cartID']) . "'>";
     echo "<button type='submit' name='complete_order'>Complete Order</button>";

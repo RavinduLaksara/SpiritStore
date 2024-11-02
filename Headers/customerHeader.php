@@ -63,6 +63,8 @@ session_start();
                     <a href="../SpiritStore/login/customer_login.php" class="btn">Login</a>
                 <?php endif; 
                 ?>
+
+            <a class="active" href="/SpiritStore/login/admin_login.php">Admin Login</a>
         </div>
     </section>
   </body>
