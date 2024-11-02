@@ -1,48 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/a076d05399.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+    />
+    <link rel="stylesheet" href="../ageVarification/AgeVarification.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="webpage\style.css" />
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
-  <link rel="stylesheet" href="../ageVarification/AgeVarification.css">
-</head>
-
-<body>
-      <div class="age-verification-overlay" id="ageVerification">
-        <div class="age-verification-box">
-            <h2>Are you at least 21 years old?</h2>
-            <p>This site is restricted to those of legal drinking age.</p>
-            <button class="confirm-btn" onclick="confirmAge()">Yes, I am 21+</button>
-            <button class="deny-btn" onclick="denyAccess()">No</button>
-        </div>
+  <body>
+    <div class="age-verification-overlay" id="ageVerification">
+      <div class="age-verification-box">
+        <h2>Are you at least 21 years old?</h2>
+        <p>This site is restricted to those of legal drinking age.</p>
+        <button class="confirm-btn" onclick="confirmAge()">
+          Yes, I am 21+
+        </button>
+        <button class="deny-btn" onclick="denyAccess()">No</button>
+      </div>
     </div>
 
-
-    <div id="content" style="display: none;">
-        <h1>Welcome to the Liquor Shop</h1>
-        <p>Explore our exclusive collection of fine liquors.</p>
+    <div id="content" style="display: none">
+      <h1>Welcome to the Liquor Shop</h1>
+      <p>Explore our exclusive collection of fine liquors.</p>
     </div>
 
-  <section id="header">
-    <img src="images/logo.jpg" alt="logo " />
-    <div>
-      <ul id="navbar">
-        <li><a class="active" href="#">Admin Dashboard</a></li>
-        <li><a href="#">Manage Suppliers</a></li>
-        <li><a href="#">Manage Orders</a></li>
-        <li><a href="#">Manage Stores</a></li>
-        <li><a href="#">Manage Products</a></li>
-        <li><a href="#">Add new Admin</a></li>
-        <li>
-          <a href="user.html"><i class="fas fa-user"></i></a>
-        </li>
-      </ul>
-    </div>
-  </section>
-  <script src="../ageVarification/AgeVarification.js"></script>
-</body>
-
+    <section id="header">
+      <img src="images/logo.jpg" alt="logo " />
+      <div>
+        <ul id="navbar">
+          <li><a class="active" href="#">Admin Dashboard</a></li>
+          <li><a href="#">Manage Suppliers</a></li>
+          <li><a href="#">Manage Orders</a></li>
+          <li><a href="#">Manage Stores</a></li>
+          <li><a href="#">Manage Products</a></li>
+          <li><a href="#">Add new Admin</a></li>
+          <li>
+            <a href="user.html"><i class="fas fa-user"></i></a>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <script src="../ageVarification/AgeVarification.js"></script>
+  </body>
 </html>
