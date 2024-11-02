@@ -1,5 +1,6 @@
 <?php
 include('../Headers/customerHeader.php');
+
 ?>
 
 <head>
@@ -89,7 +90,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['loggedin'] = true;
             $_SESSION['email'] = $user['email'];
             $_SESSION['customer_id'] = $user['id']; 
-           // header("Location: /SpiritStore/homepage.php"); // Redirect to homepage
+            header("Location: /SpiritStore/homepage.php"); // Redirect to homepage
             exit();
         } else {
             // Password is incorrect

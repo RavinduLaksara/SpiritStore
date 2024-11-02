@@ -2,6 +2,8 @@
 include("dbconnect.php");
 
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -44,7 +46,44 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Delete the item from the cartitem table
         $delete_sql = "DELETE FROM cartitem WHERE itemID = '$item_id'";
         mysqli_query($connection, $delete_sql);
+    } elseif (isset($_POST['complete_order'])) {
+        // Complete the order functionality
+        // Calculate total amount from the cart
+        $total_amount_sql = "SELECT SUM(SubTotal) as TotalAmount FROM cartitem ci 
+                             JOIN cart c ON ci.cartID = c.cartID 
+                             WHERE c.customerID = '$customer_id'";
+        $total_amount_result = mysqli_query($connection, $total_amount_sql);
+        $total_amount_row = mysqli_fetch_assoc($total_amount_result);
+        $total_amount = $total_amount_row['TotalAmount'];
+    
+        // Insert into orders table
+        $order_date = date('Y-m-d H:i:s');
+        $order_sql = "INSERT INTO orders (CustomerID, OrderDate, TotalAmount) 
+                      VALUES ('$customer_id', '$order_date', '$total_amount')";
+        mysqli_query($connection, $order_sql);
+        
+        // Get the last inserted order ID
+        $order_id = mysqli_insert_id($connection);
+    
+        // Insert order details for each product in the cart
+        $order_details_sql = "SELECT ci.ProductID, ci.Quantity, ci.SubTotal FROM cartitem ci 
+                              JOIN cart c ON ci.cartID = c.cartID 
+                              WHERE c.customerID = '$customer_id'";
+        $order_details_result = mysqli_query($connection, $order_details_sql);
+    
+        while ($item = mysqli_fetch_assoc($order_details_result)) {
+            $order_detail_sql = "INSERT INTO orderdetails (OrderID, ProductID, Quantity, SubTotal) 
+                                 VALUES ('$order_id', '" . $item['ProductID'] . "', '" . $item['Quantity'] . "', '" . $item['SubTotal'] . "')";
+            mysqli_query($connection, $order_detail_sql);
+        }
+    
+        // Clear the cart after placing the order
+        $cart_sql = "DELETE FROM cartitem WHERE cartID = (SELECT cartID FROM cart WHERE customerID = '$customer_id')";
+        mysqli_query($connection, $cart_sql);
+    
+        echo "<p>Order completed successfully! Thank you for your purchase.</p>";
     }
+    
 }
 
 // Query to get the cart for the user
@@ -74,7 +113,7 @@ if (mysqli_num_rows($cart_result) > 0) {
                     <input type='number' name='quantity' value='" . $row['Quantity'] . "' min='1' max='10'>
                     <button type='submit' name='update_item'>Update</button>
                 </form>
-                <form method='POST' action='user_cart.php' style='display:inline;'>
+                <form method='POST' action='view_cart.php' style='display:inline;'>
                     <input type='hidden' name='item_id' value='" . $row['itemID'] . "'>
                     <button type='submit' name='remove_item'>Remove</button>
                 </form>
@@ -83,6 +122,13 @@ if (mysqli_num_rows($cart_result) > 0) {
     }
     
     echo "</table>";
+    
+    // Add the Order Complete button
+    echo "<form method='POST' action='user_cart.php'>";
+    echo "<input type='hidden' name='cart_id' value='" . htmlspecialchars($row['cartID']) . "'>";
+    echo "<button type='submit' name='complete_order'>Complete Order</button>";
+    echo "</form>";
+
 } else {
     echo "<p>Your cart is empty.</p>";
 }

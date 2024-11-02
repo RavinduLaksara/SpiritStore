@@ -17,7 +17,7 @@ include("Headers/customerHeader.php");
 
 <?php
 include("dbconnect.php");
-
+echo $_SESSION['customer_id'];
 // Check if 'id' is set in the URL and is valid
 if (isset($_GET['id']) && is_numeric($_GET['id'])) {
     $category_id = $_GET['id'];
