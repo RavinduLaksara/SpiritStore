@@ -44,6 +44,17 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
                 echo "<p>ABV: " . htmlspecialchars($product['ABV']) . "%</p>";
                 echo "<p>Country: " . htmlspecialchars($product['Country']) . "</p>";
                 echo "<img width=200 src='".htmlspecialchars($product['photo']) . "' alt='" . htmlspecialchars($product['Name']) . "'>";
+
+                if (isset($_SESSION['customer_id'])) {
+                    echo "<form method='POST' action='add_to_cart.php?id=$category_id'>";
+                    echo "<input type='hidden' name='product_id' value='" . $product['ProductID'] . "'>";
+                    echo "<label>Quantity:</label>";
+                    echo "<input type='number' name='quantity' value='1' min='1' max='10'>";
+                    echo "<button type='submit'>Add to Cart</button>";
+                    echo "</form>";
+                } else {
+                    echo "<p>Log in to add items to your cart.</p>";
+                }
                 echo "</div>";
             }
             echo "</div>";

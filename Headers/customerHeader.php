@@ -33,7 +33,7 @@ session_start();
 
         <h2 class="logo">SPIRIT STORE</h2>
           
-            <a class="active" href="#">HOME</a>
+            <a class="active" href="/SpiritStore/homepage.php">HOME</a>
           
             <?php
           include($_SERVER['DOCUMENT_ROOT'] . "/SpiritStore/dbconnect.php");
@@ -44,7 +44,7 @@ session_start();
                 if (mysqli_num_rows($result) > 0) {
                   // Loop through each category and display as a link
                   while ($row = mysqli_fetch_assoc($result)) {
-                      echo '<a href="category.php?id=' . urlencode($row['id']) . '">' . htmlspecialchars($row['name']) . '</a>';
+                      echo '<a href="/SpiritStore/category.php?id=' . urlencode($row['id']) . '">' . htmlspecialchars($row['name']) . '</a>';
                   }
                 } else {
                     echo "No categories found.";
@@ -52,7 +52,7 @@ session_start();
                 ?>
 
 
-            <a href="#"><i class="fas fa-shopping-cart"></i> </a>
+            <a href="../SpiritStore/user_cart.php"><i class="fas fa-shopping-cart"></i> </a>
             <a href="#"><i class="fas fa-user"></i> </a>
           
            

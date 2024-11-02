@@ -140,7 +140,7 @@ body {
 
       // Execute the query and handle success/failure
       if (mysqli_query($connection, $sql)) {
-          echo "<script>alert('Registration successful!'); window.location.href='../login/customer_login.php';</script>";
+          echo "<script>alert('Registration successful!'); window.location.href='SpiritStore/login/customer_login.php';</script>";
       } else {
           echo "<p>Error: " . mysqli_error($connection) . "</p>";
       }

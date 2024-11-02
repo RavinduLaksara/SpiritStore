@@ -10,7 +10,7 @@ include('../Headers/customerHeader.php');
 <div class="container">
      
 <h1>LOGIN</h1>
-    <form action="customer_login.php" method="post" onsubmit="return validateForm()">
+    <form action="customer_login.php" method="POST" onsubmit="return validateForm()">
         <label for="name">Username:</label>
         <input type="text" id="name" name="name" required>
         <br><br>
@@ -64,28 +64,40 @@ include('../Headers/customerHeader.php');
 </style>
 </body>
 <?php
-include ('../footer.php');
-session_start();
 
-if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true){
+
+if (isset($_SESSION['customer_id'])!=null){
     header("Location: ../homepage.php");
+    exit();
 }
 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $name = mysqli_real_escape_string($connection, $_POST['name']);
-    $password = mysqli_real_escape_string($connection, $_POST['password']);
+    $email = mysqli_real_escape_string($connection, $_POST['name']); // Assuming 'name' is the email
+    $password = $_POST['password']; // Do not hash the password here
 
-    $sql = "SELECT * FROM customer WHERE name = '$name' AND password = '$password'";
+    // Prepare SQL query to fetch user
+    $sql = "SELECT * FROM customer WHERE email = '$email'";
     $result = mysqli_query($connection, $sql);
 
-    if (mysqli_num_rows($result) == 1) {
-        $_SESSION['loggedin'] = true;
-        $_SESSION['name'] = $name;
-        header("Location: ../homepage.php");
-        exit();
+    if (mysqli_num_rows($result) === 1) {
+        $user = mysqli_fetch_assoc($result);
+        
+        // Verify the password
+        if (password_verify($password, $user['password'])) {
+            // Password is correct, set session variables
+            $_SESSION['loggedin'] = true;
+            $_SESSION['email'] = $user['email'];
+            $_SESSION['customer_id'] = $user['id']; 
+           // header("Location: /SpiritStore/homepage.php"); // Redirect to homepage
+            exit();
+        } else {
+            // Password is incorrect
+            echo "<script>alert('Incorrect password.'); window.location.href='customer_login.php';</script>";
+        }
     } else {
-        echo "<script>alert('Incorrect username or password.'); window.location.href='customer_login.php';</script>";
+        // User not found
+        echo "<script>alert('No account found with that email address.'); window.location.href='customer_login.php';</script>";
     }
 }
 ?>
