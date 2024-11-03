@@ -99,22 +99,47 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </head>
 
 <body>
-    <div class="content">
-        <h2>Product Details</h2>
+    <div class="container">
+    <div class="form-container">
+    <div class="form-box"></div>
+
+          <h2>Product Details</h2>
+          
         <form action="" method="post" enctype="multipart/form-data">
-            <input type="text" name="name" placeholder="Product Name" required><br>
-            <textarea name="desc" placeholder="Description" rows="4" cols="40" required></textarea><br>
+
+        <div class="input-box">
+                <input type="text" name="name" required>
+                <label>Product Name</label>
+            </div>
+        
+            <div class="input-box">
+                <input type="textarea" name="desc" required rows="4" cols="40">
+                <label>Description</label>
+            </div>
+
+
+            <div class="input-box">
             <select name="brand" required><br>
                 <option>Select Brand</option>
-                <?php
+               
+               <?php
                 foreach ($brands as $key => $value) {
                     $selected = ($key == $new_brand_id) ? 'selected' : '';
                     echo "<option value='$key' $selected>$value</option>";
                 }
                 ?>
             </select>
+            
+
             <span>or</span>
-            <a href="Forms\add_new_brands.php">Add new brand</a><br>
+            
+
+            <a href="Forms\add_new_brands.php">Add new brand</a>
+            <br>
+
+            </div>
+
+            <div class="input-box">
             <select name="category" required>
                 <option>Select Category</option>
                 <?php
@@ -124,14 +149,35 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 }
                 ?>
             </select>
+
             <span>or</span>
-            <a href="Forms\add_new_category.php">Add new category</a><br>
-            <input type="text" name="country" placeholder="Country" required><br>
-            <input type="text" name="ABV" placeholder="ABV" required><br>
-            <label for="image">Upload Product image</label>
-            <input type="file" name="photo" accept="image/*" required><br>
-            <input type="submit" value="Add product">
+
+            <a href="Forms\add_new_category.php">Add new category</a>
+            <br>
+            </div>
+
+            <div class="input-box">
+                <input type="text" name="country" required>
+                <label>Country</label>
+            </div>
+            
+            <div class="input-box">
+                <input type="text" name="ABV" required>
+                <label>ABV</label>
+            </div>
+
+
+            <div class="input-box">
+                <input type="file" name="photo" accept="image/*" required>
+                <label for="image">Upload Product image</label>
+            </div>
+
+
+            <button type="submit" value="Add product"> Submit</button>
+            </div>
+            
         </form>
+    </div>
     </div>
 </body>
 

@@ -40,11 +40,27 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 <body>
     <div class="container">
-        <h1>Add New Brand</h1>
-        <form action="" method="post">
-            <input type="text" name="name" placeholder="Brand Name"><br>
-            <textarea name="desc" placeholder="Description" rows="4" cols="40"></textarea><br><br>
-            <input type="submit">
+        <div class="form-container">
+        <div class="form-box"></div>
+          <h2>Add New Brand</h2>
+          <form action="#" method="post">
+
+          <h3>Enter Details</h3>
+            <div class="input-box">
+                <input type="text" name="name" required>
+                <label>Brand Name</label>
+            </div>
+          
+            <div class="input-box">
+            <input type="text" name="desc" rows="4" cols="40" required>
+                <label>Description</label>
+                
+
+
+            </div>
+
+         <button type="submit">Next</button>
+
         </form>
     </div>
 </body>
