@@ -16,13 +16,13 @@ if (isset($_POST['product_id'], $_POST['quantity']) && is_numeric($_POST['quanti
     $quantity = $_POST['quantity'];
 
     if (!isset($_SESSION['cart_id'])) {
-     
-        $customer_id = $_SESSION['customer_id']; 
+
+        $customer_id = $_SESSION['customer_id'];
 
         // Insert a new cart
         $cart_sql = "INSERT INTO cart (customerID, total) VALUES ('$customer_id', 0)";
         mysqli_query($connection, $cart_sql);
-        $_SESSION['cart_id'] = mysqli_insert_id($connection); 
+        $_SESSION['cart_id'] = mysqli_insert_id($connection);
     }
 
     $cart_id = $_SESSION['cart_id'];
@@ -39,7 +39,9 @@ if (isset($_POST['product_id'], $_POST['quantity']) && is_numeric($_POST['quanti
         mysqli_query($connection, $update_item_sql);
     } else {
         // Insert new item into cartitem table
-        $product_price_query = "SELECT Price FROM product WHERE ProductID = $product_id";
+
+        // *****************change sql query- add data to storeproduct table.****************
+        $product_price_query = "SELECT Price FROM storeproduct WHERE ProductID = $product_id ";
         $product_price_result = mysqli_query($connection, $product_price_query);
         $product_price = mysqli_fetch_assoc($product_price_result)['Price'];
 
