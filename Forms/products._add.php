@@ -1,10 +1,20 @@
 <?php
-session_start();
-include(__DIR__ . '/../dbconnect.php');
+include('Headers\supplierHeadder.html');
+include('dbconnect.php');
 
 
-// Add store id and price and store data in storeproduct table.
-function getDetailsToArray($result)
+function getKeyByValue($array, $value)
+{
+    foreach ($array as $key => $val) {
+        if ($val == $value) {
+            return $key;
+        }
+    }
+    return null;
+}
+
+
+function getArray($result)
 {
     $arr = array();
     while ($row = $result->fetch_assoc()) {
@@ -14,27 +24,21 @@ function getDetailsToArray($result)
 }
 
 
-$sql = 'SELECT id, name FROM brand';
-$result = $connection->query($sql);
-$brands = getDetailsToArray($result);
+$sql = "SELECT id, name FROM brand";
+$brand_result = $connection->query($sql);
+$brands = getArray($brand_result);
 
-$sql = 'SELECT id, name FROM category';
-$result = $connection->query($sql);
-$categorys = getDetailsToArray($result);
-
-$new_brand_id = isset($_SESSION['new_brand_id']) ? $_SESSION['new_brand_id'] : null;
-unset($_SESSION['new_brand_id']);
-
-$new_category_id = isset($_SESSION['new_category_id']) ? $_SESSION['new_category_id'] : null;
-unset($_SESSION['new_category_id']);
+$sql = "SELECT id, name FROM category";
+$category_result = $connection->query($sql);
+$categorys = getArray($category_result);
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $name = $_POST['name'];
-    $desc = $_POST['desc'];
-    $brand_id = $_POST['brand'];
-    $category_id = $_POST['category'];
-    $country = $_POST['country'];
-    $ABV = $_POST['ABV'];
+    $name = $connection->real_escape_string($_POST['name']);
+    $desc = $connection->real_escape_string($_POST['desc']);
+    $brand_name = $_POST['brand_name'];
+    $category_name = $_POST['category_name'];
+    $country = $connection->real_escape_string($_POST['country']);
+    $ABV = $connection->real_escape_string($_POST['ABV']);
     $local = strtolower($country) == 'sri lanka' ? 'local' : 'imported';
 
 
@@ -42,6 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $target_dir = "product-images/";
     $target_file = $target_dir . basename($photo);
     $uploadOk = 1;
+
 
     $check = getimagesize($_FILES['photo']['tmp_name']);
     if ($check === false) {
@@ -58,22 +63,28 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         mkdir($target_dir, 0777, true);
     }
 
-    echo $uploadOk;
     if ($uploadOk) {
 
         if (move_uploaded_file($_FILES['photo']['tmp_name'], $target_file)) {
+
+            $brand_id = getKeyByValue($brands, $brand_name);
+            $category_id = getKeyByValue($categorys, $category_name);
+
             do {
-                if (empty($name) || empty($desc) || empty($brand_id) || empty($category_id) || empty($country) || empty($ABV) || empty($local)) {
-                    echo "All details are Required";
+
+                if (empty($name) || empty($desc) || empty($brand_id) || empty($category_id) || empty($country) || empty($local) || empty($ABV)) {
+                    echo "All details are required.";
                     break;
                 }
 
-                $sql = "INSERT INTO product (Name, Description, BrandID, CategoryID, Local_Imported, Country, ABV, photo) VALUES ('$name', '$desc', '$brand_id', '$category_id', '$local', '$country', '$ABV', '$target_file')";
+
+                $sql = "INSERT INTO product (Name, Description, BrandID, CategoryID, Local_Imported, Country, ABV, photo) 
+                        VALUES ('$name', '$desc', '$brand_id', '$category_id', '$local', '$country', '$ABV', '$target_file')";
 
                 $result = $connection->query($sql);
 
                 if (!$result) {
-                    echo "Invalid Query";
+                    echo "Error: Could not insert product into database.";
                     break;
                 }
 
@@ -86,7 +97,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         echo "Error: File upload failed.";
     }
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -95,42 +105,41 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add New Product</title>
+    <link rel="stylesheet" href="webpage\style.css">
+    <title>Add Products</title>
 </head>
 
 <body>
-    <div class="content">
-        <h2>Product Details</h2>
+    <div class="container">
+        <h1>Products Details</h1>
         <form action="" method="post" enctype="multipart/form-data">
-            <input type="text" name="name" placeholder="Product Name" required><br>
+            <input type="text" placeholder="Product Name" name="name" required><br>
             <textarea name="desc" placeholder="Description" rows="4" cols="40" required></textarea><br>
-            <select name="brand" required><br>
+            <select name="brand_name" required>
                 <option>Select Brand</option>
                 <?php
                 foreach ($brands as $key => $value) {
-                    $selected = ($key == $new_brand_id) ? 'selected' : '';
-                    echo "<option value='$key' $selected>$value</option>";
+                    echo "<option> " . $value . "</option>";
                 }
                 ?>
             </select>
-            <span>or</span>
-            <a href="Forms\add_new_brands.php">Add new brand</a><br>
-            <select name="category" required>
+            <span> OR </span>
+            <a href="Forms\add_new_brands.php">Add New Brand</a><br>
+            <select name="category_name" required>
                 <option>Select Category</option>
                 <?php
                 foreach ($categorys as $key => $value) {
-                    $selected = ($key == $new_category_id) ? 'selected' : '';
-                    echo "<option value='$key' $selected>$value</option>";
+                    echo "<option> " . $value . "</option>";
                 }
                 ?>
             </select>
-            <span>or</span>
-            <a href="Forms\add_new_category.php">Add new category</a><br>
-            <input type="text" name="country" placeholder="Country" required><br>
-            <input type="text" name="ABV" placeholder="ABV" required><br>
-            <label for="image">Upload Product image</label>
-            <input type="file" name="photo" accept="image/*" required><br>
-            <input type="submit" value="Add product">
+            <span> OR </span>
+            <a href="Forms\add_new_category.php">Add New Category</a><br>
+            <input type="text" placeholder="Country" name="country" required><br>
+            <input type="text" placeholder="ABV" name="ABV" required><br>
+            <label for="photo">Upload Product Image</label>
+            <input type="file" name="photo" accept="image/*" required><br><br>
+            <input type="submit" value="Add Product">
         </form>
     </div>
 </body>

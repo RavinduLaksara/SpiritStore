@@ -3,7 +3,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$database = "spirit_store";
+$database = "sprit_store";
 
 // create connection
 $connection = new mysqli($servername, $username, $password, $database);
