@@ -17,12 +17,12 @@ include("Headers/customerHeader.php");
 
 <?php
 include("dbconnect.php");
-echo $_SESSION['customer'];
-// Check if 'id' is set in the URL and is valid
+
+
 if (isset($_GET['id']) && is_numeric($_GET['id'])) {
     $category_id = $_GET['id'];
 
-    // Query to get the category name and description
+    
     $category_sql = "SELECT * FROM category WHERE id = $category_id";
     $category_result = mysqli_query($connection, $category_sql);
 
@@ -31,7 +31,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
         echo "<h1>" . htmlspecialchars($category['name']) . "</h1>";
         echo "<p>" . htmlspecialchars($category['descri']) . "</p>";
 
-        // Query to get products in this category
+        
         $product_sql = "SELECT * FROM product WHERE CategoryID = $category_id";
         $product_result = mysqli_query($connection, $product_sql);
 

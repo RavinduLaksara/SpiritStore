@@ -21,8 +21,10 @@ include("dbconnect.php");
 <?php
 include("Headers/customerHeader.php");
 
+
 if (!isset($_SESSION['customer_id'])) {
-    echo "<p>Please <a href='customer_login.php'>log in</a> to view your cart.</p>";
+    
+    echo "<p>Please <a href='login/customer_login.php'>log in</a> to view your cart.</p>";
     exit();
 }
 
