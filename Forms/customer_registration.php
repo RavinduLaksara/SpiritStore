@@ -41,6 +41,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             break;
         }
 
+        if (!verifyPhoneNumber($phone)) {
+            echo "Please Enter valid phone no - 07**";
+            break;
+        }
+
         if ($password != $con_password) {
             echo "Password & Confirm password not equal";
             break;

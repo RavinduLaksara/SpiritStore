@@ -47,6 +47,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             break;
         }
 
+        if (!verifyPhoneNumber($phone)) {
+            echo "Please Enter valid phone no - 07**";
+            break;
+        }
+
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
         $sql = "INSERT INTO supplier (name, email, phone, password, state, city, postal_code, license_type, license_no,	approve_status,	balance, commision) VALUES ('$name', '$email', '$phone', '$hashedPassword', '$state', '$city', '$po_code', '$license_type', '$license_no', 'no', 0.00, 0.00)";
@@ -61,7 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         $supplier_id = $connection->insert_id;
 
-        header("Location: Registrations & Login/store_registration.php?id=$supplier_id");
+        header("Location: Forms\store_registration.php?id=$supplier_id");
         exit();
     } while (false);
 }
