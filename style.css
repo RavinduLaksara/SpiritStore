@@ -59,17 +59,12 @@ header {
 
 
 .navbar a i {
-<<<<<<< HEAD
   margin-right: 5px; 
-=======
-  margin-right: 5px;
->>>>>>> main
   font-size: 1.1em;
 }
 
 
 
-<<<<<<< HEAD
 .navbar .btnlogin-popup{
 width: 130px;
 height: 50px;
@@ -102,40 +97,10 @@ margin-top: 20px;
 width: 100%;
 height: 500px; 
 overflow: hidden;
-=======
-.navbar .btnlogin-popup {
-  width: 130px;
-  height: 50px;
-  background: transparent;
-  border: 2px solid black;
-  outline: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 1.1em;
-  color: black;
-  font-weight: 500;
-  margin-left: 40px;
-  transition: .5s;
-}
-
-.navbar .btnlogin-popup:hover {
-  background: black;
-  color: white;
-}
-
-
-.hero {
-  position: relative;
-  margin-top: 20px;
-  width: 100%;
-  height: 500px;
-  overflow: hidden;
->>>>>>> main
 }
 
 
 .hero-heading {
-<<<<<<< HEAD
 font-family: 'Roboto', sans-serif;
 font-size: 3em;
 font-weight: 700;
@@ -147,27 +112,10 @@ margin-left: 50px;
 opacity: 0;
 transform: translateX(-50px); /* Start 50px left for sliding effect */
 animation: slideIn 1s ease-out forwards; /* 1s slide-in animation */
-=======
-  font-family: 'Roboto', sans-serif;
-  font-size: 3em;
-  font-weight: 700;
-  color: white;
-  /* Change color to white */
-  margin-top: 150px;
-  margin-left: 50px;
-
-  /* Animation properties */
-  opacity: 0;
-  transform: translateX(-50px);
-  /* Start 50px left for sliding effect */
-  animation: slideIn 1s ease-out forwards;
-  /* 1s slide-in animation */
->>>>>>> main
 }
 
 /* Keyframes for slide-in animation */
 @keyframes slideIn {
-<<<<<<< HEAD
 from {
     opacity: 0;
     transform: translateX(-50px); /* Start slightly to the left */
@@ -176,75 +124,37 @@ to {
     opacity: 1;
     transform: translateX(0); /* End at original position */
 }
-=======
-  from {
-    opacity: 0;
-    transform: translateX(-50px);
-    /* Start slightly to the left */
-  }
-
-  to {
-    opacity: 1;
-    transform: translateX(0);
-    /* End at original position */
-  }
->>>>>>> main
 }
 
 
 /* Optional: Subheading styling */
 .hero-subheading {
-<<<<<<< HEAD
 font-size: 1.5em;
 font-weight: 400;
 margin-top: 10px;
 margin-left: 50px;
 animation: slideIn 1s ease-out forwards;
 transform: translateX(-50px);
-=======
-  font-size: 1.5em;
-  font-weight: 400;
-  margin-top: 10px;
-  margin-left: 50px;
-  animation: slideIn 1s ease-out forwards;
-  transform: translateX(-50px);
->>>>>>> main
 
 }
 
 .slide {
-<<<<<<< HEAD
 position: absolute;
 width: 100%;
 height: 100%;
 opacity: 0;
 animation: slideshow 60s infinite; /* 180s = 3 images x 60s each */
-=======
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  animation: slideshow 60s infinite;
-  /* 180s = 3 images x 60s each */
->>>>>>> main
 }
 
 
 .slide img {
-<<<<<<< HEAD
 width: 100%;
 height: 100%;
 object-fit: cover;
-=======
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
->>>>>>> main
 }
 
 
 @keyframes slideshow {
-<<<<<<< HEAD
 0% { opacity: 1; }
 33.33% { opacity: 1; }
 36.66% { opacity: 0; }
@@ -261,40 +171,10 @@ animation-delay: 20s;
 
 .slide:nth-child(3) {
 animation-delay: 40s;
-=======
-  0% {
-    opacity: 1;
-  }
-
-  33.33% {
-    opacity: 1;
-  }
-
-  36.66% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 0;
-  }
-}
-
-.slide:nth-child(1) {
-  animation-delay: 0s;
-}
-
-.slide:nth-child(2) {
-  animation-delay: 20s;
-}
-
-.slide:nth-child(3) {
-  animation-delay: 40s;
->>>>>>> main
 }
 
 
 .animated-image {
-<<<<<<< HEAD
 width: 100%;
 height: 80vh;
 object-fit: cover;
@@ -302,21 +182,11 @@ filter: blur(1px);
 -webkit-filter: blur(1px);
 
 animation: fadeIn 3s ease-in-out, slideUp 3s ease-in-out;
-=======
-  width: 100%;
-  height: 80vh;
-  object-fit: cover;
-  filter: blur(1px);
-  -webkit-filter: blur(1px);
-
-  animation: fadeIn 3s ease-in-out, slideUp 3s ease-in-out;
->>>>>>> main
 
 
 }
 
 @keyframes fadeIn {
-<<<<<<< HEAD
 0% { opacity: 0; }
 100% { opacity: 1; }
 }
@@ -324,32 +194,12 @@ animation: fadeIn 3s ease-in-out, slideUp 3s ease-in-out;
 @keyframes slideUp {
 0% { transform: translateY(20px); }
 100% { transform: translateY(0); }
-=======
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes slideUp {
-  0% {
-    transform: translateY(20px);
-  }
-
-  100% {
-    transform: translateY(0);
-  }
->>>>>>> main
 }
 
 
 
 /* Brand marquee styling */
 .brand-marquee {
-<<<<<<< HEAD
 overflow:scroll;
 white-space: nowrap;
 background-color: white; /* Optional: background color for the marquee */
@@ -368,36 +218,10 @@ height: auto;
 margin-right: 30px; /* Space between logos */
 opacity: 0.8; /* Optional: make logos slightly transparent */
 transition: opacity 0.3s;
-=======
-  overflow: scroll;
-  white-space: nowrap;
-  background-color: white;
-  /* Optional: background color for the marquee */
-  padding: 20px 0;
-}
-
-.marquee-content {
-  display: inline-flex;
-  align-items: center;
-  animation: scroll 30s linear infinite;
-  /* 30s for full scroll, adjust as needed */
-}
-
-.marquee-content img {
-  width: 200px;
-  /* Adjust size of the brand logos */
-  height: auto;
-  margin-right: 30px;
-  /* Space between logos */
-  opacity: 0.8;
-  /* Optional: make logos slightly transparent */
-  transition: opacity 0.3s;
->>>>>>> main
 
 }
 
 .marquee-content img:hover {
-<<<<<<< HEAD
 opacity: 1; /* Full opacity on hover */
 }
 
@@ -408,20 +232,6 @@ from {
 to {
     transform: translateX(-100%);
 }
-=======
-  opacity: 1;
-  /* Full opacity on hover */
-}
-
-@keyframes scroll {
-  from {
-    transform: translateX(0);
-  }
-
-  to {
-    transform: translateX(-100%);
-  }
->>>>>>> main
 }
 
 /* Overall shop section layout */
@@ -434,21 +244,11 @@ to {
 }
 
 /* Common styling for both sections */
-<<<<<<< HEAD
 .shop-category, .shop-brand {
   width: 48%;
 }
 
 .shop-category h2, .shop-brand h2 {
-=======
-.shop-category,
-.shop-brand {
-  width: 48%;
-}
-
-.shop-category h2,
-.shop-brand h2 {
->>>>>>> main
   font-family: 'Roboto', sans-serif;
   font-size: 1.8em;
   color: #333;
@@ -457,56 +257,31 @@ to {
 }
 
 /* Category and Brand items styling */
-<<<<<<< HEAD
 .category-items, .brand-items {
-=======
-.category-items,
-.brand-items {
->>>>>>> main
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
   justify-content: center;
 }
 
-<<<<<<< HEAD
 .category-item, .brand-item {
-=======
-.category-item,
-.brand-item {
->>>>>>> main
   width: 150px;
   text-align: center;
 }
 
-<<<<<<< HEAD
 .category-item img, .brand-item img {
-=======
-.category-item img,
-.brand-item img {
->>>>>>> main
   width: 100%;
   height: auto;
   border-radius: 8px;
   transition: transform 0.3s;
 }
 
-<<<<<<< HEAD
 .category-item img:hover, .brand-item img:hover {
-=======
-.category-item img:hover,
-.brand-item img:hover {
->>>>>>> main
   transform: scale(1.05);
 }
 
 /* Styling for category and brand text */
-<<<<<<< HEAD
 .category-item p, .brand-item p {
-=======
-.category-item p,
-.brand-item p {
->>>>>>> main
   font-size: 1.1em;
   color: #555;
   margin-top: 10px;
@@ -551,11 +326,7 @@ to {
   padding: 40px;
 }
 
-<<<<<<< HEAD
 .container .form-container h2{
-=======
-.container .form-container h2 {
->>>>>>> main
   font-size: 2em;
   color: black;
   text-align: center;
@@ -563,11 +334,7 @@ to {
   margin-top: 5px;
 }
 
-<<<<<<< HEAD
 .container .form-container h3{
-=======
-.container .form-container h3 {
->>>>>>> main
   font-size: 1em;
   color: black;
   text-align: center;
@@ -606,13 +373,8 @@ to {
   padding: 0 10px;
 }
 
-<<<<<<< HEAD
 .input-box input:focus ~ label,
 .input-box input:valid ~ label {
-=======
-.input-box input:focus~label,
-.input-box input:valid~label {
->>>>>>> main
   top: -10px;
   font-size: 0.9em;
   color: #fff;
@@ -628,7 +390,6 @@ to {
 }
 
 
-<<<<<<< HEAD
 button{
   width: 130px;
 height: 50px;
@@ -643,22 +404,6 @@ font-weight: 500;
 margin-left: 310px;
 transition: .5s;
 margin-bottom: 30px;
-=======
-button {
-  width: 130px;
-  height: 50px;
-  background: transparent;
-  border: 2px solid black;
-  outline: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 1.1em;
-  color: black;
-  font-weight: 500;
-  margin-left: 310px;
-  transition: .5s;
-  margin-bottom: 30px;
->>>>>>> main
 }
 
 button:hover {
@@ -670,19 +415,11 @@ button:hover {
   text-align: center;
   color: white;
   overflow: hidden;
-<<<<<<< HEAD
  
 }
 
 .animated-images {
     background-position:cover ;
-=======
-
-}
-
-.animated-images {
-  background-position: cover;
->>>>>>> main
   width: 100%;
   height: 80vh;
   object-fit: cover;
@@ -690,7 +427,6 @@ button:hover {
   -webkit-filter: blur(1px);
 
   animation: fadeIn 1s ease-in-out, slideUp 3s ease-in-out;
-<<<<<<< HEAD
   
  
 }
@@ -703,30 +439,6 @@ button:hover {
 @keyframes slideUp {
   0% { transform: translateY(20px); }
   100% { transform: translateY(0); }
-=======
-
-
-}
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes slideUp {
-  0% {
-    transform: translateY(20px);
-  }
-
-  100% {
-    transform: translateY(0);
-  }
->>>>>>> main
 }
 
 .heros h1 {
@@ -739,17 +451,12 @@ button:hover {
   color: white;
   animation: textFadeIn 2s ease-in-out;
   text-shadow: 0 0 3px #ffffff, 0 0 5px black;
-<<<<<<< HEAD
  
-=======
-
->>>>>>> main
 }
 
 
 
 @keyframes textFadeIn {
-<<<<<<< HEAD
   0% { opacity: 0; }
   100% { opacity: 1; }
 }
@@ -909,13 +616,3 @@ font-size: 70px;
 
 
 
-=======
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
->>>>>>> main
