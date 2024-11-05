@@ -13,6 +13,9 @@ include("../Headers/customerHeader.php")
 </head>
 
 <body>
+<div class="back-image">
+        <h2>ABOUT US</h2>
+    </div>
     <div class="about-content">
         <h1>ABOUT US</h1>
         <p>Wine World is the highest acclaimed premium wines and spirits concierge service in Sri Lanka who’s purpose is to satisfy and cater to the unique beverage needs of all Sri Lankans.</p>
