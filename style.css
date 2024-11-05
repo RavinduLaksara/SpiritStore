@@ -461,7 +461,7 @@ button:hover {
   100% { opacity: 1; }
 }
 
-/* -------------------------------CSS for item-card------------------------------------------------------------------------------  */
+/* -------------------------------------------CSS for item-card------------------------------------------------------------------------------  */
 .back-image{
   display: flex;
   width: 100%;
@@ -539,7 +539,30 @@ font-size: 70px;
   color: #fff;
 }
 
-/*------------------------------------- CSS for ABOUT US page ----------------------------------------------------------------------*/
+/*--------------------------------------------S CSS for ABOUT US page ----------------------------------------------------------------------*/
+.back-image{
+  display: flex;
+  width: 100%;
+  height: 500px;
+  background-image:url("./image/products bc.jpg");
+  background-size: cover;
+  background-position: center;
+  opacity:0.5;
+  color: #fff;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+letter-spacing: 5px;
+font-weight: 900;
+font-size: 300px;
+}
+
+.back-image h2 {
+  font-size: clamp(1.5rem, 5vw, 4.375rem);
+}
+
+
+
 .about-content{
   margin:0 80px 80px;
 }
@@ -577,6 +600,28 @@ font-size: 70px;
 
 
 /*------------------------------------- CSS for CONTACT US page ----------------------------------------------------------------------*/
+.back-image{
+  display: flex;
+  width: 100%;
+  height: 500px;
+  background-image:url("./image/products bc.jpg");
+  background-size: cover;
+  background-position: center;
+  opacity:25;
+  color: #fff;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+letter-spacing: 5px;
+font-weight: 900;
+font-size: 70px;
+}
+
+.back-image h2 {
+  font-size: clamp(1.5rem, 5vw, 4.375rem);
+}
+
+
 .contact-content{
   margin:0 80px 80px;
 }
