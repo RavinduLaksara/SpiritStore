@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <!-- <link rel="stylesheet" href="item-card.css"> -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../style.css" type="text/css">
 </head>
 
 <body>
@@ -45,7 +45,7 @@
     <img src="../' . $photo . '"alt="photo">
     <p class="category">' . $category . ' </p>
     <p class="name">' . $name . '</p>
-      <button>VIEW SELLERS</button>
+      <button><a href="../pages/seller_products.php?id=' . $row['ProductID'] . '">VIEW SELLERS</a></button>
 
     </div>';
             }

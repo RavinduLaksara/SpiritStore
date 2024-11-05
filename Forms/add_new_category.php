@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         $new_category_id = $connection->insert_id;
         $_SESSION['new_category_id'] = $new_category_id;
-        header("Location: ../Forms/products._add.php");
+        header("Location: ../Forms\add_new_product.php");
         exit();
     } while (false);
 }
