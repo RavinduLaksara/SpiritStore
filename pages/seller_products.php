@@ -47,7 +47,7 @@ $result_store = $connection->query($sql);
                         <p>{$product_row['Name']}</p>
                         <p>Price Rs. {$row_store['Price']}</p>
                         <p>Quntity - {$row_store['Quantity']}</p>
-                        <button><a href='../Forms/edit_product_details.php?productID={$product_id}&storeID={$row_store['StoreID']}'>Add to Cart</a></button>
+                        <button><a href='../pages\product_view.php?productID={$product_id}&storeID={$row_store['StoreID']}'>View Product</a></button>
                     </div>
                 ";
         }

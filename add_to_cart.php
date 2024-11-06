@@ -1,15 +1,7 @@
-
 <?php
 session_start();
+include(__DIR__ . '/../dbconnect.php');
 
-?>
-
-<?php
-include("dbconnect.php");
-?>
-
-
-<?php
 
 if (isset($_POST['product_id'], $_POST['quantity']) && is_numeric($_POST['quantity'])) {
     $product_id = $_POST['product_id'];
@@ -60,4 +52,3 @@ if (isset($_POST['product_id'], $_POST['quantity']) && is_numeric($_POST['quanti
 } else {
     echo "Invalid product or quantity.";
 }
-?>
