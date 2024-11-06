@@ -462,26 +462,13 @@ button:hover {
 }
 
 /* -------------------------------------------CSS for item-card------------------------------------------------------------------------------  */
-.back-image{
+.content-products{
   display: flex;
-  width: 100%;
-  height: 500px;
-  background-image:url("./image/products bc.jpg");
-  background-size: cover;
-  background-position: center;
-  opacity:10;
-  color: #fff;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-letter-spacing: 5px;
-font-weight: 900;
-font-size: 70px;
 }
 
 .item-filter{
   width: 25%;
-  height: auto;
+  height: 200px;
 }
 
 .item-container {
@@ -489,76 +476,100 @@ font-size: 70px;
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
-  /* justify-content: center; */
   padding: 20px;
 }
 
 .item {
+  display: flex;
+  flex-direction: column;
   width: 200px;
   border: 1px solid #ddd;
   border-radius: 8px;
   padding: 16px;
-  /* text-align: center; */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .item img {
   max-width: 100%;
-  height: auto;
-  border-radius: 8px;
-  margin-bottom: 8px;
+  height:200px;
+  object-fit: contain;
+  display: flex;
+  justify-content:center ;
 }
 
 .item .category {
-  font-size: 12px;
+  font-size: 15px;
   color: #949090;
   font-weight: normal;
   text-transform: capitalize;
   display: block;
-  /* margin-bottom: 4px; */
 }
 
-.item .name {
-  font-size: 16px;
-  color: #000000;
-  /* margin-bottom: 205px; */
+.item .name{
+  flex-grow: 1;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, Courier, monospace;
+  font-weight: 500;
 }
 
-.item button  {
+.item .card-button  {
   width: 100%;
   padding: 8px;
   border: 1px solid #000000;
   background-color: #fff;
   color: #000000;
-  border-radius: 4px;
   cursor: pointer;
+  text-align: center;
+  box-sizing: border-box;
 }
 
-.item button:hover {
+.item .card-button:hover {
   background-color: #000000;
   color: #fff;
 }
 
+.item a{
+  text-decoration: none;
+}
+
 /*--------------------------------------------S CSS for ABOUT US page ----------------------------------------------------------------------*/
-.back-image{
+
+
+.back-image {
+  position: relative;
   display: flex;
   width: 100%;
   height: 500px;
-  background-image:url("./image/products bc.jpg");
-  background-size: cover;
-  background-position: center;
-  opacity:0.5;
-  color: #fff;
   align-items: center;
   justify-content: center;
+  color: #fff;
   text-align: center;
-letter-spacing: 5px;
-font-weight: 900;
-font-size: 300px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  letter-spacing: 0.475rem;
+  font-weight:1000;
+  font-size: clamp(1.5rem, 5vw, 4.375rem);
+  overflow: hidden; /* Prevents blur from overflowing the element */
 }
+
+.back-image::before {
+  content: "";
+  position: absolute;
+  opacity: 25;
+  top:0;
+  left: 0;
+  right: 0;
+  bottom:0;
+  background-image: url("./image/products bc.jpg");
+  background-size: cover;
+  background-position: center;
+  filter: blur(3.5px); /* Adjust blur level */
+  z-index: -1; /* Places the background behind the text */
+}
+
+
 
 .back-image h2 {
   font-size: clamp(1.5rem, 5vw, 4.375rem);
+  margin-top:1px;
 }
 
 
@@ -600,27 +611,6 @@ font-size: 300px;
 
 
 /*------------------------------------- CSS for CONTACT US page ----------------------------------------------------------------------*/
-.back-image{
-  display: flex;
-  width: 100%;
-  height: 500px;
-  background-image:url("./image/products bc.jpg");
-  background-size: cover;
-  background-position: center;
-  opacity:25;
-  color: #fff;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-letter-spacing: 5px;
-font-weight: 900;
-font-size: 70px;
-}
-
-.back-image h2 {
-  font-size: clamp(1.5rem, 5vw, 4.375rem);
-}
-
 
 .contact-content{
   margin:0 80px 80px;
