@@ -42,6 +42,7 @@ $result_store = $connection->query($sql);
 
             echo "
                     <div>
+                        <p>seller name</p>
                         <img src = '../{$product_row['photo']}' alt = 'Product image'>
                         <p>{$product_row['Name']}</p>
                         <p>Price Rs. {$row_store['Price']}</p>
@@ -53,5 +54,4 @@ $result_store = $connection->query($sql);
         ?>
     </div>
 </body>
-
 </html>

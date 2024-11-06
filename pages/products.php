@@ -14,7 +14,7 @@
     <div class="back-image">
         <h2>PRODUCTS</h2>
     </div>
-    <div class="content">
+    <div class="content-products">
         <div class="item-filter"></div>
 
         <div class="item-container">
@@ -45,7 +45,7 @@
     <img src="../' . $photo . '"alt="photo">
     <p class="category">' . $category . ' </p>
     <p class="name">' . $name . '</p>
-      <button><a href="../pages/seller_products.php?id=' . $row['ProductID'] . '">VIEW SELLERS</a></button>
+      <a  class="card-button" href="../pages/seller_products.php?id=' . $row['ProductID'] . '">VIEW SELLERS</a>
 
     </div>';
             }
@@ -53,7 +53,6 @@
             ?>
         </div>
     </div>
-
 
 
 </body>
