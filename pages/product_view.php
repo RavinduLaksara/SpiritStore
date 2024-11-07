@@ -63,7 +63,7 @@ $category_name = $row[0];
                     <p>$quantity in stock</p>
                     <a href = '../pages\products_by_brand.php?id= $product_row[BrandID]'>$brand_name</a>
                     <a href = '../pages\products_by_category.php?id= $product_row[CategoryID]'>$category_name</a><br>
-                    <button><a href =''>Add to Cart</a></button>
+                    <a class='button' href =''>ADD TO CART</a>
                 ";
             ?>
         </div>
