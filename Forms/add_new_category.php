@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         $new_category_id = $connection->insert_id;
         $_SESSION['new_category_id'] = $new_category_id;
-        header("Location: ../Forms\add_new_product.php");
+        header("Location: ./add_new_product.php");
         exit();
     } while (false);
 }
@@ -41,30 +41,30 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <body>
     <div class="container">
 
-    <div class="form-container">
-          <div class="form-box"></div>
-          <h2>Add New Category</h2>
-          <form action="#" method="post">
+        <div class="form-container">
+            <div class="form-box"></div>
+            <h2>Add New Category</h2>
+            <form action="#" method="post">
 
-          <h3>Enter Details</h3>
-            <div class="input-box">
-                <input type="text" name="name" required>
-                <label>Category Name</label>
-            </div>
-          
-            <div class="input-box">
-            <input type="textarea" name="desc" rows="4" cols="40" required>
-                <label>Description</label>
-                
+                <h3>Enter Details</h3>
+                <div class="input-box">
+                    <input type="text" name="name" required>
+                    <label>Category Name</label>
+                </div>
+
+                <div class="input-box">
+                    <input type="textarea" name="desc" rows="4" cols="40" required>
+                    <label>Description</label>
 
 
-            </div>
 
-         <button type="submit">Submit</button>
-         
-         
-        </form>
-    </div>
+                </div>
+
+                <button type="submit">Submit</button>
+
+
+            </form>
+        </div>
 </body>
 
 </html>

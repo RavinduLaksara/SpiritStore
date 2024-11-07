@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         $new_brand_id = $connection->insert_id;
         $_SESSION['new_brand_id'] = $new_brand_id;
-        header("Location: ../Forms\add_new_product.php");
+        header("Location: ./add_new_product.php");
         exit();
     } while (false);
 }
@@ -41,28 +41,28 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <body>
     <div class="container">
         <div class="form-container">
-        <div class="form-box"></div>
-          <h2>Add New Brand</h2>
-          <form action="#" method="post">
+            <div class="form-box"></div>
+            <h2>Add New Brand</h2>
+            <form action="#" method="post">
 
-          <h3>Enter Details</h3>
-            <div class="input-box">
-                <input type="text" name="name" required>
-                <label>Brand Name</label>
-            </div>
-          
-            <div class="input-box">
-            <input type="text" name="desc" rows="4" cols="40" required>
-                <label>Description</label>
-                
+                <h3>Enter Details</h3>
+                <div class="input-box">
+                    <input type="text" name="name" required>
+                    <label>Brand Name</label>
+                </div>
+
+                <div class="input-box">
+                    <input type="text" name="desc" rows="4" cols="40" required>
+                    <label>Description</label>
 
 
-            </div>
 
-         <button type="submit">Next</button>
+                </div>
 
-        </form>
-    </div>
+                <button type="submit">Next</button>
+
+            </form>
+        </div>
 </body>
 
 </html>

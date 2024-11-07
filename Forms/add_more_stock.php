@@ -68,8 +68,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <div class="right">
             <?php echo "<h3>$product_row[Name]</h3>"; ?>
             <form action="" method="post">
-                <input type="text" placeholder="Price RS." name="price" required>
-                <input type="number" placeholder="Quantity" name="quantity" required>
+                <input type="text" placeholder="Price RS." name="price" required><br>
+                <input type="number" placeholder="Quantity" name="quantity" required><br>
                 <input type="submit" value="Add Stock">
             </form>
         </div>
