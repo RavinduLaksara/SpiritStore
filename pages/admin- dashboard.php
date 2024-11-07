@@ -1,6 +1,6 @@
 <?php
 
-include(__DIR__ . '/../Headers/adminHeader.html');
+include(__DIR__ . '/../Headers/adminHeader.php');
 ?>
 
 <!DOCTYPE html>

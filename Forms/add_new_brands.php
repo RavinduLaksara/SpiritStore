@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         $new_brand_id = $connection->insert_id;
         $_SESSION['new_brand_id'] = $new_brand_id;
-        header("Location: ../Forms/products._add.php");
+        header("Location: ../Forms\add_new_product.php");
         exit();
     } while (false);
 }

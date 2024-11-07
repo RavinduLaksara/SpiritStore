@@ -1,3 +1,9 @@
 <?php
+
+// include("dbconnect.php");
+include("components\item-card.php");
+
 // create a age verification
-include("Forms\login.php");
+include("pages\supplier-dashboard.php");
+
+?>

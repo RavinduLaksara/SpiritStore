@@ -1,5 +1,5 @@
 <?php
-include("../Headers\customerHeader.html");
+include("../Headers\customerHeader.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -8,9 +8,13 @@ include("../Headers\customerHeader.html");
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="../styles\contactus.css">
 </head>
 
 <body>
+<div class="back-image">
+        <h2>CONTACT US</h2>
+    </div>
     <div class="contact-content">
         <h1>CONTACT US</h1>
         <p>For any questions, comments or queries regarding the Wine World concierge service, please contact us at: <a href="">www.info@spiritstore.lk</a></p>

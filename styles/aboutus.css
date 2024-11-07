@@ -1,0 +1,75 @@
+.back-image {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 500px;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-align: center;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    letter-spacing: 0.475rem;
+    font-weight:1000;
+    font-size: clamp(1.5rem, 5vw, 4.375rem);
+    overflow: hidden; /* Prevents blur from overflowing the element */
+  }
+  
+  .back-image::before {
+    content: "";
+    position: absolute;
+    opacity: 25;
+    top:0;
+    left: 0;
+    right: 0;
+    bottom:0;
+    background-image: url("../image/products bc.jpg");
+    background-size: cover;
+    background-position: center;
+    filter: blur(3.5px); /* Adjust blur level */
+    z-index: -1; /* Places the background behind the text */
+  }
+  
+  
+  
+  .back-image h2 {
+    font-size: clamp(1.5rem, 5vw, 4.375rem);
+    margin-top:1px;
+  }
+  
+  
+  
+  .about-content{
+    margin:0 80px 80px;
+  }
+  
+  .about-content h1 {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    font-size: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #000000;
+    line-height: 30px;  
+    margin-top: 35px;
+    margin-bottom: 50px;
+  }
+  
+  .about-content p {
+    font-family: sans-serif;
+    margin-top: 10px;
+    font-weight:100;
+    line-height: 30px;
+  }
+  
+  .about-content li {
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 30px;
+    margin-top: 15px;
+  }
+  
+  .about-content a{
+    text-decoration: none;
+    color: #000000;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+  

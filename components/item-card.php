@@ -6,21 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="item-card.css">
-    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <?php include('../Headers\customerHeader.html') ?>
-    <div class="back-image">
-<h2>PRODUCTS</h2>
-    </div>
-    <div class="content">
-        <div class="item-filter"></div>
 
     <div class="item-container">
+
         <?php
         include("../dbconnect.php");
         //    include("dbconnect.php");
+
+
 
         $sql = "select * from product";
         $result = mysqli_query($connection, $sql);
@@ -39,10 +35,12 @@
             $row1 = mysqli_fetch_assoc($result1);
             $category = $row1["name"];
 
+
+
             echo '
     <div class="item">
        
-    <img src="../'.$photo.'"alt="photo">
+    <img src="'.$photo.'"alt="photo">
     <p class="category">' . $category . ' </p>
     <p class="name">' . $name . '</p>
       <button>VIEW SELLERS</button>
@@ -51,7 +49,6 @@
         }
 
         ?>
-    </div>
     </div>
 
 
