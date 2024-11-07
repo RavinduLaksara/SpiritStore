@@ -18,7 +18,7 @@ include("Headers/customerHeader.php");
     <section class="hero">
 
         <div class="slide">
-            <img src="https://picsum.photos/200/300" alt="liquor bottle 3" class="animated-image">
+            <img src="image/home1 (1).jpg" alt="liquor bottle 3" class="animated-image">
 
         </div>
 
@@ -52,6 +52,27 @@ include("Headers/customerHeader.php");
                 <img src="image/brands9.webp" alt="Brand 9">
                 <img src="image/brands10.webp" alt="Brand 10">
 
+                <img src="image/brands1.webp" alt="Brand 1" >
+                <img src="image/brands2.webp" alt="Brand 2">
+                <img src="image/brands3.webp" alt="Brand 3">
+                <img src="image/brands4.webp" alt="Brand 4">
+                <img src="image/brands5.webp" alt="Brand 5">
+                <img src="image/brands6.webp" alt="Brand 6">
+                <img src="image/brands7.webp" alt="Brand 7">
+                <img src="image/brands8.webp" alt="Brand 8">
+                <img src="image/brands9.webp" alt="Brand 9">
+                <img src="image/brands10.webp" alt="Brand 10">
+
+                <img src="image/brands1.webp" alt="Brand 1" >
+                <img src="image/brands2.webp" alt="Brand 2">
+                <img src="image/brands3.webp" alt="Brand 3">
+                <img src="image/brands4.webp" alt="Brand 4">
+                <img src="image/brands5.webp" alt="Brand 5">
+                <img src="image/brands6.webp" alt="Brand 6">
+                <img src="image/brands7.webp" alt="Brand 7">
+                <img src="image/brands8.webp" alt="Brand 8">
+                <img src="image/brands9.webp" alt="Brand 9">
+                <img src="image/brands10.webp" alt="Brand 10">
                
             </div>
         </div>
@@ -59,8 +80,8 @@ include("Headers/customerHeader.php");
 
     <section class="shop-section">
         <div class="category">
-            <div class="title">
                 <h2> POPULAR CATEGORIES</h2>
+                <div class="title">
                 <a href="pages\products.php">VIEW ALL</a>
             </div>
 
@@ -120,8 +141,8 @@ include("Headers/customerHeader.php");
             <p>"Life is full of moments to celebrate, to savor, and to share. Raise your glass to friendship, laughter, and unforgettable memories. Drink responsibly and let every sip remind you of the good times and the joy of living in the moment."</p>
         </div>
         <div class="brand">
-            <div class="title">
                 <h2>POPULAR BRANDS</h2>
+                <div class="title">
                 <a href="pages\products.php">VIEW ALL</a>
             </div>
 
@@ -223,10 +244,14 @@ include("Headers/customerHeader.php");
     h2{
         font-size: 30px;
         margin-top: 40px;
+        margin-left: 5%;
+        margin-bottom:0;
     }
 
     .title{
-        margin-left: 5%;
+        text-align: end;
+        margin-right: 5%;
+        margin-bottom: 1px;
     }
 
     
@@ -335,61 +360,52 @@ include("Headers/customerHeader.php");
     100% { transform: translateY(0); }
     }
 
-/* Container for brand row with horizontal scrolling */
+/* Brand marquee styling */
 .brand-marquee {
   display: flex;
-  overflow-x: hidden; /* Hide scrollbar */
-  white-space: nowrap; /* Prevents images from wrapping to the next line */
-  padding: 20px;
-  background-color: #f5f5f5; /* Optional background color */
-  gap: 30px; /* Adds spacing between images */
+  overflow: hidden; /* Hides the scrollbar */
+  white-space: nowrap;
+  background-color: white; /* Optional: background color for the marquee */
+  padding: 20px 0;
   position: relative;
 }
 
-/* Content within the marquee (images) */
+/* Container for marquee content */
 .marquee-content {
-  width: 100px; /* Adjust size as needed */
-  height: auto; /* Keeps aspect ratio */
-  transition: transform 0.6s; /* Adds a hover effect */
-  display: inline-block;
-  flex-shrink: 0; /* Prevents shrinking */
+  display: inline-flex;
+  align-items: center;
+  animation: scroll 30s linear infinite; /* Continuous scrolling */
 }
 
-/* Hover effect: Enlarge on hover */
-.marquee-content:hover {
-  transform: scale(1.1); /* Enlarge on hover */
+/* Logo styling */
+.marquee-content img {
+  width: 200px; /* Adjust size of the brand logos */
+  height: auto;
+  margin-right: 30px; /* Space between logos */
+  opacity: 0.8; /* Optional: make logos slightly transparent */
+  transition: opacity 0.3s;
+}
+
+.marquee-content img:hover {
+  opacity: 1; /* Full opacity on hover */
 }
 
 /* Continuous scrolling effect */
-@keyframes marquee-scroll {
-  0% {
-    transform: translateX(0); /* Start position */
+@keyframes scroll {
+  from {
+    transform: translateX(0);
   }
-  100% {
-    transform: translateX(-100%); /* Scroll all the way to the left */
+  to {
+    transform: translateX(-100%);
   }
 }
 
-/* Apply the animation on the .brand-marquee container */
-.brand-marquee {
-  display: flex;
-  animation: marquee-scroll 30s linear infinite; /* Scrolls the images smoothly */
-  animation-timing-function: linear; /* Keeps a smooth scroll */
+/* Duplicate the content for a seamless scroll */
+.brand-marquee .marquee-content::after {
+  content: attr(data-content); /* Duplicate content attribute for seamless scroll */
+  display: inline-flex;
 }
 
-/* Optional: Duplicate the images for seamless loop */
-.brand-marquee .marquee-content {
-  animation: marquee-scroll 30s linear infinite; /* Same animation for the images */
-  display: inline-block;
-  white-space: nowrap; /* Prevent wrapping */
-  flex-shrink: 0;
-  animation-timing-function: linear;
-}
-
-/* Optional styling for hiding scrollbars in WebKit browsers */
-.brand-marquee::-webkit-scrollbar {
-  display: none; /* Hides the scrollbar in WebKit browsers */
-}
 
 /* Container for the boxes */
 .boxes {
@@ -467,18 +483,23 @@ include("Headers/customerHeader.php");
 
 /* Styling for the video */
 .video_part video {
-    width: 50%; /* Takes up half the width of the container */
-    height: 1100px;
-    border-radius: 20px;
+    width: 600px; /* Ensures square dimensions */
+    height: 600px;
+    border-radius: 5px;
+    object-fit: cover; /* Ensures the video fills the square without distortion */
+    margin-left: 50px;
 }
 
 /* Styling for the text */
 .video_part p {
+
     width: 40%; /* Takes up the other half */
     font-size: 2em;
     line-height: 1.8;
     color: #333;
-    margin: 10;
+    margin: 10px; /* Fixed typo: added "px" for margin */
+    text-align: justify;
+    margin-left: 7%;
 }
 
 /* Responsive adjustments for smaller screens */
@@ -491,8 +512,10 @@ include("Headers/customerHeader.php");
     .video_part video,
     .video_part p {
         width: 100%; /* Takes up full width on small screens */
+        height: auto; /* Keeps aspect ratio on smaller screens */
     }
 }
+
 
 
 /* Container for services */
@@ -556,12 +579,46 @@ include("Headers/customerHeader.php");
     }
 }
 
+.footer-section {
+    background-image: url('image/footer1.jpg'); /* Replace with the path to your background image */
+    background-size: cover; /* Ensures the image covers the entire section */
+    background-position: center; /* Centers the background image */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    display: flex; /* Enables flexbox for centering */
+    justify-content: center; /* Centers content horizontally */
+    align-items: center; /* Centers content vertically */
+    height: 300px; /* Set height as needed */
+    padding: 20px;
+}
+
+/* Wrapper for the text with a transparent, blurred background */
+.text-wrapper {
+    background-color: transparent; /* Semi-transparent black */
+    padding: 20px 40px; /* Padding inside the box */
+    border-radius: 10px; /* Rounded corners */
+    backdrop-filter: blur(10px); /* Adds blur effect */
+    -webkit-backdrop-filter: blur(10px); /* Safari support */
+    color: white; /* Text color to contrast with the background */
+    text-align: center; /* Centers the text */
+}
+
+/* Styling for the footer heading */
+.footer-section h1 {
+    font-size: 2em; /* Adjust font size */
+    font-weight: bold;
+    margin: 0;
+}
+
+
+
         </style>
 
     </section>
 
     <section class="footer-section">
+    <div class="text-wrapper">
         <h1>Good Times, Great Memories—Drink Responsibly</h1>
+    </div>
     </section>
 </body>
 
