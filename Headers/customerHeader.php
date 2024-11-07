@@ -35,6 +35,111 @@
 
     </div>
   </section>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif; /* Changed to Roboto font */
+}
+
+#header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 80px;
+  background: white;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+  z-index: 999;
+  position: sticky;
+  top: 0;
+  left: 0;
+  padding-left: 100px;
+}
+
+#navbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1; /* Ensures the navbar takes up available space */
+}
+
+#navbar li {
+  list-style: none;
+  padding: 0 20px;
+  position: relative;
+  
+}
+
+select {
+  color: #f2f8f7;
+  background-color: #14151a;
+}
+
+#navbar li a {
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+  color: #f6f7f7;
+  transition: 0.3s ease;
+  width: 50px;
+}
+
+#navbar li a:hover,
+#navbar li a.active {
+  color: rgb(223, 86, 51);
+}
+
+#navbar li a.active::after,
+#navbar li a:hover::after {
+  content: "";
+  width: 30%;
+  height: 2px;
+  background: #088178;
+  position: absolute;
+  bottom: -4px;
+  left: 20px;
+}
+
+/* Adjust layout for icons on the right */
+#header .navbar {
+  display: flex;
+  justify-content: space-between;
+  width: 100%; /* Ensure the navbar takes up the full width */
+}
+
+#header .navbar .right-icons {
+  display: flex;
+  align-items: center;
+  margin-left: auto; /* Push icons to the right */
+}
+
+#header .navbar .right-icons a {
+  margin-left: 15px; /* Add space between icons */
+}
+
+img {
+  height: 50px;
+}
+
+/* Optional: Adjust icon sizes */
+#header .navbar .right-icons i {
+  font-size: 20px;
+  color: white;
+  transition: color 0.3s;
+}
+
+#header .navbar .right-icons i:hover {
+  color: rgb(223, 86, 51);
+}
+
+.logo{
+  letter-spacing: 2px;
+}
+  </style>
 </body>
 
 </html>
