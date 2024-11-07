@@ -29,10 +29,15 @@ $result = $connection->query($sql);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $category_name; ?></title>
+
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../styles\seller_products.css">
+    <link rel="stylesheet" href="../styles\products.css">
+
 </head>
 
 <body>
-    <div class="content">
+    <div>
         <div class="title">
             <?php
             echo "
@@ -41,7 +46,7 @@ $result = $connection->query($sql);
                 ";
             ?>
         </div>
-        <div>
+        <div class='item-container'>
             <?php
             while ($product_row = $result->fetch_assoc()) {
                 // Get brand Name
@@ -50,11 +55,11 @@ $result = $connection->query($sql);
                 $row = $result_brand->fetch_array();
                 $brand_name = $row[0];
                 echo "
-                        <div>
+                        <div class='item item-seller_products'>
                             <img src = '../{$product_row['photo']}' alt = 'Product image'>
                             <p>$brand_name</p>
                             <p>{$product_row['name']}</p>
-                            <button><a href = '../pages/seller_products.php?id= $product_row[ProductID]''>View Sellers</a></button>
+                            <a class='card-button' href = '../pages/seller_products.php?id= $product_row[ProductID]''>View Sellers</a>
                         </div>
                     ";
             }
