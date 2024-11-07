@@ -1,6 +1,6 @@
 /* General styling */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, Courier, monospace;
     margin: 0;
     padding: 0;
 }
@@ -31,29 +31,36 @@ body {
 }
 
 .right p {
-    margin: 10px 0;
+    margin: 10px ;
     font-size: 16px;
 }
 
 .right a {
     text-decoration: none;
-    color: #5a5a5a;
+    color: #5a5a5a8a;
     font-weight: bold;
-    margin: 10px 0;
+    margin: 10px;
 }
 
-.right button {
+.right a:hover{
+    color: #000000;
+}
+
+.right .button {
     margin-top: 55px;
     padding: 10px 20px;
     font-size: 16px;
-    border: 1px solid #5a5a5a;
+    border: 1px solid #000000;
     background-color: white;
+    color: black;
     cursor: pointer;
     border-radius: 5px;
+    text-align: center;
 }
 
-.right button:hover {
-    background-color: #f0f0f0;
+.right .button:hover {
+    background-color: #000000;
+    color: aliceblue;
 }
 
 /* Additional information section */
