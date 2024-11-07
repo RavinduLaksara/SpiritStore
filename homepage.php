@@ -9,7 +9,7 @@ include("Headers/customerHeader.php");
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HomePage</title>
-    <link ref="stylesheet" href="styles/home.css">
+    <link rel="stylesheet" href="<?php echo 'styles/style.css'; ?>">
 
 </head>
 
@@ -18,7 +18,7 @@ include("Headers/customerHeader.php");
     <section class="hero">
 
         <div class="slide">
-            <img src="image/home1 (1).jpg" alt="liquor bottle 3" class="animated-image">
+            <img src="image/pexels-wendywei-1554654.jpg" alt="liquor bottle 3" class="animated-image">
 
         </div>
 
@@ -134,17 +134,23 @@ include("Headers/customerHeader.php");
 
             </div>
         </div>
+        <div class="video">
         <div class="video_part">
             <video autoplay loop muted>
                 <source src="image\chill video.mp4" type="video/mp4">
             </video>
             <p>"Life is full of moments to celebrate, to savor, and to share. Raise your glass to friendship, laughter, and unforgettable memories. Drink responsibly and let every sip remind you of the good times and the joy of living in the moment."</p>
         </div>
+        </div>
+
+
+
         <div class="brand">
                 <h2>POPULAR BRANDS</h2>
                 <div class="title">
                 <a href="pages\products.php">VIEW ALL</a>
             </div>
+        </div>
 
             <div class="boxes">
 
@@ -194,7 +200,7 @@ include("Headers/customerHeader.php");
                 </div>
 
             </div>
-        </div>
+       
 
         <div class="services">
             <div class="service">
@@ -235,9 +241,18 @@ include("Headers/customerHeader.php");
             </div>
         </div>
 
-        <style>
 
-    * {
+    </section>
+
+    <section class="footer-section">
+    <div class="text-wrapper">
+        <h1>Good Times, Great Memories—Drink Responsibly</h1>
+    </div>
+    </section>
+
+    <style>
+        
+        * {
         font-family: 'Roboto', sans-serif;
     }
 
@@ -252,6 +267,18 @@ include("Headers/customerHeader.php");
         text-align: end;
         margin-right: 5%;
         margin-bottom: 1px;
+        text-decoration: none;
+       
+    }
+
+    .title a{
+        text-decoration: none;
+        color: black;
+        cursor: pointer;
+    }
+
+    .title a:hover{
+        text-decoration: underline;
     }
 
     
@@ -367,7 +394,7 @@ include("Headers/customerHeader.php");
   overflow: hidden; /* Hides the scrollbar */
   white-space: nowrap;
   background-color: white; /* Optional: background color for the marquee */
-  padding: 20px 0;
+  padding: 10px 0;
   position: relative;
 }
 
@@ -380,8 +407,8 @@ include("Headers/customerHeader.php");
 
 /* Logo styling */
 .marquee-content img {
-  width: 200px; /* Adjust size of the brand logos */
-  height: auto;
+  width: 100px; /* Adjust size of the brand logos */
+  height: 100px;
   margin-right: 30px; /* Space between logos */
   opacity: 0.8; /* Optional: make logos slightly transparent */
   transition: opacity 0.3s;
@@ -453,6 +480,11 @@ include("Headers/customerHeader.php");
     margin-top: 10px;
     font-size: 1.2em;
     color: #333;
+    text-decoration: none;
+}
+
+.box a {
+    text-decoration: none; /* No underline for links in boxes */
 }
 
 /* Responsive adjustments */
@@ -474,21 +506,25 @@ include("Headers/customerHeader.php");
     }
 }
 
+.video{
+    background: black;
+}
+
 .video_part {
     display: flex;
     align-items: center; /* Aligns content vertically within the row */
     gap: 20px; /* Adds space between the video and text */
-    padding: 20px;
-    margin: 20px 0;
 }
 
 /* Styling for the video */
 .video_part video {
-    width: 600px; /* Ensures square dimensions */
-    height: 600px;
-    border-radius: 5px;
+    width: 500px; /* Ensures square dimensions */
+    height: 650px;
+    border-radius: 10px;
     object-fit: cover; /* Ensures the video fills the square without distortion */
     margin-left: 50px;
+    margin-top: 40px;
+    margin-bottom: 40px;
 }
 
 /* Styling for the text */
@@ -500,7 +536,7 @@ include("Headers/customerHeader.php");
     color: #333;
     margin: 10px; /* Fixed typo: added "px" for margin */
     text-align: justify;
-    margin-left: 7%;
+    margin-left: 11%;
 }
 
 /* Responsive adjustments for smaller screens */
@@ -612,15 +648,7 @@ include("Headers/customerHeader.php");
 
 
 
-        </style>
-
-    </section>
-
-    <section class="footer-section">
-    <div class="text-wrapper">
-        <h1>Good Times, Great Memories—Drink Responsibly</h1>
-    </div>
-    </section>
+    </style>
 </body>
 
 </html>
