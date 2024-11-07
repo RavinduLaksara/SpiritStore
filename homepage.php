@@ -299,6 +299,7 @@ include("Headers/customerHeader.php");
     margin-left: 50px;
     animation: slideIn 1s ease-out forwards;
     transform: translateX(-50px);
+    color: white;
     
     }
     
