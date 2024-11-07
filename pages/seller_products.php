@@ -27,27 +27,31 @@ $result_store = $connection->query($sql);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Sellers</title>
+    <link rel="stylesheet" href="../style.css">
+
 </head>
 
 <body>
-    <div class="content">
-        <h1>Available Sellers</h1>
+<h1>Available Sellers</h1>
+
+    <div class="item-container">
         <?php
         while ($row_store = $result_store->fetch_assoc()) {
             // Get seller name
             $sql = "SELECT name FROM store WHERE store_id = '$row_store[StoreID]'";
             $result = $connection->query($sql);
             $row = $result->fetch_array();
-            $seller_name = $row[0];
+            // $seller_name = $row[0];
 
             echo "
-                    <div>
+                    <div class='item item-seller_products'>
+
                         <p>seller name</p>
                         <img src = '../{$product_row['photo']}' alt = 'Product image'>
                         <p>{$product_row['Name']}</p>
                         <p>Price Rs. {$row_store['Price']}</p>
                         <p>Quntity - {$row_store['Quantity']}</p>
-                        <button><a href='../pages\product_view.php?productID={$product_id}&storeID={$row_store['StoreID']}'>View Product</a></button>
+                        <a class='card-button' href='../pages\product_view.php?productID={$product_id}&storeID={$row_store['StoreID']}'>View Product</a>
                     </div>
                 ";
         }
@@ -55,3 +59,4 @@ $result_store = $connection->query($sql);
     </div>
 </body>
 </html>
+    

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-
+<link rel="stylesheet" href="../style.css">
 </head>
 
 <body>
@@ -13,7 +13,7 @@
     <div class="back-image">
         <h2>PRODUCTS</h2>
     </div>
-    <div class="content-products">
+    <div class="content">
         <div class="item-filter"></div>
 
         <div class="item-container">
@@ -44,7 +44,6 @@
     <img src="../' . $photo . '"alt="photo">
     <p class="category">' . $category . ' </p>
     <p class="name">' . $name . '</p>
-
       <a  class="card-button" href="../pages/seller_products.php?id=' . $row['ProductID'] . '">VIEW SELLERS</a>
      
 

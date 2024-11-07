@@ -462,7 +462,7 @@ button:hover {
 }
 
 /* -------------------------------------------CSS for item-card------------------------------------------------------------------------------  */
-.content-products{
+.content{
   display: flex;
 }
 
@@ -530,6 +530,7 @@ button:hover {
 .item a{
   text-decoration: none;
 }
+
 
 /*--------------------------------------------S CSS for ABOUT US page ----------------------------------------------------------------------*/
 
@@ -647,6 +648,29 @@ button:hover {
   margin: auto;
 
 }
+
+/* ---------------------------------------CSS for seller_products------------------------------------------------------------------------ */
+.item-seller_products p{
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, Courier, monospace ;
+  font-weight: 500;
+}
+
+.item .item-seller_products .card-button  {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #000000;
+  background-color: #fff;
+  color: #000000;
+  cursor: pointer;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.item .item-seller_products .card-button:hover {
+  background-color: #000000;
+  color: #fff;
+}
+
 
 
 
