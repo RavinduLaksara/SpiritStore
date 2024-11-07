@@ -114,7 +114,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 ?>
             </select>
             <span>or</span>
-            <a href="Forms\add_new_brands.php">Add new brand</a><br>
+            <a href="./add_new_brands.php">Add new brand</a><br>
             <select name="category" required>
                 <option>Select Category</option>
                 <?php
@@ -125,7 +125,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 ?>
             </select>
             <span>or</span>
-            <a href="Forms\add_new_category.php">Add new category</a><br>
+            <a href="./add_new_category.php">Add new category</a><br>
             <input type="text" name="country" placeholder="Country" required><br>
             <input type="text" name="ABV" placeholder="ABV" required><br>
             <label for="image">Upload Product image</label>
