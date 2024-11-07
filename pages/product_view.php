@@ -1,6 +1,7 @@
 <?php
 session_start();
 include(__DIR__ . '/../dbconnect.php');
+include('../Headers\customerHeader.php');
 
 if (!isset($_GET['productID']) && !isset($_GET['storeID'])) {
     header("Location: ../pages\supplier-dashboard.php");
@@ -44,6 +45,8 @@ $category_name = $row[0];
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $product_row['Name']; ?></title>
+    <!-- <link rel="stylesheet" href="../style.css"> -->
+    <link rel="stylesheet" href="../styles\product_view.css">
 </head>
 
 <body>

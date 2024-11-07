@@ -27,7 +27,10 @@ $result_store = $connection->query($sql);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Sellers</title>
+    <link rel="stylesheet" href="../styles\seller_products.css">
+    <link rel="stylesheet" href="../styles\products.css">
     <link rel="stylesheet" href="../style.css">
+
 
 </head>
 

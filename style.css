@@ -462,7 +462,7 @@ button:hover {
 }
 
 /* -------------------------------------------CSS for item-card------------------------------------------------------------------------------  */
-.content{
+/* .content{
   display: flex;
 }
 
@@ -529,12 +529,12 @@ button:hover {
 
 .item a{
   text-decoration: none;
-}
+} */
 
 
 /*--------------------------------------------S CSS for ABOUT US page ----------------------------------------------------------------------*/
 
-
+/* 
 .back-image {
   position: relative;
   display: flex;
@@ -549,8 +549,8 @@ button:hover {
   font-weight:1000;
   font-size: clamp(1.5rem, 5vw, 4.375rem);
   overflow: hidden; /* Prevents blur from overflowing the element */
-}
 
+/* 
 .back-image::before {
   content: "";
   position: absolute;
@@ -562,8 +562,8 @@ button:hover {
   background-image: url("./image/products bc.jpg");
   background-size: cover;
   background-position: center;
-  filter: blur(3.5px); /* Adjust blur level */
-  z-index: -1; /* Places the background behind the text */
+  filter: blur(3.5px); 
+  z-index: -1; 
 }
 
 
@@ -608,12 +608,12 @@ button:hover {
   text-decoration: none;
   color: #000000;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
-
+} 
+ */
 
 /*------------------------------------- CSS for CONTACT US page ----------------------------------------------------------------------*/
 
-.contact-content{
+/* .contact-content{
   margin:0 80px 80px;
 }
 
@@ -647,10 +647,10 @@ button:hover {
   max-width: 600px;
   margin: auto;
 
-}
+} */
 
 /* ---------------------------------------CSS for seller_products------------------------------------------------------------------------ */
-.item-seller_products p{
+/* .item-seller_products p{
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, Courier, monospace ;
   font-weight: 500;
 }
@@ -669,7 +669,7 @@ button:hover {
 .item .item-seller_products .card-button:hover {
   background-color: #000000;
   color: #fff;
-}
+} */
 
 
 
