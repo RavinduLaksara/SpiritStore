@@ -45,7 +45,7 @@ $result = $connection->query($sql);
                 ";
             ?>
         </div>
-        <div class='item-container'>
+        <div class='item-container-modify'>
             <?php
             while ($product_row = $result->fetch_assoc()) {
                 // Get category Name
