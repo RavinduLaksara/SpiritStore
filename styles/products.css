@@ -1,3 +1,4 @@
+
 .content{
     display: flex;
   }
@@ -14,6 +15,8 @@
     gap: 20px;
     padding: 20px;
   }
+
+  
   
   .item {
     display: flex;
@@ -98,3 +101,43 @@
     filter: blur(3.5px); /* Adjust blur level */
     z-index: -1; /* Places the background behind the text */
   }
+
+  .container-modify .add-new-button{
+  width: 50%;
+  padding: 8px;
+  border: 1px solid #000000;
+  background-color: #fff;
+  color: #000000;
+  cursor: pointer;
+  text-align: center;
+  box-sizing: border-box;
+  margin:0px 20px ;
+ } 
+
+  .container-modify .add-new-button:hover {
+  background-color: #000000;
+  color: #fff;
+  }
+
+.add-new-button a{
+  text-decoration: none;
+  color: black;
+}
+
+
+ .container-modify{
+  margin: 0px 40px 0px 40px;
+ }
+
+ .item-container-modify{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+  margin: 0px 50px 0px 40px;
+
+}
+
+
+/* add new product buutton eka hadapana */
