@@ -47,16 +47,40 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </head>
 
 <body>
-    <div class="container">
-        <h1>Store Registration</h1>
-        <form action="" method="post">
-            <label for="">Enter Your Store Details</label>
-            <input type="text" name="name" placeholder="Store Name" required><br><br>
-            <label for="">Enter Your Address</label><br>
-            <input type="text" name="state" placeholder="State" required><br>
-            <input type="text" name="city" placeholder="City" required><br>
-            <input type="text" name="po-code" placeholder="Postal Code" required><br><br>
-            <input type="submit" value="Register Store">
+
+<div class="container">
+       <div class="form-container">
+          <div class="form-box"></div>
+          <h2>Store Registration</h2>
+          <form action="#" method="post">
+
+          <h3>Enter Your Store Details</h3>
+            <div class="input-box">
+                <input type="text" name="name" required>
+                <label>Store Name</label>
+            </div>
+        
+            <h3>Enter Your Address</h3>
+            <div class="input-box">
+                <span class="icon"><ion-icon name="location-outline"></ion-icon></span>
+                <input type="text" required>
+                <label>State</label>
+            </div>
+
+            <div class="input-box">
+                <span class="icon"><ion-icon name="location-outline"></ion-icon></span>
+                <input type="text" required>
+                <label>City</label>
+            </div>
+
+            <div class="input-box">
+                <span class="icon"><ion-icon name="location-outline"></ion-icon></span>
+                <input type="text" required>
+                <label>Postel Code</label>
+            </div>
+    
+        
+            <button type="submit" value="Register Store"> Submit</button>
         </form>
     </div>
 </body>

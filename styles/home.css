@@ -1,0 +1,340 @@
+
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
+h2{
+    font-size: 30px;
+    margin-top: 40px;
+}
+
+.title{
+    margin-left: 5%;
+}
+
+
+.hero {
+position: relative;
+margin-top: 20px;
+width: 100%;
+height: 500px; 
+overflow: hidden;
+}
+
+
+.hero-heading {
+font-family: 'Roboto', sans-serif;
+font-size: 3em;
+font-weight: 700;
+color: white; 
+margin-top: 150px;
+margin-left: 50px;
+
+/* Animation properties */
+opacity: 0;
+transform: translateX(-50px); /* Start 50px left for sliding effect */
+animation: slideIn 1s ease-out forwards; /* 1s slide-in animation */
+}
+
+/* Keyframes for slide-in animation */
+@keyframes slideIn {
+from {
+    opacity: 0;
+    transform: translateX(-50px); /* Start slightly to the left */
+}
+to {
+    opacity: 1;
+    transform: translateX(0); /* End at original position */
+}
+}
+
+
+/* Optional: Subheading styling */
+.hero-subheading {
+font-size: 1.5em;
+font-weight: 400;
+margin-top: 10px;
+margin-left: 50px;
+animation: slideIn 1s ease-out forwards;
+transform: translateX(-50px);
+
+}
+
+.slide {
+position: absolute;
+width: 100%;
+height: 100%;
+opacity: 0;
+animation: slideshow 60s infinite; /* 180s = 3 images x 60s each */
+}
+
+
+.slide img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+}
+
+
+@keyframes slideshow {
+0% { opacity: 1; }
+33.33% { opacity: 1; }
+36.66% { opacity: 0; }
+100% { opacity: 0; }
+}
+
+.slide:nth-child(1) {
+animation-delay: 0s;
+}
+
+.slide:nth-child(2) {
+animation-delay: 20s;
+}
+
+.slide:nth-child(3) {
+animation-delay: 40s;
+}
+
+
+.animated-image {
+width: 100%;
+height: 80vh;
+object-fit: cover;
+filter: blur(1px);
+-webkit-filter: blur(1px);
+
+animation: fadeIn 3s ease-in-out, slideUp 3s ease-in-out;
+
+
+}
+
+@keyframes fadeIn {
+0% { opacity: 0; }
+100% { opacity: 1; }
+}
+
+@keyframes slideUp {
+0% { transform: translateY(20px); }
+100% { transform: translateY(0); }
+}
+
+/* Container for brand row with horizontal scrolling */
+.brand-marquee {
+display: flex;
+overflow-x: hidden; /* Hide scrollbar */
+white-space: nowrap; /* Prevents images from wrapping to the next line */
+padding: 20px;
+background-color: #f5f5f5; /* Optional background color */
+gap: 30px; /* Adds spacing between images */
+position: relative;
+}
+
+/* Content within the marquee (images) */
+.marquee-content {
+width: 100px; /* Adjust size as needed */
+height: auto; /* Keeps aspect ratio */
+transition: transform 0.6s; /* Adds a hover effect */
+display: inline-block;
+flex-shrink: 0; /* Prevents shrinking */
+}
+
+/* Hover effect: Enlarge on hover */
+.marquee-content:hover {
+transform: scale(1.1); /* Enlarge on hover */
+}
+
+/* Continuous scrolling effect */
+@keyframes marquee-scroll {
+0% {
+transform: translateX(0); /* Start position */
+}
+100% {
+transform: translateX(-100%); /* Scroll all the way to the left */
+}
+}
+
+/* Apply the animation on the .brand-marquee container */
+.brand-marquee {
+display: flex;
+animation: marquee-scroll 30s linear infinite; /* Scrolls the images smoothly */
+animation-timing-function: linear; /* Keeps a smooth scroll */
+}
+
+/* Optional: Duplicate the images for seamless loop */
+.brand-marquee .marquee-content {
+animation: marquee-scroll 30s linear infinite; /* Same animation for the images */
+display: inline-block;
+white-space: nowrap; /* Prevent wrapping */
+flex-shrink: 0;
+animation-timing-function: linear;
+}
+
+/* Optional styling for hiding scrollbars in WebKit browsers */
+.brand-marquee::-webkit-scrollbar {
+display: none; /* Hides the scrollbar in WebKit browsers */
+}
+
+/* Container for the boxes */
+.boxes {
+display: flex;
+flex-wrap: wrap;
+gap: 20px;
+justify-content: center;
+align-items: center;
+margin: 50px 0;
+}
+
+/* Individual box styling */
+.box {
+width: 15%; /* Adjusted for larger screens */
+margin: 15px;
+box-sizing: border-box;
+text-align: center;
+border: 1px solid #ddd;
+border-radius: 20px;
+padding-top: 10px;
+cursor: pointer;
+box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); 
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+background-color: white;
+}
+
+/* Hover effect for boxes */
+.box:hover {
+box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2), 0 3px 6px rgba(0, 0, 0, 0.15);
+transform: translateY(-8px);
+}
+
+/* Image styling */
+.box img {
+width: 200px;
+height: 200px;
+display: block;
+margin: 0 auto;
+border-radius: 10px;
+}
+
+/* Text styling for box titles */
+.box h4 {
+margin-top: 10px;
+font-size: 1.2em;
+color: #333;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+.box {
+    width: 30%; /* 3 boxes per row on medium screens */
+}
+}
+
+@media (max-width: 768px) {
+.box {
+    width: 45%; /* 2 boxes per row on tablets */
+}
+}
+
+@media (max-width: 480px) {
+.box {
+    width: 100%; /* 1 box per row on small screens */
+}
+}
+
+.video_part {
+display: flex;
+align-items: center; /* Aligns content vertically within the row */
+gap: 20px; /* Adds space between the video and text */
+padding: 20px;
+margin: 20px 0;
+}
+
+/* Styling for the video */
+.video_part video {
+width: 50%; /* Takes up half the width of the container */
+height: 1100px;
+border-radius: 20px;
+}
+
+/* Styling for the text */
+.video_part p {
+width: 40%; /* Takes up the other half */
+font-size: 2em;
+line-height: 1.8;
+color: #333;
+margin: 10;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+.video_part {
+    flex-direction: column; /* Stacks video and text vertically */
+    text-align: center; /* Centers text */
+}
+
+.video_part video,
+.video_part p {
+    width: 100%; /* Takes up full width on small screens */
+}
+}
+
+
+/* Container for services */
+.services {
+display: flex;
+gap: 20px;
+justify-content: space-between;
+align-items: center;
+margin: 40px 0; /* Space above and below */
+padding: 20px;
+}
+
+/* Individual service box */
+.service {
+display: flex;
+align-items: center;
+flex-direction: column; /* Stack image and text vertically within each box */
+padding: 20px;
+background-color: #f5f5f5;
+border-radius: 10px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+width: 22%; /* Each box takes about 1/4th of the container’s width */
+text-align: center;
+}
+
+.service:hover {
+transform: translateY(-5px);
+box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Left section for image */
+.service .left img {
+width: 50px; /* Icon size */
+height: 50px;
+margin-bottom: 10px; /* Space between image and text */
+}
+
+/* Right section for text */
+.service .right h4 {
+font-size: 1.2em;
+margin: 0 0 5px;
+color: #333;
+}
+
+.service .right p {
+margin: 0;
+color: #666;
+font-size: 1em;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+.services {
+    flex-direction: column; /* Stacks items vertically on small screens */
+    gap: 15px;
+}
+
+.service {
+    width: 100%; /* Full width for each box on small screens */
+}
+}

@@ -1,5 +1,5 @@
 <?php
-include('../Headers\supplierHeadder.html');
+include('../Headers\supplierHeadder.php');
 include(__DIR__ . '/../dbconnect.php');
 
 if (!isset($_GET['id'])) {
@@ -50,6 +50,7 @@ $store_id = $row[0];
 
         <div class="display-products">
             <h3>Available Products</h3>
+            <!-- <a href="../Forms\add_new_product.php?>Add New Product</a> -->
             <?php
             // Get prooduct ids that store have
             $sql = "SELECT * FROM storeproduct WHERE storeID = '$store_id'";
