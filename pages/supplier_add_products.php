@@ -35,9 +35,10 @@ $product_result  = $connection->query($sql);
 </head>
 
 <body>
+    <div class="container">
     <div class='container-modify'>
-        <h1>Add Products</h1>
-        <h1>Available Products in Spirit Store</h1>
+        <h1>ADD PRODUCTS</h1>
+        <h2>Available Products in Spirit Store</h2>
         <div class="item-container-modify">
             <?php
             while ($row_product = $product_result->fetch_assoc()) {
@@ -69,7 +70,7 @@ $product_result  = $connection->query($sql);
             <a href="../Forms/add_new_product.php?id=<?php echo $store_id; ?>">Add New Product</a>
         </div>
     </div>
+    </div>
 </body>
-/* add new product buutton eka hadapana */
 </html>
 
