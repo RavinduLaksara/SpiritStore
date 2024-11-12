@@ -50,6 +50,8 @@ $category_name = $row[0];
 </head>
 
 <body>
+<h1>PRODUCT DETAILS</h1>
+
     <div class="content">
         <div class="left">
             <img src="../<?php echo $product_row['photo']; ?>" alt="product image">

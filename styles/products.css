@@ -49,6 +49,7 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, Courier, monospace;
     font-weight: 500;
     margin-top: 0;
+    margin-bottom: 20px;
   }
   
   .item .card-button  {
@@ -102,6 +103,11 @@
     z-index: -1; /* Places the background behind the text */
   }
 
+.container{
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+
   .container-modify .add-new-button{
   width: 50%;
   padding: 8px;
@@ -111,19 +117,20 @@
   cursor: pointer;
   text-align: center;
   box-sizing: border-box;
-  margin:0px 20px ;
+  margin:0px auto ;
  } 
 
   .container-modify .add-new-button:hover {
   background-color: #000000;
-  color: #fff;
   }
 
 .add-new-button a{
   text-decoration: none;
   color: black;
 }
-
+.container-modify .add-new-button:hover a {
+  color: #fff;
+  }
 
  .container-modify{
   margin: 0px 40px 0px 40px;
