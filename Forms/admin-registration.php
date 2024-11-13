@@ -1,7 +1,7 @@
 <?php
 
 include(__DIR__ . '/../dbconnect.php');
-include(__DIR__ . '/../Headers/adminHeader.html');
+include(__DIR__ . '/../Headers/adminHeader.php');
 
 function verifyPhoneNumber($phoneNumber)
 {
@@ -76,55 +76,55 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 <body>
     <div class="content">
-    <div class="form-container">
-          <div class="form-box"></div>
+        <div class="form-container">
+            <div class="form-box"></div>
 
-          <h2>Add New Admin</h2>
-          <form action="#" method="post">
+            <h2>Add New Admin</h2>
+            <form action="#" method="post">
 
-          <h3>Enter Details</h3>
-            <div class="input-box">
-                <span class="icon"><ion-icon name="person-outline"></ion-icon></span>
-                <input type="text" name="name" required>
-                <label>Name</label>
-            </div>
+                <h3>Enter Details</h3>
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="person-outline"></ion-icon></span>
+                    <input type="text" name="name" required>
+                    <label>Name</label>
+                </div>
 
-            <div class="input-box">
-                <span class="icon"><ion-icon name="mail-outline"></ion-icon></span>
-                <input type="email" name="email" required>
-                <label>Email</label>
-            </div>
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="mail-outline"></ion-icon></span>
+                    <input type="email" name="email" required>
+                    <label>Email</label>
+                </div>
 
-            <div class="input-box">
-                <span class="icon"><ion-icon name="call-outline"></ion-icon></span>
-                <input type="text" name="phone" required>
-                <label>Phone Number</label>
-            </div>
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="call-outline"></ion-icon></span>
+                    <input type="text" name="phone" required>
+                    <label>Phone Number</label>
+                </div>
 
-            <br>
-            <br>
+                <br>
+                <br>
 
-            <div class="input-box">
-                <span class="icon"><ion-icon name="lock-closed-outline"></ion-icon></span>
-                <input type="password" name="password" required>
-                <label>Password</label>
-            </div>
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="lock-closed-outline"></ion-icon></span>
+                    <input type="password" name="password" required>
+                    <label>Password</label>
+                </div>
 
-            <div class="input-box">
-                <span class="icon"><ion-icon name="lock-closed-outline"></ion-icon></span>
-                <input type="password" name="con-password" required>
-                <label>Conferm Password</label>
-            </div>
-            
-            <button type="submit" value="Add Admin">Next</button>
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="lock-closed-outline"></ion-icon></span>
+                    <input type="password" name="con-password" required>
+                    <label>Conferm Password</label>
+                </div>
+
+                <button type="submit" value="Add Admin">Next</button>
 
 
-            
+
                 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
                 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-            
-   </form>
-    </div>
+
+            </form>
+        </div>
 </body>
 
 </html>
