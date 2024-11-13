@@ -29,7 +29,7 @@ $result_store = $connection->query($sql);
     <title>Product Sellers</title>
     <link rel="stylesheet" href="../styles\seller_products.css">
     <link rel="stylesheet" href="../styles\products.css">
-    <link rel="stylesheet" href="../style.css">
+    <!-- <link rel="stylesheet" href="../style.css"> -->
 
 
 </head>
