@@ -1,7 +1,7 @@
 <?php
 session_start();
 include(__DIR__ . '/../dbconnect.php');
-include('Headers\customerHeader.html');
+include('../Headers/customerHeader.php');
 
 function checkData($connection, $email, $password, $table)
 {
@@ -29,7 +29,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
 
         if ($userid = checkData($connection, $email, $password, 'customer')) {
-            header('Location: pages\home.php?id=' . $userid);
+            $_SESSION['userid'] = $userid;
+            header('Location: ../homepage.php');
             exit;
         } else if ($userid = checkData($connection, $email, $password, 'supplier')) {
             header('Location: pages\supplier-dashboard.php?id=' . $userid);
@@ -54,36 +55,36 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </head>
 
 <body>
-     <div class="container">
-       <div class="form-container">
-          <div class="form-box"></div>
-          <h2>Login</h2>
-          <form action="#" method="post">
-
-          
-            <div class="input-box">
-            <span class="icon"><ion-icon name="mail-outline"></ion-icon></span>
-            <input type="email" name="email" required>
-                <label>Name</label>
-            </div>
-
-            <div class="input-box">
-                <span class="icon"><ion-icon name="lock-closed-outline"></ion-icon></span>
-                <input type="password" name="password" required>
-                <label>Password</label>
-            </div>
-
-            <button type="submit">Login</button>
+    <div class="container">
+        <div class="form-container">
+            <div class="form-box"></div>
+            <h2>Login</h2>
+            <form action="#" method="post">
 
 
-            
-<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="mail-outline"></ion-icon></span>
+                    <input type="email" name="email" required>
+                    <label>Name</label>
+                </div>
 
-        
-        </form>
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="lock-closed-outline"></ion-icon></span>
+                    <input type="password" name="password" required>
+                    <label>Password</label>
+                </div>
+
+                <button type="submit">Login</button>
+
+
+
+                <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+                <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+
+            </form>
+        </div>
     </div>
-     </div>
 </body>
 
 </html>
