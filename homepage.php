@@ -139,6 +139,7 @@ include("Headers/customerHeader.php");
 
 
         <div class="brand">
+            <br>
             <h2>POPULAR BRANDS</h2>
             <div class="title">
                 <a href="pages\products.php">VIEW ALL</a>
