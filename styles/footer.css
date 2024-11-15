@@ -1,0 +1,42 @@
+body {
+background-color: rgba(0, 0, 0, 0.895);
+
+
+}
+
+.container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    gap: 20px;
+    margin: 30px 60px 30px 60px;
+}
+
+.nav-container{
+color: white;
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+max-width: 100%;
+}
+
+.nav-container a {
+text-decoration: none;
+color:rgba(255, 255, 255, 0.767);
+}
+
+.nav-container a:hover {
+text-decoration: underline;
+}
+
+.nav-container h2{
+    font-size: 12px;
+    line-height: 30px;
+    font-weight: 400;
+    color:rgba(255, 255, 255, 0.767);
+}
+
+.nav-container img{
+    display: block;
+    max-width: 30%;
+    margin-top: 2px;
+    margin-bottom:2px;
+}
