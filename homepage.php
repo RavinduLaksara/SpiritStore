@@ -23,7 +23,7 @@ include("Headers/customerHeader.php");
     </video>
 
    
-    <h1 class="hero-heading">Welcome to Spirit Store</h1>
+    <h1 class="hero-heading">&nbsp; &nbsp;&nbsp;&nbsp;Welcome to Spirit Store</h1>
     <p class="hero-subheading">Discover Our Exclusive Collection</p>
 
 </section>
