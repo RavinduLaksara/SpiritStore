@@ -1,5 +1,5 @@
 <?php
-include('../Headers\customerHeader.html');
+include('../Headers\customerHeader.php');
 include(__DIR__ . '/../dbconnect.php');
 
 function verifyPhoneNumber($phoneNumber)
@@ -63,6 +63,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
 
         echo 'Registration Successfully';
+
+        // create cart
+        $customer_id = $connection->insert_id;
+        $sql = "INSERT INTO cart (customerID, total) VALUES ('$customer_id', 0)";
+        $result = $connection->query($sql);
+
+        if (!$result) {
+            echo "cart query error";
+            break;
+        }
+
         header('location:index.php');
     } while (false);
 }

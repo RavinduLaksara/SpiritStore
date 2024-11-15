@@ -1,3 +1,5 @@
+<?php require(__DIR__ . '/../config.php'); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,7 +30,7 @@
       <a href="#">Add products</a>
       <a href="#">Check Orders</a>
       <a href="#">Reports</a>
-      <a href="#">Site Home</a>
+      <a href="<?= APP_URL ?>/homepage.php">Site Home</a>
 
       <a href="#"><i class="fas fa-user"></i></a>
 

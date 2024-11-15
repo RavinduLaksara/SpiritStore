@@ -28,13 +28,18 @@ $product_result  = $connection->query($sql);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Products</title>
+
+    <link rel="stylesheet" href="../styles\seller_products.css">
+    <link rel="stylesheet" href="../styles\products.css">
+
 </head>
 
 <body>
-    <div class="content">
-        <h1>Add Products</h1>
-        <div class="available">
-            <h1>Available Products in Spirit Store</h1>
+    <div class="container">
+    <div class='container-modify'>
+        <h1>ADD PRODUCTS</h1>
+        <h2>Available Products in Spirit Store</h2>
+        <div class="item-container-modify">
             <?php
             while ($row_product = $product_result->fetch_assoc()) {
                 // var_dump($row_product);
@@ -50,21 +55,22 @@ $product_result  = $connection->query($sql);
                 $row_category = $result->fetch_array();
                 $category_name = $row_category[0];
                 echo "
-                    <div>
+                    <div class='item item-seller_products'>
                         <img src = '../{$row_product['photo']}' alt = 'Product image'>
                         <span>$brand_name</span>
                         <span>$category_name</span>
                         <p>{$row_product['name']}</p>
-                        <button><a href='../Forms\add_more_stock.php?productID={$row_product['ProductID']}&storeID=$store_id'>Add More Stock</a></button>
+                        <a class='card-button' href='../Forms\add_more_stock.php?productID={$row_product['ProductID']}&storeID=$store_id'>Add More Stock</a>
                     </div>
                 ";
             }
             ?>
         </div>
-        <div>
+        <div class='add-new-button'>
             <a href="../Forms/add_new_product.php?id=<?php echo $store_id; ?>">Add New Product</a>
         </div>
     </div>
+    </div>
 </body>
-
 </html>
+
