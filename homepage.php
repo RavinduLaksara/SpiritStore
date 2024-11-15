@@ -16,19 +16,19 @@ include("Headers/customerHeader.php");
 
 <body>
 
-<section class="hero">
-    
-    <video autoplay muted loop class="hero-video">
-        <source src="image\homevideo4.mp4" type="video/mp4">
-    </video>
+    <section class="hero">
 
-   
-    <h1 class="hero-heading">&nbsp; &nbsp;&nbsp;&nbsp;Welcome to Spirit Store</h1>
-    <p class="hero-subheading">Discover Our Exclusive Collection</p>
+        <video autoplay muted loop class="hero-video">
+            <source src="image\homevideo4.mp4" type="video/mp4">
+        </video>
 
-</section>
 
-<br>
+        <h1 class="hero-heading">&nbsp; &nbsp;&nbsp;&nbsp;Welcome to Spirit Store</h1>
+        <p class="hero-subheading">Discover Our Exclusive Collection</p>
+
+    </section>
+
+    <br>
     <section class="brandshow">
         <div class="brand-marquee">
             <div class="marquee-content">
@@ -243,7 +243,7 @@ include("Headers/customerHeader.php");
             <h1>Good Times, Great Memories—Drink Responsibly</h1>
         </div>
     </section>
-
+    <?php include('../SpiritStore/footer/footer.php') ?>
 </body>
 
 </html>
