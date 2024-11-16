@@ -1,40 +1,72 @@
 <?php
-include(__DIR__ . '/../dbconnect.php');
-include('../Headers\customerHeader.php');
+session_start();
+include('../dbconnect.php');
 
-// Check if user is logged in and has items in the cart
-if (!isset($_SESSION['userid']) || empty($_SESSION['cart'])) {
-    header("Location: cart.php");
-    exit;
+// Initialize variables
+$cartDetails = [];
+$totalAmount = 0;
+
+if (isset($_SESSION['userid'])) {
+    // Handle logged-in users
+    $customerID = $_SESSION['userid'];
+
+    // Modified SQL query to handle multiple stores for the same product
+    $sql = "SELECT cartitem.ProductID, cartitem.StoreID, cartitem.Quantity, 
+                   product.Name, product.photo, storeproduct.Price 
+            FROM cartitem
+            INNER JOIN cart ON cart.cartID = cartitem.cartID
+            INNER JOIN product ON product.ProductID = cartitem.ProductID
+            INNER JOIN storeproduct ON storeproduct.ProductID = cartitem.ProductID 
+            AND storeproduct.StoreID = cartitem.StoreID  -- Ensure StoreID matches
+            WHERE cart.customerID = ?";
+
+    $stmt = $connection->prepare($sql);
+    $stmt->bind_param('i', $customerID);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result && $result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            $row['quantity'] = $row['Quantity']; // Normalize the key
+            unset($row['Quantity']); // Optional: Remove the original key if not needed
+            $row['subtotal'] = $row['Price'] * $row['quantity'];
+            $cartDetails[] = $row;
+            $totalAmount += $row['subtotal'];
+        }
+    }
+
+    $stmt->close();
+} elseif (!empty($_SESSION['cart'])) {
+    // Handle guest users
+    foreach ($_SESSION['cart'] as $item) {
+        // Check if all keys exist in the session data to avoid undefined array key errors
+        if (isset($item['productID'], $item['storeID'], $item['quantity'])) {
+            $productID = $item['productID'];
+            $storeID = $item['storeID'];
+            $quantity = $item['quantity'];
+
+            // Modified query to handle the StoreID for guest users as well
+            $sql = "SELECT product.ProductID, product.Name, product.photo, storeproduct.Price 
+                    FROM product
+                    INNER JOIN storeproduct ON product.ProductID = storeproduct.ProductID
+                    WHERE product.ProductID = ? AND storeproduct.StoreID = ?";
+            $stmt = $connection->prepare($sql);
+            $stmt->bind_param('ii', $productID, $storeID);
+            $stmt->execute();
+            $result = $stmt->get_result();
+
+            if ($result && $result->num_rows > 0) {
+                $product = $result->fetch_assoc();
+                $product['quantity'] = $quantity; // Add the quantity from the session cart
+                $product['subtotal'] = $product['Price'] * $quantity;
+                $cartDetails[] = $product;
+                $totalAmount += $product['subtotal'];
+            }
+
+            $stmt->close();
+        }
+    }
 }
-
-// Fetch user and cart details
-$customerID = $_SESSION['userid'];
-$totalAmount = 0; // Set to 0 initially, and calculate based on the cart items
-
-// Calculate total amount
-foreach ($_SESSION['cart'] as $productID => $item) {
-    $totalAmount += $item['subtotal'];
-}
-
-// Get customer data
-$sql = "SELECT * FROM customer WHERE id = '$customerID'";
-$result = $connection->query($sql);
-$row = $result->fetch_assoc();
-
-$name = $row['name'];
-$email = $row['email'];
-$phone = $row['phone'];
-$state = $row['state'];
-$city = $row['city'];
-$postal_code = $row['postal_code'];
-
-// PayHere sandbox details
-$merchantID = "1228639"; // Use your Sandbox Merchant ID here
-$returnURL = "../homepage.php"; // Replace with your return URL
-$cancelURL = "../pages/cart.php"; // Replace with your cancel URL
-$notifyURL = "http://yourdomain.com/notify"; // Replace with your notify URL
-
 ?>
 
 <!DOCTYPE html>
@@ -44,38 +76,58 @@ $notifyURL = "http://yourdomain.com/notify"; // Replace with your notify URL
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Checkout</title>
+    <link rel="stylesheet" href="../styles/checkout.css">
 </head>
 
 <body>
+    <div class="checkout-container">
+        <!-- Left Side: Billing Details -->
+        <div class="billing-details">
+            <h2>Billing Details</h2>
+            <form action="process_order.php" method="POST">
+                <label for="name">Name *</label>
+                <input type="text" name="name" required>
 
-    <h1>Checkout</h1>
+                <label for="street">Street Address *</label>
+                <input type="text" name="street" placeholder="Street name" required>
 
-    <!-- PayHere Payment Form -->
-    <form method="post" action="https://sandbox.payhere.lk/pay/checkout">
-        <!-- Merchant Details -->
-        <input type="hidden" name="merchant_id" value="<?= $merchantID ?>"> <!-- Sandbox Merchant ID -->
-        <input type="hidden" name="return_url" value="<?= $returnURL ?>">
-        <input type="hidden" name="cancel_url" value="<?= $cancelURL ?>">
-        <input type="hidden" name="notify_url" value="<?= $notifyURL ?>">
+                <label for="city">Town / City *</label>
+                <input type="text" name="city" required>
 
-        <!-- Order Details -->
-        <input type="hidden" name="order_id" value="ORDER12345"> <!-- Use a unique order ID for each transaction -->
-        <input type="hidden" name="items" value="Order from Spirit Store">
-        <input type="hidden" name="currency" value="LKR">
-        <input type="hidden" name="amount" value="<?= $totalAmount ?>">
+                <label for="phone">Phone *</label>
+                <input type="tel" name="phone" id="phone" required>
 
-        <!-- Customer Details -->
-        <input type="hidden" name="first_name" value="<?= $firstName ?>">
-        <input type="hidden" name="last_name" value="<?= $lastName ?>">
-        <input type="hidden" name="email" value="<?= $email ?>">
-        <input type="hidden" name="phone" value="<?= $phone ?>">
-        <input type="hidden" name="address" value="<?= $address ?>">
-        <input type="hidden" name="city" value="<?= $city ?>">
-        <input type="hidden" name="country" value="<?= $country ?>">
+                <!-- Hidden input to pass the total amount -->
+                <input type="hidden" name="totalAmount" value="<?php echo htmlspecialchars($totalAmount); ?>">
 
-        <button type="submit">Pay Now with PayHere</button>
-    </form>
+                <button type="submit" class="place-order-button">Place Order</button>
+            </form>
 
+        </div>
+
+        <!-- Right Side: Cart Details -->
+        <div class="order-summary">
+            <h2>Your Order</h2>
+            <div class="order-items">
+                <?php if (empty($cartDetails)) : ?>
+                    <p>Your cart is empty.</p>
+                <?php else : ?>
+                    <?php foreach ($cartDetails as $item) : ?>
+                        <div class="order-item">
+                            <img src="../<?php echo htmlspecialchars($item['photo']); ?>" alt="Product image" width="50" height="50">
+                            <p><?php echo htmlspecialchars($item['Name']); ?></p>
+                            <p>Quantity: <?php echo $item['quantity']; ?></p>
+                            <p>Subtotal: LKR <?php echo number_format($item['subtotal'], 2); ?></p>
+                        </div>
+                    <?php endforeach; ?>
+                <?php endif; ?>
+            </div>
+            <div class="order-total">
+                <h3>Total: LKR <?php echo number_format($totalAmount, 2); ?></h3>
+
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>

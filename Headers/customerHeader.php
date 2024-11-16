@@ -33,8 +33,8 @@ if (isset($_SESSION['userid'])) {
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Customer</title>
-  <link rel="stylesheet" href="../styles/customer.css">
+  <title></title>
+  <!-- <link rel="stylesheet" href="../styles/customer.css"> -->
   <script
     src="https://kit.fontawesome.com/a076d05399.js"
     crossorigin="anonymous"></script>

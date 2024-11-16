@@ -10,7 +10,7 @@ include("Headers/customerHeader.php");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HomePage</title>
     <link rel="stylesheet" href="styles/home.css">
-    <link rel="stylesheet" href="styles/customer.css">
+    <!-- <link rel="stylesheet" href="styles/customer.css"> -->
 
 </head>
 
@@ -242,8 +242,6 @@ include("Headers/customerHeader.php");
         <div class="text-wrapper">
             <h1>Good Times, Great Memories—Drink Responsibly</h1>
         </div>
-    </section>
-    <?php include('../SpiritStore/footer/footer.php') ?>
 </body>
 
 </html>

@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
 
         echo "Registration Successfully";
-        header("location: pages\supplier-dashboard.php");
+        header("location: ../pages/pending_approve.php");
     } while (false);
 }
 ?>
