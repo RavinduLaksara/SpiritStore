@@ -8,6 +8,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title></title>
 
+  <link rel="stylesheet" href="../styles/supplierh.css" />
+
   <script
     src="https://kit.fontawesome.com/a076d05399.js"
     crossorigin="anonymous"></script>
@@ -32,7 +34,7 @@
       <a href="#">Reports</a>
       <a href="<?= APP_URL ?>/homepage.php">Site Home</a>
 
-      <a href="#"><i class="fas fa-user"></i></a>
+      <a href="#">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-user"></i></a>
 
     </nav>
   </section>
