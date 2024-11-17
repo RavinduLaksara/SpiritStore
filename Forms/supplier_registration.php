@@ -1,6 +1,6 @@
 <?php
-include('Headers\supplierHeadder.html');
-include('dbconnect.php');
+include(__DIR__ . '/../dbconnect.php');
+include('../Headers\customerHeader.php');
 
 function verifyPhoneNumber($phoneNumber)
 {

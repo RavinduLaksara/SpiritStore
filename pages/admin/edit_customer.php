@@ -1,7 +1,7 @@
 <?php
 
 include(__DIR__ . '/../../dbconnect.php');
-// include(__DIR__ . '/../../Headers/adminHeader.php');
+include(__DIR__ . '/../../Headers/adminHeader.php');
 
 if (!isset($_GET['id'])) {
     header("Location: ../admin_dashboard.php");

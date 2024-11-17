@@ -1,6 +1,6 @@
 <?php
-include('../Headers/supplierHeadder.html');
-include('../dbconnect.php');
+include(__DIR__ . '/../dbconnect.php');
+include('../Headers\customerHeader.php');
 
 
 if (!isset($_GET['id'])) {
@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
 
         echo "Registration Successfully";
-        header("location: pages\supplier-dashboard.php");
+        header("location: ../pages/pending_approve.php");
     } while (false);
 }
 ?>
@@ -48,41 +48,41 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 <body>
 
-<div class="container">
-       <div class="form-container">
-          <div class="form-box"></div>
-          <h2>Store Registration</h2>
-          <form action="#" method="post">
+    <div class="container">
+        <div class="form-container">
+            <div class="form-box"></div>
+            <h2>Store Registration</h2>
+            <form action="#" method="post">
 
-          <h3>Enter Your Store Details</h3>
-            <div class="input-box">
-                <input type="text" name="name" required>
-                <label>Store Name</label>
-            </div>
-        
-            <h3>Enter Your Address</h3>
-            <div class="input-box">
-                <span class="icon"><ion-icon name="location-outline"></ion-icon></span>
-                <input type="text" required>
-                <label>State</label>
-            </div>
+                <h3>Enter Your Store Details</h3>
+                <div class="input-box">
+                    <input type="text" name="name" required>
+                    <label>Store Name</label>
+                </div>
 
-            <div class="input-box">
-                <span class="icon"><ion-icon name="location-outline"></ion-icon></span>
-                <input type="text" required>
-                <label>City</label>
-            </div>
+                <h3>Enter Your Address</h3>
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="location-outline"></ion-icon></span>
+                    <input type="text" required>
+                    <label>State</label>
+                </div>
 
-            <div class="input-box">
-                <span class="icon"><ion-icon name="location-outline"></ion-icon></span>
-                <input type="text" required>
-                <label>Postel Code</label>
-            </div>
-    
-        
-            <button type="submit" value="Register Store"> Submit</button>
-        </form>
-    </div>
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="location-outline"></ion-icon></span>
+                    <input type="text" required>
+                    <label>City</label>
+                </div>
+
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="location-outline"></ion-icon></span>
+                    <input type="text" required>
+                    <label>Postel Code</label>
+                </div>
+
+
+                <button type="submit" value="Register Store"> Submit</button>
+            </form>
+        </div>
 </body>
 
 </html>

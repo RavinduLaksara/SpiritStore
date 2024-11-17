@@ -76,6 +76,7 @@ $categorys = getArray($category_result);
                                 <td>$row[Country]</td>
                                 <td>$row[ABV]</td>
                                 <td><a href = '../admin/edit_prooduct.php?id=$row[ProductID]'>Edit</a></td>
+                                <td><a href = '../admin/delete_products.php?id=$row[ProductID]'>Delete</a></td>
                             </tr>
                         ";
                 }

@@ -1,5 +1,4 @@
 <?php
-session_start();
 include(__DIR__ . '/../dbconnect.php');
 include('../Headers/customerHeader.php');
 

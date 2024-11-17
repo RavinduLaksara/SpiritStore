@@ -35,7 +35,7 @@ $result_store = $connection->query($sql);
 </head>
 
 <body>
-<h1>Available Sellers</h1>
+    <h1>Available Sellers</h1>
 
     <div class="item-container">
         <?php
@@ -52,14 +52,17 @@ $result_store = $connection->query($sql);
                         <p>seller name</p>
                         <img src = '../{$product_row['photo']}' alt = 'Product image'>
                         <p>{$product_row['Name']}</p>
-                        <p>Price Rs. {$row_store['Price']}</p>
-                        <p>Quntity - {$row_store['Quantity']}</p>
-                        <a class='card-button' href='../pages\product_view.php?productID={$product_id}&storeID={$row_store['StoreID']}'>View Product</a>
-                    </div>
-                ";
+                        <p>Price Rs. {$row_store['Price']}</p>";
+            if ($row_store['Quantity'] == 0) {
+                echo "<span style='color: red;'>* Out of Stock</span><br>";
+            } else {
+                echo "<p>Quantity - {$row_store['Quantity']}</p>
+                <a class='card-button' href='../pages\product_view.php?productID={$product_id}&storeID={$row_store['StoreID']}'>View Product</a>";
+            }
+            echo "</div>";
         }
         ?>
     </div>
 </body>
+
 </html>
-    

@@ -48,6 +48,10 @@ $result = $connection->query($sql);
         </div>
         <div class='item-container-modify'>
             <?php
+            if ($result->num_rows == 0) {
+                header("Location: ../pages/empty_products.php");
+                exit;
+            }
             while ($product_row = $result->fetch_assoc()) {
                 // Get brand Name
                 $sql = "SELECT name FROM brand WHERE id = '$product_row[BrandID]'";

@@ -36,7 +36,7 @@ $result = $connection->query($sql);
 </head>
 
 <body>
-    <div >
+    <div>
         <div class='title'>
             <?php
             echo "
@@ -47,6 +47,10 @@ $result = $connection->query($sql);
         </div>
         <div class='item-container-modify'>
             <?php
+            if ($result->num_rows == 0) {
+                header("Location: ../pages/empty_products.php");
+                exit;
+            }
             while ($product_row = $result->fetch_assoc()) {
                 // Get category Name
                 $sql = "SELECT name FROM category WHERE id = '$product_row[CategoryID]'";
