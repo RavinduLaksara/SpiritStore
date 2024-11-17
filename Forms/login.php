@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             header('Location: ../pages/supplier/supplier_dashboard.php?id=' . $userid);
             exit;
         } else if ($userid = checkData($connection, $email, $password, 'admin')) {
-            header('Location: pages\admin- dashboard.php?id=' . $userid);
+            header('Location: ../pages/admin_dashboard.php?id=' . $userid);
             exit;
         } else {
             echo "Invalid email or password";
@@ -43,7 +43,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     } while (false);
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 

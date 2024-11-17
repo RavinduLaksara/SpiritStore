@@ -4,7 +4,7 @@ include(__DIR__ . '/../../dbconnect.php');
 include(__DIR__ . '/../../Headers/adminHeader.php');
 
 // get supplier details
-$sql = "SELECT id, name, phone, balance, approve_status FROM supplier";
+$sql = "SELECT id, name, phone, approve_status FROM supplier";
 $result = $connection->query($sql);
 
 ?>
@@ -40,7 +40,6 @@ $result = $connection->query($sql);
                                 <tr>
                                     <td>$row[name]</td>
                                     <td>$row[phone]</td>
-                                    <td>$row[balance]</td>
                                     <td>$row[approve_status]</td>
                                     <td><a href = '../admin/view_supplier.php?id=$row[id]'>View all</a></td>
                                     <td><a href = '../../Forms/edit_supplier_details.php?id=$row[id]'>Update</a></td>

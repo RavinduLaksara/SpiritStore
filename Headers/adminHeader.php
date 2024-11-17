@@ -26,13 +26,13 @@
 
       <h2 class="logo">SPIRIT STORE</h2>
       <a href="<?= APP_URL ?>/pages/admin/manage_suppliers.php">Manage Suppliers</a>
-      <a href="<?= APP_URL ?>pages/admin/manage_order.php">Manage Orders</a>
+      <a href="<?= APP_URL ?>/pages/admin/manage_order.php">Manage Orders</a>
       <a href="<?= APP_URL ?>/pages/admin/products.php">Manage Products</a>
       <a href="<?= APP_URL ?>/pages/admin/manage_customers.php">Manage Customers</a>
       <a href="<?= APP_URL ?>/Forms/add_new_brands">Add new Brand</a>
       <a href="<?= APP_URL ?>/Forms/add_new_category.php">Add new Category</a>
       <a href="<?= APP_URL ?>/Forms/admin-registration.php">Add new Admin</a>
-      <a href="#">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-user"></i></a>
+      <a href="<?= APP_URL ?>/pages/customer/logout.php">Logout</a>
 
     </nav>
   </section>
