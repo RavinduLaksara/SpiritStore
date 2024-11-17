@@ -39,7 +39,6 @@ if (isset($_SESSION['userid'])) {
 } elseif (!empty($_SESSION['cart'])) {
     // Handle guest users
     foreach ($_SESSION['cart'] as $item) {
-        // Check if all keys exist in the session data to avoid undefined array key errors
         if (isset($item['productID'], $item['storeID'], $item['quantity'])) {
             $productID = $item['productID'];
             $storeID = $item['storeID'];
@@ -57,7 +56,8 @@ if (isset($_SESSION['userid'])) {
 
             if ($result && $result->num_rows > 0) {
                 $product = $result->fetch_assoc();
-                $product['quantity'] = $quantity; // Add the quantity from the session cart
+                $product['quantity'] = $quantity;
+                $product['StoreID'] = $storeID; // Add StoreID
                 $product['subtotal'] = $product['Price'] * $quantity;
                 $cartDetails[] = $product;
                 $totalAmount += $product['subtotal'];
@@ -67,6 +67,9 @@ if (isset($_SESSION['userid'])) {
         }
     }
 }
+
+// Store cart details in session for later use
+$_SESSION['cartDetails'] = $cartDetails;
 ?>
 
 <!DOCTYPE html>
@@ -81,7 +84,6 @@ if (isset($_SESSION['userid'])) {
 
 <body>
     <div class="checkout-container">
-        <!-- Left Side: Billing Details -->
         <div class="billing-details">
             <h2>Billing Details</h2>
             <form action="process_order.php" method="POST">
@@ -102,10 +104,8 @@ if (isset($_SESSION['userid'])) {
 
                 <button type="submit" class="place-order-button">Place Order</button>
             </form>
-
         </div>
 
-        <!-- Right Side: Cart Details -->
         <div class="order-summary">
             <h2>Your Order</h2>
             <div class="order-items">
@@ -124,7 +124,6 @@ if (isset($_SESSION['userid'])) {
             </div>
             <div class="order-total">
                 <h3>Total: LKR <?php echo number_format($totalAmount, 2); ?></h3>
-
             </div>
         </div>
     </div>
