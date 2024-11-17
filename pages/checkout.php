@@ -1,6 +1,6 @@
 <?php
-session_start();
 include('../dbconnect.php');
+include('../Headers\customerHeader.php');
 
 // Initialize variables
 $cartDetails = [];

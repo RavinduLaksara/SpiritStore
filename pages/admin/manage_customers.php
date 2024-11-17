@@ -1,7 +1,7 @@
 <?php
 
 include(__DIR__ . '/../../dbconnect.php');
-// include(__DIR__ . '/../../Headers/adminHeader.php');
+include(__DIR__ . '/../../Headers/adminHeader.php');
 
 // get supplier details
 $sql = "SELECT id, name, phone, city FROM customer";

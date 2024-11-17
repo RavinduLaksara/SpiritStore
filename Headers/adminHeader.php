@@ -26,7 +26,7 @@
 
       <h2 class="logo">SPIRIT STORE</h2>
       <a href="<?= APP_URL ?>/pages/admin/manage_suppliers.php">Manage Suppliers</a>
-      <a href="#">Manage Orders</a>
+      <a href="<?= APP_URL ?>pages/admin/manage_order.php">Manage Orders</a>
       <a href="<?= APP_URL ?>/pages/admin/products.php">Manage Products</a>
       <a href="<?= APP_URL ?>/pages/admin/manage_customers.php">Manage Customers</a>
       <a href="<?= APP_URL ?>/Forms/add_new_brands">Add new Brand</a>
@@ -37,5 +37,6 @@
     </nav>
   </section>
 
-</body> 
+</body>
+
 </html>

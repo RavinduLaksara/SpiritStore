@@ -1,4 +1,6 @@
-<?php require(__DIR__ . '/../config.php'); ?>
+<?php require(__DIR__ . '/../config.php');
+session_start();
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -28,13 +30,13 @@
 
       <h2 class="logo">SPIRIT STORE</h2>
 
-      <a class="active" href="#">Manage Products</a>
-      <a href="#">Add products</a>
-      <a href="#">Check Orders</a>
-      <a href="#">Reports</a>
+      <a class="active" href="<?= APP_URL ?>/pages/supplier/supplier_manage_products.php">Manage Products</a>
+      <a href="<?= APP_URL ?>/pages/supplier/supplier_add_products.php">Add products</a>
+      <a href="<?= APP_URL ?>/pages/supplier/order_details.php">Check Orders</a>
+      <a href="<?= APP_URL ?>/pages/supplier/supplier_reports.php">Reports</a>
       <a href="<?= APP_URL ?>/homepage.php">Site Home</a>
 
-      <a href="#">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-user"></i></a>
+      <a href="<?= APP_URL ?>/pages/customer/logout.php">Logout</a>
 
     </nav>
   </section>

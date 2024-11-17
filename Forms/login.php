@@ -26,13 +26,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             echo "All details are required";
             break;
         }
-
         if ($userid = checkData($connection, $email, $password, 'customer')) {
             $_SESSION['userid'] = $userid;
             header('Location: ../homepage.php');
             exit;
         } else if ($userid = checkData($connection, $email, $password, 'supplier')) {
-            header('Location: pages\supplier-dashboard.php?id=' . $userid);
+            $_SESSION['userid'] = $userid;
+            header('Location: ../pages/supplier/supplier_dashboard.php?id=' . $userid);
             exit;
         } else if ($userid = checkData($connection, $email, $password, 'admin')) {
             header('Location: pages\admin- dashboard.php?id=' . $userid);

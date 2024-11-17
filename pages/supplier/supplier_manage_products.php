@@ -1,13 +1,13 @@
 <?php
-include('../Headers\supplierHeadder.php');
-include(__DIR__ . '/../dbconnect.php');
+include('../../Headers/supplierHeadder.php');
+include(__DIR__ . '../../../dbconnect.php');
 
-if (!isset($_GET['id'])) {
+if (!isset($_SESSION['userid'])) {
     header("Location: Forms\login.php");
     exit;
 }
 
-$supplier_id = $_GET['id'];
+$supplier_id = $_SESSION['userid'];
 
 // Get supplier name
 $sql = "SELECT name FROM supplier WHERE id = '$supplier_id'";

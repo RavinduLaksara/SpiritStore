@@ -39,6 +39,10 @@ $result_store = $connection->query($sql);
 
     <div class="item-container">
         <?php
+        if ($row_store->num_rows == 0) {
+            header("Location: ../pages/empty_products.php");
+            exit;
+        }
         while ($row_store = $result_store->fetch_assoc()) {
             // Get seller name
             $sql = "SELECT name FROM store WHERE store_id = '$row_store[StoreID]'";
