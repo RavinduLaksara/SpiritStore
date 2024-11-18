@@ -1,5 +1,6 @@
 <?php
-include('../../Headers/supplierHeadder.php');
+session_start();
+// include('../../Headers/supplierHeadder.php');
 include(__DIR__ . '../../../dbconnect.php');
 
 if (!isset($_SESSION['userid'])) {
@@ -73,7 +74,7 @@ $product_result = $connection->query($sql);
 
                         echo "
                         <div class='item item-seller_products'>
-                            <img src='../../{$row_product['photo']}' alt='Product image'>
+                            <img src='../{$row_product['photo']}' alt='Product image'>
                             <span>$brand_name</span>
                             <span>$category_name</span>
                             <p>{$row_product['name']}</p>
@@ -84,7 +85,7 @@ $product_result = $connection->query($sql);
                 ?>
             </div>
             <div class="add-new-button">
-                <a href="../Forms/add_new_product.php?id=<?php echo $store_id; ?>">Add New Product</a>
+                <a href="../../Forms/add_new_product.php?id=<?php echo $store_id; ?>">Add New Product</a>
             </div>
         </div>
     </div>

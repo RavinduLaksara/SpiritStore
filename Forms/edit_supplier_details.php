@@ -1,7 +1,7 @@
 <?php
 
 include(__DIR__ . '/../dbconnect.php');
-include(__DIR__ . '/../Headers/adminHeader.php');
+// include(__DIR__ . '/../Headers/adminHeader.php');
 
 if (!isset($_GET['id'])) {
     header("Location: ../manage_suppliers.php");
@@ -30,8 +30,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $license_type = $_POST['license_type'];
     $license_no = $_POST['license_no'];
     $approve_status = $_POST['approve_status'];
-    $balance = $_POST['balance'];
-    $commision = $_POST['commision'];
     $store_name = $_POST['store_name'];
     $store_state = $_POST['store_state'];
     $store_city = $_POST['store_city'];
@@ -40,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     do {
         // update supplier table
-        $sql = "UPDATE supplier SET name = '$name', email = '$email', phone = '$phone', state = '$state', city = '$city', postal_code = '$postal_code', license_type = '$license_type', license_no = '$license_no', approve_status = '$approve_status', balance = '$balance', commision = '$commision' WHERE id = $supplier_id";
+        $sql = "UPDATE supplier SET name = '$name', email = '$email', phone = '$phone', state = '$state', city = '$city', postal_code = '$postal_code', license_type = '$license_type', license_no = '$license_no', approve_status = '$approve_status' WHERE id = $supplier_id";
 
         $result = $connection->query($sql);
 
@@ -94,8 +92,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <option>yes</option>
                 <option>no</option>
             </select><br>
-            <input type="text" placeholder="Balance" name="balance" required value="<?php echo $row_supplier['balance'] ?>"><br>
-            <input type="text" placeholder="Commision" name="commision" required value="<?php echo $row_supplier['commision'] ?>"><br><br>
+
             <h1>Edit Store Information</h1><br>
             <input type="text" placeholder="Store Name" name="store_name" required value="<?php echo $row_store['name'] ?>"><br>
             <input type="text" placeholder="State" name="store_state" required value="<?php echo $row_store['state'] ?>"><br>

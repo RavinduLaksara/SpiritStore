@@ -2,6 +2,11 @@
 session_start();
 include(__DIR__ . '/../dbconnect.php');
 
+if (!isset($_SESSION['userid'])) {
+    header("Lacation: ../Forms/login.php");
+}
+
+$supplier_id = $_SESSION['userid'];
 
 // Add store id and price and store data in storeproduct table.
 function getDetailsToArray($result)
@@ -38,8 +43,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $local = strtolower($country) == 'sri lanka' ? 'local' : 'imported';
 
 
+
     $photo = $_FILES['photo']['name'];
-    $target_dir = "product-images/";
+    $target_dir = "../product-images/";
     $target_file = $target_dir . basename($photo);
     $uploadOk = 1;
 
@@ -78,6 +84,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 }
 
                 echo "Product added successfully.";
+                header("Location: ../pages/supplier/supplier_add_products.php?id= '$supplier_id'");
             } while (false);
         } else {
             echo "Error: Unable to move the uploaded file.";

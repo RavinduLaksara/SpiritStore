@@ -1,5 +1,6 @@
 <?php
-include('../../Headers/supplierHeadder.php');
+session_start();
+// include('../../Headers/supplierHeadder.php');
 include(__DIR__ . '../../../dbconnect.php');
 
 if (!isset($_SESSION['userid'])) {

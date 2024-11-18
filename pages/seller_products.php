@@ -39,7 +39,7 @@ $result_store = $connection->query($sql);
 
     <div class="item-container">
         <?php
-        if ($row_store->num_rows == 0) {
+        if ($result_store->num_rows == 0) {
             header("Location: ../pages/empty_products.php");
             exit;
         }
@@ -54,7 +54,7 @@ $result_store = $connection->query($sql);
                     <div class='item item-seller_products'>
 
                         <p>seller name</p>
-                        <img src = '../{$product_row['photo']}' alt = 'Product image'>
+                        <img src = '{$product_row['photo']}' alt = 'Product image'>
                         <p>{$product_row['Name']}</p>
                         <p>Price Rs. {$row_store['Price']}</p>";
             if ($row_store['Quantity'] == 0) {

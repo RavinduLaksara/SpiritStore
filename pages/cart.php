@@ -121,7 +121,7 @@ if (isset($_GET['remove']) && isset($_GET['itemID'])) {
                 <tbody>
                     <?php foreach ($cartItems as $item): ?>
                         <tr>
-                            <td><img src="../<?= htmlspecialchars($item['photo'] ?? 'default.jpg') ?>" alt="<?= htmlspecialchars($item['Name'] ?? 'No Name') ?>" width="50" height="50"></td>
+                            <td><img src="<?= htmlspecialchars($item['photo'] ?? 'default.jpg') ?>" alt="<?= htmlspecialchars($item['Name'] ?? 'No Name') ?>" width="50" height="50"></td>
                             <td><?= htmlspecialchars($item['Name'] ?? 'Unknown Product') ?></td>
                             <td>Rs. <?= number_format($item['Price'], 2) ?></td>
                             <td><?= $item['quantity'] ?></td>

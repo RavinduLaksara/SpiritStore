@@ -114,7 +114,7 @@ $_SESSION['cartDetails'] = $cartDetails;
                 <?php else : ?>
                     <?php foreach ($cartDetails as $item) : ?>
                         <div class="order-item">
-                            <img src="../<?php echo htmlspecialchars($item['photo']); ?>" alt="Product image" width="50" height="50">
+                            <img src="<?php echo htmlspecialchars($item['photo']); ?>" alt="Product image" width="50" height="50">
                             <p><?php echo htmlspecialchars($item['Name']); ?></p>
                             <p>Quantity: <?php echo $item['quantity']; ?></p>
                             <p>Subtotal: LKR <?php echo number_format($item['subtotal'], 2); ?></p>

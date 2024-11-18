@@ -60,7 +60,7 @@ $result = $connection->query($sql);
                 $brand_name = $row[0];
                 echo "
                         <div class='item item-seller_products'>
-                            <img src = '../{$product_row['photo']}' alt = 'Product image'>
+                            <img src = '{$product_row['photo']}' alt = 'Product image'>
                             <p>$brand_name</p>
                             <p>{$product_row['name']}</p>
                             <a class='card-button' href = '../pages/seller_products.php?id= $product_row[ProductID]''>View Sellers</a>

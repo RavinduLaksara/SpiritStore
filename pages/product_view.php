@@ -52,7 +52,7 @@ $category_name = $row[0];
 
     <div class="content">
         <div class="left">
-            <img src="../<?php echo $product_row['photo']; ?>" alt="product image">
+            <img src="<?php echo $product_row['photo']; ?>" alt="product image">
         </div>
         <div class="right">
             <?php

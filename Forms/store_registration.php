@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $name = $_POST['name'];
     $state = $_POST['state'];
     $city = $_POST['city'];
-    $po_code = $_POST['po-code'];
+    $po_code = $_POST['postal_code'];
 
     do {
         if (empty($name) || empty($state) || empty($city) || empty($po_code)) {
@@ -63,19 +63,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <h3>Enter Your Address</h3>
                 <div class="input-box">
                     <span class="icon"><ion-icon name="location-outline"></ion-icon></span>
-                    <input type="text" required>
+                    <input type="text" name="state" required>
                     <label>State</label>
                 </div>
 
                 <div class="input-box">
                     <span class="icon"><ion-icon name="location-outline"></ion-icon></span>
-                    <input type="text" required>
+                    <input type="text" name="city" required>
                     <label>City</label>
                 </div>
 
                 <div class="input-box">
                     <span class="icon"><ion-icon name="location-outline"></ion-icon></span>
-                    <input type="text" required>
+                    <input type="text" name="postal_code" required>
                     <label>Postel Code</label>
                 </div>
 

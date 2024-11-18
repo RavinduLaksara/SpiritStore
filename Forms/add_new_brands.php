@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             break;
         }
 
-        $sql = "INSERT INTO brand (name, descri) VALUES ('$name', '$desc')";
+        $sql = "INSERT INTO brand (name, descri) VALUES ('$nsame', '$desc')";
         $result = $connection->query($sql);
 
         if (!$result) {

@@ -66,7 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         $supplier_id = $connection->insert_id;
 
-        header("Location: Forms\store_registration.php?id=$supplier_id");
+        header("Location: ../Forms/store_registration.php?id=$supplier_id");
         exit();
     } while (false);
 }

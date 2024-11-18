@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Nov 03, 2024 at 07:34 AM
+-- Generation Time: Nov 18, 2024 at 12:04 PM
 -- Server version: 8.3.0
 -- PHP Version: 8.2.18
 
@@ -62,7 +62,7 @@ CREATE TABLE IF NOT EXISTS `brand` (
   `name` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
   `descri` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `brand`
@@ -76,7 +76,10 @@ INSERT INTO `brand` (`id`, `name`, `descri`) VALUES
 (5, 'Smirnoff', 'Smirnoff No.21 Premium Vodka is the number one best-selling premium vodka in the world with countles'),
 (6, 'Carlsberg', 'Established in 1847 by brewer J.C. Jacobsen, the Carlsberg Group is one of the leading brewery group'),
 (10, 'Beluga', 'Beluga is a Noble Russian vodka with modern attitude. It is created by true masters in Siberia for t'),
-(15, 'Glenfiddich', 'Glenfiddich stands on the hills of Speyside, on the outskirts of the whisky town of Dufftown, Scotla');
+(15, 'Glenfiddich', 'Glenfiddich stands on the hills of Speyside, on the outskirts of the whisky town of Dufftown, Scotla'),
+(16, 'Cognac', 'Cognac is a variety of brandy named after the commune of Cognac, France. It is produced in the surrounding wine-growing region in the departments of Charente and Charente-Maritime'),
+(17, 'IDL', 'Over the years, International Distillers Limited has emerged as one of Sri Lanka leading corporates and a manufacturer'),
+(18, 'Lion', 'Lion Brewery or Lion Brewery (Ceylon) PLC is a predominantly Sri Lankan owned and operated brewery. The company is listed on the Colombo Stock Exchange and its stock is part of the S&P Sri Lanka 20 Index');
 
 -- --------------------------------------------------------
 
@@ -91,14 +94,7 @@ CREATE TABLE IF NOT EXISTS `cart` (
   `total` double NOT NULL,
   PRIMARY KEY (`cartID`),
   KEY `customerID` (`customerID`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `cart`
---
-
-INSERT INTO `cart` (`cartID`, `customerID`, `total`) VALUES
-(1, 3, 0);
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -113,10 +109,11 @@ CREATE TABLE IF NOT EXISTS `cartitem` (
   `ProductID` int DEFAULT NULL,
   `Quantity` int NOT NULL,
   `SubTotal` double NOT NULL,
+  `storeID` int DEFAULT NULL,
   PRIMARY KEY (`itemID`),
   KEY `cartID` (`cartID`),
   KEY `ProductID` (`ProductID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -130,7 +127,7 @@ CREATE TABLE IF NOT EXISTS `category` (
   `name` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
   `descri` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `category`
@@ -163,14 +160,14 @@ CREATE TABLE IF NOT EXISTS `customer` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`),
   UNIQUE KEY `phone` (`phone`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `customer`
 --
 
 INSERT INTO `customer` (`id`, `name`, `email`, `phone`, `password`, `state`, `city`, `postal_code`) VALUES
-(3, 'Kavindu', 'kavindu@gmail.com', '0767113768', '$2y$10$p0G18dD5lilYekVExreOweisJdItmhmB2J4HEgJydJlDgcIqv.Ozi', 'katuwana', 'Middeniya', '81280');
+(4, 'dinuka', 'dinuka@gmail.com', '0705637732', '$2y$10$rUyAmBVfQZc7W73wZ7OW.OdVVBxADdG0Ap67C4LEmcMUWpvYgWHKK', 'thihagoda', 'matara', '81280');
 
 -- --------------------------------------------------------
 
@@ -185,10 +182,19 @@ CREATE TABLE IF NOT EXISTS `orderdetails` (
   `ProductID` int DEFAULT NULL,
   `Quantity` int NOT NULL,
   `SubTotal` double NOT NULL,
+  `storeID` int DEFAULT NULL,
   PRIMARY KEY (`OrderDetailID`),
   KEY `OrderID` (`OrderID`),
   KEY `ProductID` (`ProductID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `orderdetails`
+--
+
+INSERT INTO `orderdetails` (`OrderDetailID`, `OrderID`, `ProductID`, `Quantity`, `SubTotal`, `storeID`) VALUES
+(11, 9, 1, 1, 17500, 1),
+(12, 10, 15, 1, 4580, 1);
 
 -- --------------------------------------------------------
 
@@ -202,27 +208,19 @@ CREATE TABLE IF NOT EXISTS `orders` (
   `CustomerID` int DEFAULT NULL,
   `OrderDate` datetime DEFAULT CURRENT_TIMESTAMP,
   `TotalAmount` double NOT NULL,
-  `PaymentID` int DEFAULT NULL,
+  `street` varchar(20) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `city` varchar(20) COLLATE utf8mb4_general_ci DEFAULT NULL,
   PRIMARY KEY (`OrderID`),
-  KEY `CustomerID` (`CustomerID`),
-  KEY `PaymentID` (`PaymentID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
+  KEY `CustomerID` (`CustomerID`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Table structure for table `payment`
+-- Dumping data for table `orders`
 --
 
-DROP TABLE IF EXISTS `payment`;
-CREATE TABLE IF NOT EXISTS `payment` (
-  `paymentID` int NOT NULL AUTO_INCREMENT,
-  `transactionID` int DEFAULT NULL,
-  `payment_date` datetime DEFAULT CURRENT_TIMESTAMP,
-  `status` varchar(4) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `type` varchar(10) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  PRIMARY KEY (`paymentID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+INSERT INTO `orders` (`OrderID`, `CustomerID`, `OrderDate`, `TotalAmount`, `street`, `city`) VALUES
+(9, 4, '2024-11-18 02:19:10', 17500, 'thihagoda', 'matara'),
+(10, 4, '2024-11-18 02:23:33', 4580, 'Katuwana', 'Middeniya');
 
 -- --------------------------------------------------------
 
@@ -244,19 +242,26 @@ CREATE TABLE IF NOT EXISTS `product` (
   PRIMARY KEY (`ProductID`),
   KEY `BrandID` (`BrandID`),
   KEY `CategoryID` (`CategoryID`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `product`
 --
 
 INSERT INTO `product` (`ProductID`, `Name`, `Description`, `BrandID`, `CategoryID`, `Local_Imported`, `Country`, `ABV`, `photo`) VALUES
-(1, 'Johnnie Walker Black Label', 'Recognized as the benchmark for all other deluxe blends, Johnnie Walker Black Label is a true icon. Created using only whiskies aged for a minimum of 12 years from the four corners of Scotland, Johnnie Walker Black Label has an unmistakably smooth, deep character.', 4, 4, 'Imported', 'Scotland', 40, 'product-images/Johnnie Walker Black Label.jpeg'),
-(2, 'DCSL Extra Special', 'DCSL ES Arrack is spiced up with a wonderful blend of natural spices such as Iramasu, Cinnamon & Cardamoms to enhance it’s delicious flavor. This heart warming tipple has no added artificial colors or flavors.', 2, 9, 'Local', 'Sri Lanka', 33.5, 'product-images/DCSL Extra Special.jpeg'),
-(4, 'Smirnoff Red  750ml', 'Triple distilled and filtered 10 times, the Smirnoff is the world’s best-selling vodka. Crystal clear in colour, the vodka has faint aromas of black pepper and charcoal. On the palate, the vodka has flavours of black pepper and subtle peppermint freshness.\r\n\r\n', 5, 3, 'imported', 'Russia', 40, 'product-images/Smirnoff Vodka.jpg'),
-(7, 'CARLSBERG SPECIAL BREW 500ML CAN', 'The international flavors of global brewers Carlsberg, is produced at the Lion Brewery under license, adding further dimensions to the portfolio of products on offer, is available in 8.8%.', 6, 10, 'imported', 'Denmark', 8.8, 'product-images/CARLSBERG SPECIAL BREW 500ML CAN.jpg'),
-(10, 'NOBLEWOOD BELUGA NOBLE VODKA 700ML', 'Beluga is a very famous and high-quality vodka from Russia. It has a fancy history and is made with great care. The place where they make it, called the Mariinsk Distillery, was started in 1900 and is in a clean and natural part of Siberia.', 10, 3, 'imported', 'Russia', 40, 'product-images/beluga-noble-vodka-07-liter_1_.jpg'),
-(11, 'GLENFIDDICH 21 YRS 700 ML', 'A 21 year old bottling from Glenfiddich, finished in casks used previously to age Caribbean Rum.', 15, 4, 'imported', 'Scotland', 40, 'product-images/glenfiddich-21.jpg');
+(1, 'Johnnie Walker Black Label', 'Recognized as the benchmark for all other deluxe blends, Johnnie Walker Black Label is a true icon. Created using only whiskies aged for a minimum of 12 years from the four corners of Scotland, Johnnie Walker Black Label has an unmistakably smooth, deep character.', 4, 4, 'Imported', 'Scotland', 40, '../product-images/Johnnie Walker Black Label.jpeg'),
+(2, 'DCSL Extra Special', 'DCSL ES Arrack is spiced up with a wonderful blend of natural spices such as Iramasu, Cinnamon & Cardamoms to enhance it’s delicious flavor. This heart warming tipple has no added artificial colors or flavors.', 2, 9, 'local', 'Sri Lanka', 33.5, '../product-images/DCSL Extra Special.jpeg'),
+(4, 'Smirnoff Red  750ml', 'Triple distilled and filtered 10 times, the Smirnoff is the world’s best-selling vodka. Crystal clear in colour, the vodka has faint aromas of black pepper and charcoal. On the palate, the vodka has flavours of black pepper and subtle peppermint freshness.\r\n\r\n', 5, 3, 'imported', 'Russia', 40, '../product-images/Smirnoff Vodka.jpg'),
+(7, 'CARLSBERG SPECIAL BREW 500ML CAN', 'The international flavors of global brewers Carlsberg, is produced at the Lion Brewery under license, adding further dimensions to the portfolio of products on offer, is available in 8.8%.', 6, 10, 'imported', 'Denmark', 8.8, '../product-images/CARLSBERG SPECIAL BREW 500ML CAN.jpg'),
+(10, 'NOBLEWOOD BELUGA NOBLE VODKA 700ML', 'Beluga is a very famous and high-quality vodka from Russia. It has a fancy history and is made with great care. The place where they make it, called the Mariinsk Distillery, was started in 1900 and is in a clean and natural part of Siberia.', 10, 3, 'imported', 'Russia', 40, '../product-images/beluga-noble-vodka-07-liter_1_.jpg'),
+(11, 'GLENFIDDICH 21 YRS 700 ML', 'A 21 year old bottling from Glenfiddich, finished in casks used previously to age Caribbean Rum.', 15, 4, 'imported', 'Scotland', 40, '../product-images/glenfiddich-21.jpg'),
+(12, 'TWIST ORIGINAL VODKA 750ML', 'TWIST ORIGINAL VODKA from Rockland Distilleries.', 1, 3, 'local', 'Sri Lanka', 38, '../product-images/Twist vodka.jpeg'),
+(14, 'KEROFF VODKA 750 ML', 'This is a Charcoal-Filtered Vodka Crafted from an Original Russian recipe by Expert Master Distillers to offer a distinctive pure taste.', 1, 3, 'local', 'Sri Lanka', 40, '../product-images/KEROFF-VODKA-750-ML.jpg'),
+(15, 'ROSKAA VODKA 750 ML', 'Roska vodka is a pure distilled vodka with a 38% alcohol by volume (vol). It is available in 375 ml and 750 ml bottles.', 1, 3, 'local', 'Sri Lanka', 38, '../product-images/ROSKAA-VODKA-375-ML.jpg'),
+(16, 'Courvoisier VS Cognac', 'The Courvoisier VS Cognac is a signature blend of cognacs aged between three and seven years. This combination of older and younger cognacs gives a delicate and fruity taste and intense aromas of ripe fruits and ring flowers.', 16, 1, 'imported', 'France', 40, '../product-images/Courvoisier VS Cognac.jpeg'),
+(17, 'ASCOT LEMON GIN', 'For a gin lover who likes a fruity touch to his or her drink try Ascot Lemon. Carefully created as a wonderfully refreshing alternative to the usual dry gins, this is a drink that is moreish in every way.', 17, 2, 'local', 'Sri Lanka', 39, '../product-images/Lemon-gin.png'),
+(18, 'LION STRONG BEER 500ML CAN', 'Undoubtedly the best selling among our mild beers, Lion Lager Beer has a 8.8% alcohol volume and is credited as a great thirst quencher. Golden roasted malt in color with a hint of fruit and caramel flavoring, it is very slightly sweet with less hop notes.', 18, 10, 'local', 'Sri Lanka', 8.8, '../product-images/lion beer.jpg'),
+(19, 'Jack Daniels Tennessee Whisky, 750ml', 'Jack Daniel’s Black Label (also known as Old No. 7 or more commonly as JD or simply Jack) is one of the best selling whiskeys in the world. It is the signature brand that defines Tennessee whiskey and is easily distinguishable from every other whiskey produced today.', 3, 4, 'imported', 'United States', 40, '../product-images/Jack Daniels Tennessee Whisky.jpg');
 
 -- --------------------------------------------------------
 
@@ -272,16 +277,20 @@ CREATE TABLE IF NOT EXISTS `store` (
   `supplier_id` int DEFAULT NULL,
   `city` varchar(30) DEFAULT NULL,
   `postal_code` varchar(30) DEFAULT NULL,
+  `balance` decimal(10,2) NOT NULL DEFAULT '0.00',
+  `commision` decimal(10,2) NOT NULL DEFAULT '0.00',
   PRIMARY KEY (`store_id`),
   KEY `supplier_id` (`supplier_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `store`
 --
 
-INSERT INTO `store` (`store_id`, `name`, `state`, `supplier_id`, `city`, `postal_code`) VALUES
-(1, 'Panadura wine stores', 'keselwatta', 2, 'panadura', '81500');
+INSERT INTO `store` (`store_id`, `name`, `state`, `supplier_id`, `city`, `postal_code`, `balance`, `commision`) VALUES
+(1, 'Panadura wine stores', 'keselwatta', 2, 'Panadura', '81500', 22080.00, 2208.00),
+(2, 'Best Liquor Store', 'Kandegoda', 4, 'Ambalangoda', '80300', 0.00, 0.00),
+(3, 'Matara Wine Stores', 'Kirinda', 5, 'Matara', '81280', 0.00, 0.00);
 
 -- --------------------------------------------------------
 
@@ -304,11 +313,22 @@ CREATE TABLE IF NOT EXISTS `storeproduct` (
 --
 
 INSERT INTO `storeproduct` (`StoreID`, `ProductID`, `Quantity`, `Price`) VALUES
-(1, 1, 14, 17400),
-(1, 2, 22, 3580),
-(2, 1, 13, 17800),
+(1, 1, 12, 17500),
+(1, 2, 30, 3600),
+(1, 4, 14, 7250),
+(1, 14, 28, 5100),
+(1, 15, 17, 4580),
+(2, 1, 18, 17800),
 (2, 2, 43, 3700),
-(3, 2, 54, 3600);
+(2, 12, 16, 4600),
+(2, 16, 25, 30450),
+(2, 17, 18, 5100),
+(2, 18, 120, 700),
+(2, 19, 38, 22150),
+(3, 2, 54, 3600),
+(3, 4, 45, 7500),
+(3, 7, 88, 720),
+(3, 11, 12, 178000);
 
 -- --------------------------------------------------------
 
@@ -329,18 +349,18 @@ CREATE TABLE IF NOT EXISTS `supplier` (
   `license_type` varchar(50) DEFAULT NULL,
   `license_no` varchar(50) DEFAULT NULL,
   `approve_status` varchar(50) DEFAULT NULL,
-  `balance` double DEFAULT NULL,
-  `commision` double DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `supplier`
 --
 
-INSERT INTO `supplier` (`id`, `name`, `email`, `phone`, `password`, `state`, `city`, `postal_code`, `license_type`, `license_no`, `approve_status`, `balance`, `commision`) VALUES
-(2, 'Praveen', 'praveen@gmail.com', '0766940529', '$2y$10$O7ANl0cGPsay3yrTgrwYoesQT/tasw5J549o3XnLV9Ku5cel4AVQ6', 'keselwatta', 'panadura', '81500', 'F.L 3', '234562', 'no', 0, 0);
+INSERT INTO `supplier` (`id`, `name`, `email`, `phone`, `password`, `state`, `city`, `postal_code`, `license_type`, `license_no`, `approve_status`) VALUES
+(2, 'Praveen', 'praveen@gmail.com', '0766940529', '$2y$10$O7ANl0cGPsay3yrTgrwYoesQT/tasw5J549o3XnLV9Ku5cel4AVQ6', 'keselwatta', 'panadura', '81500', 'F.L 3', '234562', 'yes'),
+(4, 'Tasheen', 'tasheen@gmail.com', '0766940529', '$2y$10$S6Y8MDODr40Lsx1.O47/H.lVUYq3ckjKVcK2tVLeT..JKxlrQN7bG', 'Kandegoda', 'Ambalangoda', '80300', 'F.L 3', '234562', 'yes'),
+(5, 'Chamindu', 'chamindu@gmail.com', '0777066940', '$2y$10$69rZ.W7AXwAagFcdCHCtfO2tePxIX3dNK9TpJo51Ye9gdtJOwAM/O', 'Kirinda', 'Matara', '81280', 'F.L 3', '234562', 'yes');
 
 --
 -- Constraints for dumped tables
@@ -370,8 +390,7 @@ ALTER TABLE `orderdetails`
 -- Constraints for table `orders`
 --
 ALTER TABLE `orders`
-  ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`CustomerID`) REFERENCES `customer` (`id`),
-  ADD CONSTRAINT `orders_ibfk_2` FOREIGN KEY (`PaymentID`) REFERENCES `payment` (`paymentID`);
+  ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`CustomerID`) REFERENCES `customer` (`id`);
 
 --
 -- Constraints for table `product`

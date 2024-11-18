@@ -100,7 +100,7 @@
                 foreach ($products as $product) {
                     echo '
                         <div class="item">
-                            <img src="../' . $product['photo'] . '" alt="photo">
+                            <img src="' . $product['photo'] . '" alt="photo">
                             <p class="category">' . htmlspecialchars($product['category_name']) . '</p>
                             <p class="name">' . htmlspecialchars($product['product_name']) . '</p>
                             <p class="brand">' . htmlspecialchars($product['brand_name']) . '</p>
