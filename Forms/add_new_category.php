@@ -34,7 +34,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="webpage\style.css">
+    
+   
     <title>Add New Category</title>
 </head>
 
@@ -64,6 +65,101 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
             </form>
+            <style>
+                * {margin-left: 0;
+    margin-top: 0;
+      margin-right: 0;
+      box-sizing: border-box;
+      font-family: 'Roboto', sans-serif;
+    }
+    
+    .container {
+      margin-top: 0;
+      height: 100vh;
+      background-image: url('photo1.jpg');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .form-container {
+      align-items: center;
+      width: 400px;
+      padding: 30px;
+      background: rgba(156, 141, 141, 0.753);
+      border-radius: 35px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(10px);
+    }
+    
+    h2 {
+      text-align: center;
+      color: black;
+      margin-bottom: 20px;
+    }
+    
+    .input-box {
+      position: relative;
+      margin: 20px 0;
+    }
+    
+    .input-box label {
+      position: absolute;
+      top: 50%;
+      left: 10px;
+      transform: translateY(-50%);
+      font-size: 14px;
+      color: black;
+      transition: 0.3s;
+    }
+    
+    .input-box input {
+      width: 100%;
+      padding: 10px 10px;
+      background: transparent;
+      border: none;
+      border-bottom: 2px solid rgba(0, 0, 0, 0.5);
+      outline: none;
+      font-size: 16px;
+      color: black;
+    }
+    
+    .input-box input:focus ~ label,
+    .input-box input:valid ~ label {
+      top: -10px;
+      font-size: 12px;
+      color: #1f1d2b;
+    }
+    
+    .input-box .icon {
+      position: absolute;
+      top: 50%;
+      right: 10px;
+      transform: translateY(-50%);
+      font-size: 18px;
+      color: black;
+    }
+    
+    button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 20px;
+      background: black;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: 0.3s;
+    }
+    
+    button:hover {
+      background: #333;
+    }
+    
+            </style>
         </div>
 </body>
 

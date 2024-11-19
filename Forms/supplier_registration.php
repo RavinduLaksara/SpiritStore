@@ -80,13 +80,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="webpage\style.css">
     <title>Supplier Registration</title>
-    <link rel="stylesheet" href="styles/form.css">
+    <link rel="stylesheet" href="../styles/registration.css">
 </head>
 
 <body>
-    <div class="container">
+<div class="container">
+<div class="form-container">
         <h1>Supplier Registration</h1>
+
         <form action="" method="post">
+<div class="form-box">
+        <div id="left">
             <h3>Enter Personal Details</h3>
 
             <div class="input-box">
@@ -114,7 +118,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <label>Confirm Password</label>
             </div>
             
+</div>
 
+<div id="right">
             <h3>Enter Your Address</h3>
 
 
@@ -132,7 +138,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <input type="text" name="po-code" required>
             <label>Postal Code</label>
             </div>
-
+</div>
+<div id="right1">
             <h3>Enter Your License Details</h3>
 
             <div class="input-box">
@@ -144,11 +151,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <input type="text" name="license_no" required>
             <label>License No</label>
             </div>
-
+<br>
             <input type="checkbox" name="terms" required>
+            
             <label for="terms">I agree to the <a href="#" target="_blank">terms and conditions</a>.</label><br><br>
+            <br>
             <button type="submit" name="submit" value="Register" required>Submit</button>
-        </form>
+</div>
+</form>
+    </div>
     </div>
 </body>
 

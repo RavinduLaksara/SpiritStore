@@ -41,65 +41,64 @@ session_start();
     </nav>
   </section>
   <style>
-    @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;500;700&display=swap");
+       
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;500;700&display=swap");
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: "Roboto", sans-serif;
-    }
+*{
+   
+    font-family: "Roboto", sans-serif;
+}
 
-    #header {
-      display: flex;
-      background: white;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
-      z-index: 999;
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 100vh;
-      width: 400px;
-      /* Set the width for the vertical sidebar */
-      padding: 20px;
-    }
+#header{
+display: flex;
+align-items: start;
+justify-content: space-between;
+background: white;
+box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+z-index: 999;
+position: sticky;
+height: 100vh;
+width: 230px;
+position: fixed;
+}
 
-    .navbar {
-      display: flex;
-      flex-direction: column;
-      /* Arrange links vertically */
-      align-items: center;
-      width: 100%;
-      /* Full width */
-    }
 
-    .logo {
+.logo {
+    color: black;
+    user-select: none;
+    font-size: 1.7em;
+    font-weight: bold;
+    letter-spacing: 2px;
+  }
 
-      margin-bottom: 20px;
-      letter-spacing: 2px;
-      margin-left: 100px;
-    }
+  .navbar {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    gap: 35px; /* Space between items */
+    background-color: #f4f4f4; /* Optional: Light background for navbar */
+    padding: 10px 10px; /* Padding around the navbar */
+}
 
-    .navbar a {
-      text-decoration: none;
-      padding: 10px 0;
-    }
+.navbar a {
+    text-decoration: none;
+    color: #333; /* Text color */
+    font-size: 1em;
+    padding: 12px;
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+}
 
-    .right-icons {
-      margin-top: auto;
-      display: flex;
-      align-items: center;
-    }
+.navbar a:hover {
+    background-color: #ddd; /* Hover background color */
+}
 
-    .right-icons a {
-      margin-left: 10px;
-      color: #14151a;
-      font-size: 20px;
-    }
+.navbar .active {
+    background-color: #212324; /* Active link background color */
+    color: white; /* Active link text color */
+    font-weight: bold; /* Emphasize active link */
+}
 
-    .right-icons a:hover {
-      color: rgb(223, 86, 51);
-    }
   </style>
 </body>
 

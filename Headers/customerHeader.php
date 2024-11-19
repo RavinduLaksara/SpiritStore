@@ -1,29 +1,74 @@
 <?php
-session_start();
-include(__DIR__ . '/../config.php');
 include(__DIR__ . '/../dbconnect.php');
+include('../Headers\customerHeader.php');
 
-$cartCount = 0;
-
-// Check if user is logged in
-if (isset($_SESSION['userid'])) {
-  // Fetch item count from `cartItem` table for logged-in users
-  $customerID = $_SESSION['userid'];
-  $sql = "SELECT COUNT(*) AS count FROM cartitem 
-            INNER JOIN cart ON cart.cartID = cartitem.cartID
-            WHERE cart.customerID = '$customerID'";
-  $result = $connection->query($sql);
-  if ($result) {
-    $row = $result->fetch_assoc();
-    $cartCount = $row['count'];
-  }
-} else {
-  // For guest users, count items in session-based cart
-  if (isset($_SESSION['cart'])) {
-    foreach ($_SESSION['cart'] as $item) {
-      $cartCount += $item['quantity'];
+function verifyPhoneNumber($phoneNumber)
+{
+    if (strlen($phoneNumber) == 10) {
+        return true;
+    } else {
+        return false;
     }
-  }
+}
+
+function verifyPassword($password)
+{
+    if (strlen($password) >= 8) {
+        return true;
+    }
+    return false;
+}
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $phone = $_POST['phone'];
+    $password = $_POST['password'];
+    $con_password = $_POST['con-password'];
+    $state = $_POST['state'];
+    $city = $_POST['city'];
+    $po_code = $_POST['po-code'];
+    $license_type = $_POST['license_type'];
+    $license_no = $_POST['license_no'];
+
+    do {
+        if (empty($name) || empty($email) || empty($phone) || empty($password) || empty($con_password) || empty($state) || empty($city) || empty($po_code) || empty($license_type) || empty($license_no)) {
+            echo "all details are required";
+            break;
+        }
+
+        if (!verifyPassword($password)) {
+            echo "Please Enter Strong Password";
+            break;
+        }
+
+        if ($password != $con_password) {
+            echo "Password & Confirm password not equal";
+            break;
+        }
+
+        if (!verifyPhoneNumber($phone)) {
+            echo "Please Enter valid phone no - 07**";
+            break;
+        }
+
+        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
+        $sql = "INSERT INTO supplier (name, email, phone, password, state, city, postal_code, license_type, license_no,	approve_status) VALUES ('$name', '$email', '$phone', '$hashedPassword', '$state', '$city', '$po_code', '$license_type', '$license_no', 'no')";
+
+        $result = $connection->query($sql);
+        if (!$result) {
+            echo 'Invalid query';
+            break;
+        }
+
+        echo 'Registration Successfully';
+
+        $supplier_id = $connection->insert_id;
+
+        header("Location: ../Forms/store_registration.php?id=$supplier_id");
+        exit();
+    } while (false);
 }
 ?>
 
@@ -31,46 +76,90 @@ if (isset($_SESSION['userid'])) {
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title></title>
-  <!-- <link rel="stylesheet" href="../styles/customer.css"> -->
-  <script
-    src="https://kit.fontawesome.com/a076d05399.js"
-    crossorigin="anonymous"></script>
-  <link
-    rel="stylesheet"
-    href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="webpage\style.css">
+    <title>Supplier Registration</title>
 </head>
 
 <body>
-  <section id="header">
+<div class="container">
+<div class="form-container">
+        <h1>Supplier Registration</h1>
+
+        <form action="" method="post">
+<div class="form-box">
+        <div id="left">
+            <h3>Enter Personal Details</h3>
+
+            <div class="input-box">
+            <input type="text" name="username" required>
+            <label>Your name</label>
+            </div>
+
+            <div class="input-box">
+            <input type="email"  name="email" required>
+            <label>Email</label>
+            </div>
+
+            <div class="input-box">
+            <input type="email"  name="email" required>
+            <label>Phone No</label>
+            </div>
+
+            <div class="input-box">
+            <input type="password"  name="password" required>
+            <label>Password</label>
+            </div>
+
+            <div class="input-box">
+            <input type="password"  name="con-password" required>
+            <label>Confirm Password</label>
+            </div>
+            
+</div>
+
+<div id="right">
+            <h3>Enter Your Address</h3>
 
 
-    <div class="navbar">
+            <div class="input-box">
+            <input type="text" name="state" required>
+            <label>State</label>
+            </div>
 
-      <h3 class="logo">&nbsp;&nbsp;SPIRIT STORE</h3>
+            <div class="input-box">
+            <input type="text" name="city" required>
+            <label>City</label>
+            </div>
 
-      <a class="active" href="<?= APP_URL ?>/homepage.php">Home</a>
+            <div class="input-box">
+            <input type="text" name="po-code" required>
+            <label>Postal Code</label>
+            </div>
+</div>
+<div id="right1">
+            <h3>Enter Your License Details</h3>
 
-      <a href="<?= APP_URL ?>/pages/products.php">Products</a>
-      <a href="<?= APP_URL ?>/pages/products_by_category.php?id=4">Whiskey</a>
-      <a href="<?= APP_URL ?>/pages/products_by_category.php?id=9">Arrack</a>
-      <a href="<?= APP_URL ?>/pages/products_by_category.php?id=10">Beers</a>
-      <a href="<?= APP_URL ?>/Forms/supplier_registration.php">Join as a Supplier</a>
-      <div class="right-section">
-        <a href="<?= APP_URL ?>/pages/cart.php">
-          <i class="fas fa-shopping-cart"></i>
-          <span class="cart-count">
-            (<?= $cartCount ?>)
-          </span>
-        </a>
-        <a href="<?= APP_URL ?>/pages/customer_dashboard.php"><i class="fas fa-user"></i> </a>
-      </div>
+            <div class="input-box">
+            <input type="text" name="license_type" required>
+            <label>Postal Code</label>
+            </div>
 
+            <div class="input-box">
+            <input type="text" name="license_no" required>
+            <label>License No</label>
+            </div>
+<br>
+            <input type="checkbox" name="terms" required>
+            
+            <label for="terms">I agree to the <a href="#" target="_blank">terms and conditions</a>.</label><br><br>
+            <br>
+            <button type="submit" name="submit" value="Register" required>Submit</button>
+</div>
+</form>
     </div>
-  </section>
-
+    </div>
 </body>
 
 </html>

@@ -85,29 +85,71 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="webpage\style.css">
+   
     <title>Customer Registration</title>
 </head>
 
 <body>
     <div class="container">
+    <div class="form-container">
+
         <h1>Customer Registration</h1>
         <form action="" method="POST">
-            <label for="">Enter Details</label><br>
-            <input type="text" name="name" placeholder="Your Name" required><br>
-            <input type="email" name="email" placeholder="Email" required><br>
-            <input type="text" name="phone" placeholder="Phone No   07**" required><br><br>
-            <input type="password" name="password" placeholder="Password (min 8 charactors)" required><br>
-            <input type="password" name="con-password" placeholder="Confirm Password" required><br><br>
+
+        <div class="left">
+            <h2>Enter Details</h2>
+
+            <div class="input-box">
+            <label>Username</label>
+            <input type="text" id="username" name="username" required>
+            </div>
+
+            <div class="input-box">
+            <label>Email</label>
+            <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="input-box">
+            <label >Phone</label>
+            <input type="text" id="phone" name="phone"  required>
+            </div>
+
+            <div class="input-box">
+            <label >Password</label>
+            <input type="password" id="password" name="password" required>
+            </div>
+
+            <div class="input-box">
+            <label >Password</label>
+            <input type="password" id="password" name="con-password" required>
+            </div>
+        </div>
+
+        <div class="right">
             <label for="">Enter Your Address</label><br>
-            <input type="text" name="state" placeholder="State" required><br>
-            <input type="text" name="city" placeholder="City" required><br>
-            <input type="text" name="po-code" placeholder="Postal Code" required><br><br>
-            <input type="checkbox" name="terms" required>
+
+            <div class="input-box">
+             <label>State</label>
+             <input type="text" id="state" name="state"  required>
+             </div>
+ 
+            <div class="input-box">
+             <label >City</label>
+             <input type="text" id="city" name="city"  required>
+             </div>
+
+            <div class="input-box">
+             <label>Postal Code</label>
+             <input type="text" id="postal_code" name="po-code"   required>
+             </div>   
+
+             <input type="checkbox" name="terms" required>
             <label for="terms">I agree to the <a href="#" target="_blank">terms and conditions</a>.</label><br><br>
             <input type="submit" name="submit" value="Register" required>
         </form>
     </div>
+    </div>
+</div>
 </body>
 
 </html>
