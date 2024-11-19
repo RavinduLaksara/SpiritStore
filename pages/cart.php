@@ -137,6 +137,7 @@ if (isset($_GET['remove']) && isset($_GET['itemID'])) {
             </div>
         <?php endif; ?>
     </div>
+    <?php include('../footer/footer.php') ?>
 </body>
 
 </html>

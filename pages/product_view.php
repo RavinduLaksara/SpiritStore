@@ -110,6 +110,7 @@ $category_name = $row[0];
             }
         }
     </script>
+    <?php include('../footer/footer.php') ?>
 </body>
 
 </html>

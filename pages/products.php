@@ -6,11 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Products</title>
     <link rel="stylesheet" href="../styles/products.css">
-    <link rel="stylesheet" href="../style.css">
 </head>
 
 <body>
-    <?php include('../Headers/customerHeader.php') ?>
+    <?php include('../Headers/customerHeader.php'); ?>
 
     <div class="back-image">
         <h2>PRODUCTS</h2>
@@ -19,7 +18,7 @@
     <!-- Search Form -->
     <div class="search-container">
         <form method="GET" action="products.php">
-            <input type="text" name="search" placeholder="Search for products, brands, or categories" required>
+            <input type="text" name="search" placeholder="Search for products, brands, or categories" value="<?= htmlspecialchars($_GET['search'] ?? '') ?>">
             <button type="submit">Search</button>
         </form>
     </div>
@@ -28,27 +27,29 @@
         <div class="item-filter">
             <!-- Filter Form -->
             <form method="GET" action="products.php">
-                <!-- Category Filter -->
-                <h4>Filter by Category</h4>
-                <?php
-                include("../dbconnect.php");
+                <div class="filter-section">
+                    <h4>Filter by Category</h4>
+                    <?php
+                    include("../dbconnect.php");
 
-                $categoryResult = $connection->query("SELECT id, name FROM category");
-                while ($category = $categoryResult->fetch_assoc()) {
-                    $checked = (isset($_GET['category']) && in_array($category['id'], $_GET['category'])) ? 'checked' : '';
-                    echo '<label><input type="checkbox" name="category[]" value="' . $category['id'] . '" ' . $checked . '> ' . $category['name'] . '</label><br>';
-                }
-                ?>
+                    $categoryResult = $connection->query("SELECT id, name FROM category");
+                    while ($category = $categoryResult->fetch_assoc()) {
+                        $checked = (isset($_GET['category']) && in_array($category['id'], $_GET['category'])) ? 'checked' : '';
+                        echo '<label class="filter-option"><input type="checkbox" name="category[]" value="' . $category['id'] . '" ' . $checked . '> ' . $category['name'] . '</label>';
+                    }
+                    ?>
+                </div>
 
-                <!-- Brand Filter -->
-                <h4>Filter by Brand</h4>
-                <?php
-                $brandResult = $connection->query("SELECT id, name FROM brand");
-                while ($brand = $brandResult->fetch_assoc()) {
-                    $checked = (isset($_GET['brand']) && in_array($brand['id'], $_GET['brand'])) ? 'checked' : '';
-                    echo '<label><input type="checkbox" name="brand[]" value="' . $brand['id'] . '" ' . $checked . '> ' . $brand['name'] . '</label><br>';
-                }
-                ?>
+                <div class="filter-section">
+                    <h4>Filter by Brand</h4>
+                    <?php
+                    $brandResult = $connection->query("SELECT id, name FROM brand");
+                    while ($brand = $brandResult->fetch_assoc()) {
+                        $checked = (isset($_GET['brand']) && in_array($brand['id'], $_GET['brand'])) ? 'checked' : '';
+                        echo '<label class="filter-option"><input type="checkbox" name="brand[]" value="' . $brand['id'] . '" ' . $checked . '> ' . $brand['name'] . '</label>';
+                    }
+                    ?>
+                </div>
 
                 <button type="submit">Apply Filters</button>
             </form>
@@ -56,6 +57,11 @@
 
         <div class="item-container">
             <?php
+            // Pagination setup
+            $itemsPerPage = 10;
+            $page = isset($_GET['page']) && is_numeric($_GET['page']) ? (int)$_GET['page'] : 1;
+            $offset = ($page - 1) * $itemsPerPage;
+
             // Get the search and filter parameters
             $searchQuery = isset($_GET['search']) ? $_GET['search'] : '';
             $selectedCategories = isset($_GET['category']) ? $_GET['category'] : [];
@@ -90,6 +96,15 @@
                 $query .= " AND brand.id IN ($brandFilter)";
             }
 
+            // Count total items for pagination
+            $countQuery = "SELECT COUNT(*) AS total_items FROM ($query) AS sub_query";
+            $countResult = $connection->query($countQuery);
+            $totalItems = $countResult->fetch_assoc()['total_items'];
+            $totalPages = ceil($totalItems / $itemsPerPage);
+
+            // Add LIMIT clause for pagination
+            $query .= " LIMIT $offset, $itemsPerPage";
+
             $result = $connection->query($query);
             $products = $result->fetch_all(MYSQLI_ASSOC);
 
@@ -100,7 +115,7 @@
                 foreach ($products as $product) {
                     echo '
                         <div class="item">
-                            <img src="' . $product['photo'] . '" alt="photo">
+                            <img src="' . $product['photo'] . '" alt="' . htmlspecialchars($product['product_name']) . '">
                             <p class="category">' . htmlspecialchars($product['category_name']) . '</p>
                             <p class="name">' . htmlspecialchars($product['product_name']) . '</p>
                             <p class="brand">' . htmlspecialchars($product['brand_name']) . '</p>
@@ -111,7 +126,18 @@
             }
             ?>
         </div>
+
+        <!-- Pagination Links -->
+        <div class="pagination">
+            <?php
+            for ($i = 1; $i <= $totalPages; $i++) {
+                $activeClass = ($i == $page) ? 'active' : '';
+                echo '<a class="' . $activeClass . '" href="?page=' . $i . '">' . $i . '</a>';
+            }
+            ?>
+        </div>
     </div>
+    <?php include('../footer/footer.php'); ?>
 </body>
 
 </html>
