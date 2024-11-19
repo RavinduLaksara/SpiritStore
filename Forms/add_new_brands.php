@@ -75,7 +75,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   .container {
     margin-top: 0;
     height: 100vh;
-    background-image: url('photo1.jpg');
+    background-image: url('photo1.../image/photo1.jpg');
     background-size: cover;
     background-position: center;
     display: flex;

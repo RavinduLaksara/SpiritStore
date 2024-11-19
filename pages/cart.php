@@ -97,12 +97,17 @@ if (isset($_GET['remove']) && isset($_GET['itemID'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cart</title>
+    <link rel="stylesheet" href="../styles/cart.css">
 </head>
 
 <body>
+    
+    <div class="total">
+<br>
+<br>
     <h1>Your Cart</h1>
-
     <div class="cart-container">
+       <br>
 
         <?php if (empty($cartItems)): ?>
             <p>Your cart is empty.</p>
@@ -131,12 +136,128 @@ if (isset($_GET['remove']) && isset($_GET['itemID'])) {
                     <?php endforeach; ?>
                 </tbody>
             </table>
-            <h3>Total: Rs. <?= number_format($total, 2) ?></h3>
+            <br>
+        
+            <h3 id="total1">Total: Rs. <?= number_format($total, 2) ?></h3>
+            <br>
             <div class="cart-actions">
                 <a href="checkout.php" class="checkout-button">Proceed to Checkout</a>
             </div>
         <?php endif; ?>
     </div>
+    </div>
+
+    <style>
+        /* General Styling */
+        .total {
+    margin-top: 0;
+      height: auto;
+      min-height: 90vh;
+      background-image: url('../image/login page image.jpg');
+      background-size: cover;
+      background-position: center;
+      justify-content: center;
+      align-items: center;
+      color: black;
+      margin-top: 0;
+      margin-left: 0;
+
+}
+
+h1 {
+    text-align: center;
+    margin: 20px 0;
+    color: #444;
+}
+
+/* Cart Container */
+.cart-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    backdrop-filter: blur(10px);
+    background: rgba(156, 141, 141, 0.753);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+table thead {
+    background-color: gray;
+    color: #fff;
+}
+
+table thead th {
+    padding: 10px;
+    text-align: left;
+}
+
+table tbody td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+}
+
+table tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+table img {
+    border-radius: 4px;
+    object-fit: cover;
+}
+
+/* Buttons and Links */
+a {
+    text-decoration: none;
+    color:blue;
+}
+
+a:hover {
+    text-decoration:none;
+}
+
+.checkout-button {
+      width: 300px;
+      padding: 10px;
+      margin-top: 20px;
+      background: black;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: 0.3s;
+}
+
+.checkout-button:hover {
+    background: #333;
+}
+
+.cart-actions {
+    text-align: end;
+    margin-top: 20px;
+}
+h3{
+    text-align: end;
+    margin-right: 30px;
+   
+}
+
+/* Empty Cart Message */
+p {
+    text-align: center;
+    font-size: 1.2em;
+    color: #555;
+}
+
+    </style>
 </body>
 
 </html>

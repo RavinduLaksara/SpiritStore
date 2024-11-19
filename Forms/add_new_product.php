@@ -207,7 +207,7 @@ text-align: center;
 
 .container {
 height: 100vh;
-background-image: url('photo1.jpg');
+background-image: url('../image/photo1.jpg.jpg');
 background-size: cover;
 background-position: center;
 display: flex;

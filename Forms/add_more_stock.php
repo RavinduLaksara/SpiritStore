@@ -112,6 +112,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 margin-top: 0;
 margin-bottom: 0;
 margin-right: 0;
+margin-left: 0;
 box-sizing: border-box;
 font-family: 'Roboto', sans-serif;
 
@@ -121,9 +122,8 @@ h1{
 text-align: center;
 }
 .container {
-margin-left: 200px;
 height: 100vh;
-background-image: url('photo1.jpg');
+background-image: url('../image/photo1.jpg');
 background-size: cover;
 background-position: center;
 display: flex;

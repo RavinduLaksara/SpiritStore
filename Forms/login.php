@@ -59,7 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <div class="form-box"></div>
             <h2>Login</h2>
             <form action="#" method="post">
-                <link rel="stylesheet" href="../styles/">
+                <link rel="stylesheet" href="../styles/login.css">
 
 
                 <div class="input-box">

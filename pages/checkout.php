@@ -84,28 +84,8 @@ $_SESSION['cartDetails'] = $cartDetails;
 
 <body>
     <div class="checkout-container">
-        <div class="billing-details">
-            <h2>Billing Details</h2>
-            <form action="process_order.php" method="POST">
-                <label for="name">Name *</label>
-                <input type="text" name="name" required>
-
-                <label for="street">Street Address *</label>
-                <input type="text" name="street" placeholder="Street name" required>
-
-                <label for="city">Town / City *</label>
-                <input type="text" name="city" required>
-
-                <label for="phone">Phone *</label>
-                <input type="tel" name="phone" id="phone" required>
-
-                <!-- Hidden input to pass the total amount -->
-                <input type="hidden" name="totalAmount" value="<?php echo htmlspecialchars($totalAmount); ?>">
-
-                <button type="submit" class="place-order-button">Place Order</button>
-            </form>
-        </div>
-
+        <div class="form-container">
+        
         <div class="order-summary">
             <h2>Your Order</h2>
             <div class="order-items">
@@ -125,8 +105,45 @@ $_SESSION['cartDetails'] = $cartDetails;
             <div class="order-total">
                 <h3>Total: LKR <?php echo number_format($totalAmount, 2); ?></h3>
             </div>
+                    </div>
+            <div class="billing-details">
+            
+            <h2>Billing Details</h2>
+            <form action="process_order.php" method="POST">
+                
+            <div class="input-box">
+                <input type="text" name="name" required>
+                <label for="name">Name *</label>
+            </div>
+                
+            <div class="input-box">
+                <input type="text" name="street" required>
+                <label for="street">Street Address *</label>
+                </div>
+                
+                <div class="input-box">
+                <input type="text" name="city" required>
+                <label for="city">Town / City *</label>
+                </div>
+                
+                <div class="input-box">
+                <input type="tel" name="phone" id="phone" required>
+                <label for="phone">Phone *</label>
+</div>
+
+                <!-- Hidden input to pass the total amount -->
+                <input type="hidden" name="totalAmount" value="<?php echo htmlspecialchars($totalAmount); ?>">
+
+                <button type="submit" class="place-order-button">Place Order</button>
+            </form>
+        </div>
+
         </div>
     </div>
+    <style>
+
+        
+    </style>
 </body>
 
 </html>
