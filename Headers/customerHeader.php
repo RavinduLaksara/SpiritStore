@@ -1,6 +1,6 @@
 <?php
 include(__DIR__ . '/../dbconnect.php');
-include('../Headers\customerHeader.php');
+include('../Headers/customerHeader.php');
 
 function verifyPhoneNumber($phoneNumber)
 {
@@ -83,82 +83,82 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </head>
 
 <body>
-<div class="container">
-<div class="form-container">
-        <h1>Supplier Registration</h1>
+    <div class="container">
+        <div class="form-container">
+            <h1>Supplier Registration</h1>
 
-        <form action="" method="post">
-<div class="form-box">
-        <div id="left">
-            <h3>Enter Personal Details</h3>
+            <form action="" method="post">
+                <div class="form-box">
+                    <div id="left">
+                        <h3>Enter Personal Details</h3>
 
-            <div class="input-box">
-            <input type="text" name="username" required>
-            <label>Your name</label>
-            </div>
+                        <div class="input-box">
+                            <input type="text" name="username" required>
+                            <label>Your name</label>
+                        </div>
 
-            <div class="input-box">
-            <input type="email"  name="email" required>
-            <label>Email</label>
-            </div>
+                        <div class="input-box">
+                            <input type="email" name="email" required>
+                            <label>Email</label>
+                        </div>
 
-            <div class="input-box">
-            <input type="email"  name="email" required>
-            <label>Phone No</label>
-            </div>
+                        <div class="input-box">
+                            <input type="email" name="email" required>
+                            <label>Phone No</label>
+                        </div>
 
-            <div class="input-box">
-            <input type="password"  name="password" required>
-            <label>Password</label>
-            </div>
+                        <div class="input-box">
+                            <input type="password" name="password" required>
+                            <label>Password</label>
+                        </div>
 
-            <div class="input-box">
-            <input type="password"  name="con-password" required>
-            <label>Confirm Password</label>
-            </div>
-            
-</div>
+                        <div class="input-box">
+                            <input type="password" name="con-password" required>
+                            <label>Confirm Password</label>
+                        </div>
 
-<div id="right">
-            <h3>Enter Your Address</h3>
+                    </div>
+
+                    <div id="right">
+                        <h3>Enter Your Address</h3>
 
 
-            <div class="input-box">
-            <input type="text" name="state" required>
-            <label>State</label>
-            </div>
+                        <div class="input-box">
+                            <input type="text" name="state" required>
+                            <label>State</label>
+                        </div>
 
-            <div class="input-box">
-            <input type="text" name="city" required>
-            <label>City</label>
-            </div>
+                        <div class="input-box">
+                            <input type="text" name="city" required>
+                            <label>City</label>
+                        </div>
 
-            <div class="input-box">
-            <input type="text" name="po-code" required>
-            <label>Postal Code</label>
-            </div>
-</div>
-<div id="right1">
-            <h3>Enter Your License Details</h3>
+                        <div class="input-box">
+                            <input type="text" name="po-code" required>
+                            <label>Postal Code</label>
+                        </div>
+                    </div>
+                    <div id="right1">
+                        <h3>Enter Your License Details</h3>
 
-            <div class="input-box">
-            <input type="text" name="license_type" required>
-            <label>Postal Code</label>
-            </div>
+                        <div class="input-box">
+                            <input type="text" name="license_type" required>
+                            <label>Postal Code</label>
+                        </div>
 
-            <div class="input-box">
-            <input type="text" name="license_no" required>
-            <label>License No</label>
-            </div>
-<br>
-            <input type="checkbox" name="terms" required>
-            
-            <label for="terms">I agree to the <a href="#" target="_blank">terms and conditions</a>.</label><br><br>
-            <br>
-            <button type="submit" name="submit" value="Register" required>Submit</button>
-</div>
-</form>
-    </div>
+                        <div class="input-box">
+                            <input type="text" name="license_no" required>
+                            <label>License No</label>
+                        </div>
+                        <br>
+                        <input type="checkbox" name="terms" required>
+
+                        <label for="terms">I agree to the <a href="#" target="_blank">terms and conditions</a>.</label><br><br>
+                        <br>
+                        <button type="submit" name="submit" value="Register" required>Submit</button>
+                    </div>
+            </form>
+        </div>
     </div>
 </body>
 

@@ -1,11 +1,13 @@
 <?php
 
-include(__DIR__ . '/../../dbconnect.php');
+include(__DIR__ . '../../../dbconnect.php');
 include(__DIR__ . '/../../Headers/adminHeader.php');
 
 // get supplier details
 $sql = "SELECT id, name, phone, approve_status FROM supplier";
 $result = $connection->query($sql);
+
+
 
 ?>
 
@@ -36,10 +38,16 @@ $result = $connection->query($sql);
                 <tbody>
                     <?php
                     while ($row = $result->fetch_assoc()) {
+                        // get balance 
+                        $sql = "SELECT name FROM store WHERE supplier_id = '$row[id]'";
+                        $r = $connection->query($sql);
+                        $re = $r->fetch_array();
+                        $balance = $re[0];
                         echo "
                                 <tr>
                                     <td>$row[name]</td>
                                     <td>$row[phone]</td>
+                                    <td>$balance</td>
                                     <td>$row[approve_status]</td>
                                     <td><a href = '../admin/view_supplier.php?id=$row[id]'>View all</a></td>
                                     <td><a href = '../../Forms/edit_supplier_details.php?id=$row[id]'>Update</a></td>

@@ -29,75 +29,81 @@
       <a href="<?= APP_URL ?>/pages/admin/manage_order.php">Manage Orders</a>
       <a href="<?= APP_URL ?>/pages/admin/products.php">Manage Products</a>
       <a href="<?= APP_URL ?>/pages/admin/manage_customers.php">Manage Customers</a>
-      <a href="<?= APP_URL ?>/Forms/add_new_brands">Add new Brand</a>
+      <a href="<?= APP_URL ?>/Forms/add_new_brands.php">Add new Brand</a>
       <a href="<?= APP_URL ?>/Forms/add_new_category.php">Add new Category</a>
       <a href="<?= APP_URL ?>/Forms/admin-registration.php">Add new Admin</a>
       <a href="<?= APP_URL ?>/pages/customer/logout.php">Logout</a>
 
     </nav>
   </section>
-<style>
-  
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;500;700&display=swap");
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;500;700&display=swap");
 
-*{
-   
-    font-family: "Roboto", sans-serif;
-}
+    * {
 
-#header{
-display: flex;
-align-items: start;
-justify-content: space-between;
-background: white;
-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
-z-index: 999;
-position: sticky;
-height: 100vh;
-width: 230px;
-position: fixed;
-}
+      font-family: "Roboto", sans-serif;
+    }
+
+    #header {
+      display: flex;
+      align-items: start;
+      justify-content: space-between;
+      background: white;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+      z-index: 999;
+      position: sticky;
+      height: 100vh;
+      width: 230px;
+      position: fixed;
+    }
 
 
-.logo {
-    color: black;
-    user-select: none;
-    font-size: 1.7em;
-    font-weight: bold;
-    letter-spacing: 2px;
-  }
+    .logo {
+      color: black;
+      user-select: none;
+      font-size: 1.7em;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
 
-  .navbar {
-    display: flex;
-    flex-direction: column;
-    width: 200px;
-    gap: 20px; /* Space between items */
-    background-color: #f4f4f4; /* Optional: Light background for navbar */
-    padding: 10px 10px; /* Padding around the navbar */
-}
+    .navbar {
+      display: flex;
+      flex-direction: column;
+      width: 200px;
+      gap: 20px;
+      /* Space between items */
+      background-color: #f4f4f4;
+      /* Optional: Light background for navbar */
+      padding: 10px 10px;
+      /* Padding around the navbar */
+    }
 
-.navbar a {
-    text-decoration: none;
-    color: #333; /* Text color */
-    font-size: 1em;
-    padding: 12px;
-    border-radius: 5px; /* Rounded corners */
-    transition: background-color 0.3s ease; /* Smooth hover effect */
-}
+    .navbar a {
+      text-decoration: none;
+      color: #333;
+      /* Text color */
+      font-size: 1em;
+      padding: 12px;
+      border-radius: 5px;
+      /* Rounded corners */
+      transition: background-color 0.3s ease;
+      /* Smooth hover effect */
+    }
 
-.navbar a:hover {
-    background-color: #ddd; /* Hover background color */
-}
+    .navbar a:hover {
+      background-color: #ddd;
+      /* Hover background color */
+    }
 
-.navbar .active {
-    background-color: #212324; /* Active link background color */
-    color: white; /* Active link text color */
-    font-weight: bold; /* Emphasize active link */
-}
-
- 
-
-</style>
+    .navbar .active {
+      background-color: #212324;
+      /* Active link background color */
+      color: white;
+      /* Active link text color */
+      font-weight: bold;
+      /* Emphasize active link */
+    }
+  </style>
 </body>
 
 </html>

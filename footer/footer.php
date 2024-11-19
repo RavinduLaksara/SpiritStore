@@ -99,7 +99,7 @@
             <h2>Payment Method</h2>
             <img src="<?= APP_URL ?>/image/payment method.jpg" alt="Payment Methods">
             <h2>Developed by
-                <a href=""><br>Group 14</a>
+                <a href="<?= APP_URL ?>/group.php" target="_blank"><br>Group 14</a>
             </h2>
         </div>
     </div>

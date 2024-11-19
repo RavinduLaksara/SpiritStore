@@ -1,6 +1,7 @@
 <?php
 include("dbconnect.php");
-include("Headers/customerHeader.php");
+// include("Headers/customerHeader.php");
+include('config.php')
 ?>
 <!DOCTYPE html>
 <html lang="en">
