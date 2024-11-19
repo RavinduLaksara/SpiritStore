@@ -80,28 +80,74 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="webpage\style.css">
     <title>Supplier Registration</title>
+    <link rel="stylesheet" href="styles/form.css">
 </head>
 
 <body>
     <div class="container">
         <h1>Supplier Registration</h1>
         <form action="" method="post">
-            <label for="">Enter Personal Details</label><br>
-            <input type="text" name="name" placeholder="Your Name" required><br>
-            <input type="email" name="email" placeholder="Email" required><br>
-            <input type="text" name="phone" placeholder="Phone No   07**" required><br><br>
-            <input type="password" name="password" placeholder="Password (min 8 charactors)" required><br>
-            <input type="password" name="con-password" placeholder="Confirm Password" required><br><br>
-            <label for="">Enter Your Address</label><br>
-            <input type="text" name="state" placeholder="State" required><br>
-            <input type="text" name="city" placeholder="City" required><br>
-            <input type="text" name="po-code" placeholder="Postal Code" required><br><br>
-            <label for="">Enter Your License Details</label><br>
-            <input type="text" name="license_type" placeholder="License Type"><br>
-            <input type="text" name="license_no" placeholder="License No"><br><br>
+            <h3>Enter Personal Details</h3>
+
+            <div class="input-box">
+            <input type="text" name="username" required>
+            <label>Your name</label>
+            </div>
+
+            <div class="input-box">
+            <input type="email"  name="email" required>
+            <label>Email</label>
+            </div>
+
+            <div class="input-box">
+            <input type="email"  name="email" required>
+            <label>Phone No</label>
+            </div>
+
+            <div class="input-box">
+            <input type="password"  name="password" required>
+            <label>Password</label>
+            </div>
+
+            <div class="input-box">
+            <input type="password"  name="con-password" required>
+            <label>Confirm Password</label>
+            </div>
+            
+
+            <h3>Enter Your Address</h3>
+
+
+            <div class="input-box">
+            <input type="text" name="state" required>
+            <label>State</label>
+            </div>
+
+            <div class="input-box">
+            <input type="text" name="city" required>
+            <label>City</label>
+            </div>
+
+            <div class="input-box">
+            <input type="text" name="po-code" required>
+            <label>Postal Code</label>
+            </div>
+
+            <h3>Enter Your License Details</h3>
+
+            <div class="input-box">
+            <input type="text" name="license_type" required>
+            <label>Postal Code</label>
+            </div>
+
+            <div class="input-box">
+            <input type="text" name="license_no" required>
+            <label>License No</label>
+            </div>
+
             <input type="checkbox" name="terms" required>
             <label for="terms">I agree to the <a href="#" target="_blank">terms and conditions</a>.</label><br><br>
-            <input type="submit" name="submit" value="Register" required>
+            <button type="submit" name="submit" value="Register" required>Submit</button>
         </form>
     </div>
 </body>
