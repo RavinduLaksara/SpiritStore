@@ -1,74 +1,29 @@
 <?php
+session_start();
+include(__DIR__ . '/../config.php');
 include(__DIR__ . '/../dbconnect.php');
-include('../Headers\customerHeader.php');
 
-function verifyPhoneNumber($phoneNumber)
-{
-    if (strlen($phoneNumber) == 10) {
-        return true;
-    } else {
-        return false;
+$cartCount = 0;
+
+// Check if user is logged in
+if (isset($_SESSION['userid'])) {
+  // Fetch item count from `cartItem` table for logged-in users
+  $customerID = $_SESSION['userid'];
+  $sql = "SELECT COUNT(*) AS count FROM cartitem 
+            INNER JOIN cart ON cart.cartID = cartitem.cartID
+            WHERE cart.customerID = '$customerID'";
+  $result = $connection->query($sql);
+  if ($result) {
+    $row = $result->fetch_assoc();
+    $cartCount = $row['count'];
+  }
+} else {
+  // For guest users, count items in session-based cart
+  if (isset($_SESSION['cart'])) {
+    foreach ($_SESSION['cart'] as $item) {
+      $cartCount += $item['quantity'];
     }
-}
-
-function verifyPassword($password)
-{
-    if (strlen($password) >= 8) {
-        return true;
-    }
-    return false;
-}
-
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $name = $_POST['name'];
-    $email = $_POST['email'];
-    $phone = $_POST['phone'];
-    $password = $_POST['password'];
-    $con_password = $_POST['con-password'];
-    $state = $_POST['state'];
-    $city = $_POST['city'];
-    $po_code = $_POST['po-code'];
-    $license_type = $_POST['license_type'];
-    $license_no = $_POST['license_no'];
-
-    do {
-        if (empty($name) || empty($email) || empty($phone) || empty($password) || empty($con_password) || empty($state) || empty($city) || empty($po_code) || empty($license_type) || empty($license_no)) {
-            echo "all details are required";
-            break;
-        }
-
-        if (!verifyPassword($password)) {
-            echo "Please Enter Strong Password";
-            break;
-        }
-
-        if ($password != $con_password) {
-            echo "Password & Confirm password not equal";
-            break;
-        }
-
-        if (!verifyPhoneNumber($phone)) {
-            echo "Please Enter valid phone no - 07**";
-            break;
-        }
-
-        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-
-        $sql = "INSERT INTO supplier (name, email, phone, password, state, city, postal_code, license_type, license_no,	approve_status) VALUES ('$name', '$email', '$phone', '$hashedPassword', '$state', '$city', '$po_code', '$license_type', '$license_no', 'no')";
-
-        $result = $connection->query($sql);
-        if (!$result) {
-            echo 'Invalid query';
-            break;
-        }
-
-        echo 'Registration Successfully';
-
-        $supplier_id = $connection->insert_id;
-
-        header("Location: ../Forms/store_registration.php?id=$supplier_id");
-        exit();
-    } while (false);
+  }
 }
 ?>
 
@@ -76,90 +31,176 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="webpage\style.css">
-    <title>Supplier Registration</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title></title>
+
+
+  <script
+    src="https://kit.fontawesome.com/a076d05399.js"
+    crossorigin="anonymous"></script>
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
 </head>
 
 <body>
-<div class="container">
-<div class="form-container">
-        <h1>Supplier Registration</h1>
-
-        <form action="" method="post">
-<div class="form-box">
-        <div id="left">
-            <h3>Enter Personal Details</h3>
-
-            <div class="input-box">
-            <input type="text" name="username" required>
-            <label>Your name</label>
-            </div>
-
-            <div class="input-box">
-            <input type="email"  name="email" required>
-            <label>Email</label>
-            </div>
-
-            <div class="input-box">
-            <input type="email"  name="email" required>
-            <label>Phone No</label>
-            </div>
-
-            <div class="input-box">
-            <input type="password"  name="password" required>
-            <label>Password</label>
-            </div>
-
-            <div class="input-box">
-            <input type="password"  name="con-password" required>
-            <label>Confirm Password</label>
-            </div>
-            
-</div>
-
-<div id="right">
-            <h3>Enter Your Address</h3>
+  <section id="header">
 
 
-            <div class="input-box">
-            <input type="text" name="state" required>
-            <label>State</label>
-            </div>
+    <div class="navbar">
 
-            <div class="input-box">
-            <input type="text" name="city" required>
-            <label>City</label>
-            </div>
+      <h3 class="logo">SPIRIT STORE</h3>
 
-            <div class="input-box">
-            <input type="text" name="po-code" required>
-            <label>Postal Code</label>
-            </div>
-</div>
-<div id="right1">
-            <h3>Enter Your License Details</h3>
+      <a class="active" href="<?= APP_URL ?>/homepage.php">Home</a>
 
-            <div class="input-box">
-            <input type="text" name="license_type" required>
-            <label>Postal Code</label>
-            </div>
+      <a href="<?= APP_URL ?>/pages/products.php">Products</a>
+      <a href="<?= APP_URL ?>/pages/products_by_category.php?id=4">Whiskey</a>
+      <a href="<?= APP_URL ?>/pages/products_by_category.php?id=9">Arrack</a>
+      <a href="<?= APP_URL ?>/pages/products_by_category.php?id=10">Beers</a>
+      <a href="<?= APP_URL ?>/Forms/supplier_registration.php">Join as a Supplier</a>
+      <div class="right-section">
+        <a href="<?= APP_URL ?>/pages/cart.php">
+          <i class="fas fa-shopping-cart"></i>
+          <span class="cart-count">
+            (<?= $cartCount ?>)
+          </span>
+        </a>
+        <a href="<?= APP_URL ?>/pages/customer_dashboard.php"><i class="fas fa-user"></i> </a>
+      </div>
 
-            <div class="input-box">
-            <input type="text" name="license_no" required>
-            <label>License No</label>
-            </div>
-<br>
-            <input type="checkbox" name="terms" required>
-            
-            <label for="terms">I agree to the <a href="#" target="_blank">terms and conditions</a>.</label><br><br>
-            <br>
-            <button type="submit" name="submit" value="Register" required>Submit</button>
-</div>
-</form>
     </div>
-    </div>
+  </section>
+<style>
+  * {
+    font-family: 'Roboto', sans-serif;
+    
+  }
+  
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px 100px;
+    background: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    color: black;
+    z-index: 99;
+  }
+  
+  /* Logo Section */
+  .logo {
+    color: black;
+    user-select: none;
+    font-size: 1.6em;
+    font-weight: bold;
+    letter-spacing: 2px;
+  }
+  
+  
+  /* Navigation Links */
+  .navbar {
+    display: flex;
+    align-items: center;
+    gap: 80px;
+    flex: 1; /* Allows space for right-section to align properly */
+  }
+  
+  /* Nav Links Styling */
+  .navbar a {
+    position: relative;
+    font-size: 1.1em;
+    color: black;
+    text-decoration: none;
+    font-weight: 500;
+    
+  }
+  
+  .navbar a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background: black;
+    border-radius: 5px;
+    left: 0;
+    bottom: -6px;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform 0.5s;
+  }
+  
+  .navbar a:hover::after {
+    transform-origin: left;
+    transform: scaleX(1);
+  }
+  
+  .navbar a i {
+    margin-right: 5px;
+    font-size: 1.1em;
+  }
+  
+  /* Right Section (Cart and Profile) */
+  .right-section {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+  }
+  
+  .right-section .btn-cart {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 1.1em;
+    color: black;
+    text-decoration: none;
+    font-weight: 500;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+  
+  .right-section .btn-cart:hover {
+    color: gray;
+  }
+  
+  .right-section .btn-cart span {
+    color: red;
+    font-weight: bold;
+  }
+  
+  .right-section .btn-profile {
+    font-size: 1.5em;
+    color: black;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+  
+  .right-section .btn-profile:hover {
+    color: gray;
+  }
+  
+  
+  /* Cart Count Badge */
+  .cart-count {
+    position: absolute;
+    top: -8px; /* Adjust to move above the icon */
+    right: -12px; /* Adjust to align with the icon */
+    color:red;
+    font-size: 0.6em;
+    font-weight: bold;
+    border-radius: 100%;
+    padding: 2px 6px;
+    min-width: 18px; /* Ensure circular shape */
+    text-align: center;
+    line-height: 1;
+  }
+  
+  
+</style>
+
 </body>
 
 </html>
