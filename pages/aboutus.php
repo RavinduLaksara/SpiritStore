@@ -13,7 +13,7 @@ include("../Headers/customerHeader.php")
 </head>
 
 <body>
-<div class="back-image">
+    <div class="back-image">
         <h2>ABOUT US</h2>
     </div>
     <div class="about-content">
@@ -28,8 +28,10 @@ include("../Headers/customerHeader.php")
             <li>We curate premium spirits and wine evenings conducted by local and international sommeliers.</li>
             <li>Hampers & Gifting Solutions – Leave it to our team to customize your order to suit your requirement. We provide tailor made corporate hampers for all occasions with no hidden charges.</li>
         </ul>
-        <a href=""><b>Start Shopping Now</b></a>
+        <a href="../homepage.php"><b>Start Shopping Now</b></a>
     </div>
+
+    <?php include('../footer/footer.php') ?>
 </body>
 
 </html>

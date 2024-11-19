@@ -69,7 +69,8 @@ $categorys = getArray($category_result);
                     $category_name = getKeyByValue($categorys, $row['CategoryID']);
                     echo "
                             <tr>
-                                <td ><img src = '../{$row['photo']}' alt = 'Product image' width = '50px' height = '50px'></td>                                <td>$row[Name]</td>
+                                <td><img src = '../../{$row['photo']}' alt = 'Product image'></td>
+                                <td>$row[Name]</td>
                                 <td>$brand_name</td>
                                 <td>$category_name</td>
                                 <td>$row[Country]</td>

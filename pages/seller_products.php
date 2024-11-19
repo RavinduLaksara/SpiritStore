@@ -67,6 +67,7 @@ $result_store = $connection->query($sql);
         }
         ?>
     </div>
+    <?php include('../footer/footer.php') ?>
 </body>
 
 </html>

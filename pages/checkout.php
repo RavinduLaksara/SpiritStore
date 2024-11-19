@@ -140,10 +140,6 @@ $_SESSION['cartDetails'] = $cartDetails;
 
         </div>
     </div>
-    <style>
-
-        
-    </style>
 </body>
 
 </html>

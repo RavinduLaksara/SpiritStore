@@ -1,6 +1,7 @@
 <?php
 include("dbconnect.php");
-include("Headers/customerHeader.php");
+// include("Headers/customerHeader.php");
+include('config.php')
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -242,6 +243,10 @@ include("Headers/customerHeader.php");
         <div class="text-wrapper">
             <h1>Good Times, Great Memories—Drink Responsibly</h1>
         </div>
+    </section>
+
+    <?php include('footer/footer.php') ?>
+
 </body>
 
 </html>
