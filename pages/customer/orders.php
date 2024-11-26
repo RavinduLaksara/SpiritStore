@@ -26,30 +26,27 @@ $result = $connection->query($sql);
         body {
             font-family: Arial, sans-serif;
             margin: 0;
-            padding: 0;
             background-color: #ffffff;
             color: #000000;
+            padding: 0;
         }
 
-        table a {
-            text-decoration: none;
-            color: #000;
-        }
+        
 
         .container {
             display: flex;
             max-width: 1200px;
             margin: 20px auto;
-            padding: 20px;
+            padding: 200px;
             gap: 20px;
         }
 
         .left {
+            margin-top: 100px;
             width: 25%;
             background-color: #ffffff;
             border: 1px solid #ddd;
             border-radius: 8px;
-            padding: 20px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
@@ -69,7 +66,8 @@ $result = $connection->query($sql);
         }
 
         .right {
-            width: 75%;
+            margin-left: 390px;
+            width: 65%;
             background-color: #ffffff;
             border: 1px solid #ddd;
             border-radius: 8px;
@@ -114,6 +112,7 @@ $result = $connection->query($sql);
         .right table tbody td:last-child {
             text-align: right;
         }
+
     </style>
 </head>
 
@@ -164,43 +163,8 @@ $result = $connection->query($sql);
     </div>
 </body>
 <style>
-    /* managesupplier.css */
 
-    /* General styles */
-    * {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        margin: 0;
-        padding: 0;
-    }
-
-    .content {
-        margin-left: 230px;
-        max-width: 1100px;
-        width: 90%;
-        padding: 20px;
-        background: #fff;
-        /* White container */
-        border-radius: 10px;
-        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-        background-color: #e6e6e6;
-        /* Light gray background */
-        color: #333;
-        /* Dark gray text */
-    }
-
-
-    /* Heading */
-    h1 {
-        font-size: 28px;
-        color: #222;
-        /* Black heading text */
-        text-align: center;
-        margin-bottom: 30px;
-        text-transform: uppercase;
-        letter-spacing: 1.5px;
-    }
-
-    /* Table styles */
+/* Table styles */
     table {
         width: 100%;
         border-collapse: collapse;

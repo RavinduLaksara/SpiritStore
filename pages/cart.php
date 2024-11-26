@@ -148,9 +148,14 @@ if (isset($_GET['remove']) && isset($_GET['itemID'])) {
     </div>
 
     <style>
+       * {
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Roboto', sans-serif;
+    }
+
         /* General Styling */
         .total {
-    margin-top: 0;
       height: auto;
       min-height: 90vh;
       background-image: url('../image/login page image.jpg');
