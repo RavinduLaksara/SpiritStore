@@ -147,12 +147,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             /* .left {
                 left: 0;
                 width: 50%;
-            } */
+            } 
 
             .right {
                 /* margin-left: 50%; */
                 /* width: 50%; */
-            }
+            /* } */
 
 
             .input-box {

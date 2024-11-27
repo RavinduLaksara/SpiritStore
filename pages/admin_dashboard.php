@@ -15,5 +15,13 @@ include(__DIR__ . '/../Headers/adminHeader.php');
 <body>
     <h1>Admin page</h1>
 </body>
+<style>
+h1{
+    text-align: center;
+    margin: 20px 0;
+    color: gray;
+    font-size: 3.5em;
+   }
+</style>
 
 </html>
