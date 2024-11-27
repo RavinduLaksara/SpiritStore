@@ -37,7 +37,7 @@ $result = $connection->query($sql);
 </head>
 
 <body>
-    <div>
+    <div style="margin:0px 20px 0px 20px">
         <div class="title">
             <?php
             echo "

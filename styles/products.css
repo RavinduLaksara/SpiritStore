@@ -26,6 +26,7 @@
   padding: 16px;
   box-shadow: 5px 6px 12px rgba(0, 0, 0, 0.21);
   transition: box-shadow 0.3s;
+  
 }
 
 .item:hover {
