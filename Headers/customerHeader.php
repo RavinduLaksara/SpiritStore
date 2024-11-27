@@ -72,7 +72,7 @@ if (isset($_SESSION['userid'])) {
     </div>
   </section>
 <style>
-  * {
+ * {
     font-family: 'Roboto', sans-serif;
     
   }
@@ -83,7 +83,6 @@ if (isset($_SESSION['userid'])) {
     left: 0;
     width: 100%;
     padding: 10px 100px;
-    background: white;
     display: flex;
     justify-content: space-between;
     align-items: start;
@@ -105,7 +104,7 @@ if (isset($_SESSION['userid'])) {
   .navbar {
     display: flex;
     align-items: center;
-    gap: 80px;
+    gap: 85px;
     flex: 1; /* Allows space for right-section to align properly */
   }
   
