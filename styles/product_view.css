@@ -18,10 +18,15 @@ body {
 /* Left column for the image */
 .left img {
     max-width: 100%;
-    height: auto;
+    height: 300px;
     display: block;
     border-radius: 8px;
+    display: grid;
+    object-fit: contain;
+    justify-content: center;
 }
+
+
 
 /* Right column for the product details */
 .right {
@@ -82,3 +87,8 @@ body {
 
 h1{
 margin: 20px 0 20px 100px;}
+
+.quantity-control button{
+    background-color: #000000;
+    color: aliceblue;
+}
