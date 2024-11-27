@@ -128,7 +128,7 @@
 
         </div>
 
-        <!-- Pagination Links -->
+
         <?php include('../footer/footer.php'); ?>
 
 </body>

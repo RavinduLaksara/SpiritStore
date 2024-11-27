@@ -94,7 +94,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         <h3>Enter Personal Details</h3>
 
                         <div class="input-box">
-                            <input type="text" name="username" required>
+                            <input type="text" name="name" required>
                             <label>Your name</label>
                         </div>
 
@@ -104,7 +104,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         </div>
 
                         <div class="input-box">
-                            <input type="email" name="email" required>
+                            <input type="text" name="phone" required>
                             <label>Phone No</label>
                         </div>
 
@@ -144,7 +144,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                         <div class="input-box">
                             <input type="text" name="license_type" required>
-                            <label>Postal Code</label>
+                            <label>Licence Type</label>
                         </div>
 
                         <div class="input-box">
@@ -157,15 +157,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         <label for="terms">I agree to the <a href="#" target="_blank">terms and conditions</a>.</label><br><br>
                         <br>
                         <button type="submit" name="submit" value="Register" required>Submit</button><br><br>
-                    
 
-                    <span>Haven't Account</span>
-                    <a class="log" href="../Forms/customer_registration.php">Register now</a>
+
+                        <span>Haven't Account</span>
+                        <a class="log" href="../Forms/customer_registration.php">Register now</a>
                     </div>
             </form>
         </div>
     </div>
-    
+
 </body>
 
 <style>
