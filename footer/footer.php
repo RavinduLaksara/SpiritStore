@@ -1,11 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
+    <?php include(__DIR__ . '/../dbconnect.php'); ?>
 
+    <div class="container">
+        <div class="nav-container">
+            <h2>Spirit Store</h2>
+            <h2>E-commerce <br>
+                Platform for
+                liquor stores
+            </h2>
+        </div>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+        <div class="nav-container">
+            <h2>Quick Links</h2>
+            <h2><a href="<?= APP_URL ?>/homepage.php">Home</a></h2>
+            <h2><a href="<?= APP_URL ?>/pages/products.php">Products</a></h2>
+            <h2><a href="<?= APP_URL ?>/pages/products_by_category.php?id=4">Whisky</a></h2>
+            <h2><a href="<?= APP_URL ?>/pages/products_by_category.php?id=9">Arrack</a></h2>
+            <h2><a href="<?= APP_URL ?>/pages/products_by_category.php?id=10">Beers</a></h2>
+        </div>
+
+        <div class="nav-container">
+            <h2>Information</h2>
+            <h2><a href="<?= APP_URL ?>/pages/aboutus.php">About us</a></h2>
+            <h2><a href="<?= APP_URL ?>/pages/contactus.php">Contact us</a></h2>
+            <h2><a href="<?= APP_URL ?>/pages/privacy_policy.php">Privacy Policy</a></h2>
+            <h2><a href="<?= APP_URL ?>/pages/terms_conditions.php">Terms and Conditions</a></h2>
+        </div>
+
+        <div class="nav-container">
+            <h2>Payment Method</h2>
+            <img src="<?= APP_URL ?>/image/payment method.jpg" alt="Payment Methods">
+            <h2>Developed by
+                <a href="<?= APP_URL ?>/group.php" target="_blank"><br>Group 14</a>
+            </h2>
+        </div>
+    </div>
+
     <style>
         .container {
             background-color: #1a1a1a;
@@ -64,45 +93,3 @@
             }
         }
     </style>
-</head>
-
-<body>
-    <?php include(__DIR__ . '/../dbconnect.php'); ?>
-
-    <div class="container">
-        <div class="nav-container">
-            <h2>Spirit Store</h2>
-            <h2>E-commerce <br>
-                Platform for
-                liquor stores
-            </h2>
-        </div>
-
-        <div class="nav-container">
-            <h2>Quick Links</h2>
-            <h2><a href="<?= APP_URL ?>/homepage.php">Home</a></h2>
-            <h2><a href="<?= APP_URL ?>/pages/products.php">Products</a></h2>
-            <h2><a href="<?= APP_URL ?>/pages/products_by_category.php?id=4">Whisky</a></h2>
-            <h2><a href="<?= APP_URL ?>/pages/products_by_category.php?id=9">Arrack</a></h2>
-            <h2><a href="<?= APP_URL ?>/pages/products_by_category.php?id=10">Beers</a></h2>
-        </div>
-
-        <div class="nav-container">
-            <h2>Information</h2>
-            <h2><a href="<?= APP_URL ?>/pages/aboutus.php">About us</a></h2>
-            <h2><a href="<?= APP_URL ?>/pages/contactus.php">Contact us</a></h2>
-            <h2><a href="<?= APP_URL ?>/pages/privacy_policy.php">Privacy Policy</a></h2>
-            <h2><a href="<?= APP_URL ?>/pages/terms_conditions.php">Terms and Conditions</a></h2>
-        </div>
-
-        <div class="nav-container">
-            <h2>Payment Method</h2>
-            <img src="<?= APP_URL ?>/image/payment method.jpg" alt="Payment Methods">
-            <h2>Developed by
-                <a href="<?= APP_URL ?>/group.php" target="_blank"><br>Group 14</a>
-            </h2>
-        </div>
-    </div>
-</body>
-
-</html>

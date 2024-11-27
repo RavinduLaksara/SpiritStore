@@ -67,6 +67,7 @@ $commision = $row[1];
             height: 100px;
             background-color: #ffffff;
             border: 1px solid #ddd;
+            gap: 50px;
             border-radius: 10px;
             padding: 20px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);

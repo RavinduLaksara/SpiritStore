@@ -109,7 +109,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $connection->query("SET FOREIGN_KEY_CHECKS = 1");
 
         echo "Product Update successfully.";
-        header("Location: ../pages\supplier-dashboard.php?id=" . $supplier_id);
+        header("Location: ../pages/supplier/supplier_dashboard.php?id=" . $supplier_id);
         exit;
     } while (false);
 }
@@ -128,7 +128,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <div class="content">
         <h1>Edit Product Details</h1>
         <div class="left">
-            <img src="../<?php echo $product_row['photo']; ?>" alt="product image">
+            <img src="<?php echo $product_row['photo']; ?>" alt="product image">
         </div>
         <div class="right">
             <form action="" method="post">

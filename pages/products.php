@@ -125,19 +125,12 @@
                 }
             }
             ?>
+
         </div>
 
         <!-- Pagination Links -->
-        <div class="pagination">
-            <?php
-            for ($i = 1; $i <= $totalPages; $i++) {
-                $activeClass = ($i == $page) ? 'active' : '';
-                echo '<a class="' . $activeClass . '" href="?page=' . $i . '">' . $i . '</a>';
-            }
-            ?>
-        </div>
-    </div>
-    <?php include('../footer/footer.php'); ?>
+        <?php include('../footer/footer.php'); ?>
+
 </body>
 
 </html>

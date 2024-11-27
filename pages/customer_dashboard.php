@@ -120,7 +120,7 @@ $customer_name = $row[0];
         <div class="right">
             <p>Hello <strong><?php echo $customer_name; ?></strong></p>
             <p>
-                From your account dashboard you can view your recent orders, manage yourshipping addresses,and edit your account details.
+                From your account dashboard you can view your recent orders, manage your shipping addresses and edit your account details.
             </p>
         </div>
     </div>

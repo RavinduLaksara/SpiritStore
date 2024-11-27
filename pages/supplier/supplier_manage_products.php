@@ -74,13 +74,13 @@ $store_id = $row[0];
 
                         echo "
                             <tr>
-                                <td><img src='../{$row_product['photo']}' alt='Product image' style='width: 100px; height: auto;'></td>
+                                <td><img src='../{$row_product['photo']}' alt='Product image' style='width: 50px; height: 50px;'></td>
                                 <td>{$row_product['Name']}</td>
                                 <td>Rs. {$row['Price']}</td>
                                 <td>{$row['Quantity']}</td>
                                 <td>
-                                    <a href='../Forms/edit_product_details.php?productID={$row['ProductID']}&storeID=$store_id'>Edit</a> |
-                                    <a href='../Forms/delete_product.php?productID={$row['ProductID']}&storeID=$store_id'>Delete</a>
+                                    <a href='../../Forms/edit_product_details.php?productID={$row['ProductID']}&storeID=$store_id'>Edit</a> |
+                                    <a href='../../Forms/delete_product.php?productID={$row['ProductID']}&storeID=$store_id'>Delete</a>
                                 </td>
                             </tr>
                         ";
