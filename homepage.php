@@ -11,10 +11,18 @@ include("Headers/customerHeader.php");
     <title>HomePage</title>
     <link rel="stylesheet" href="styles/home.css">
     <!-- <link rel="stylesheet" href="styles/customer.css"> -->
+    <link rel="stylesheet" href="./ageVarification/AgeVarification.css">
 
 </head>
 
 <body>
+    <div id="ageVerification" class="age-verification-overlay">
+        <div class="age-verification-box">
+            <h2>Are you 21 or older?</h2>
+            <button class="confirm-btn" onclick="confirmAge()">Yes</button>
+            <button class="deny-btn" onclick="denyAccess()">No</button>
+        </div>
+    </div>
 
     <section class="hero">
 
@@ -243,6 +251,7 @@ include("Headers/customerHeader.php");
             <h1>Good Times, Great Memories—Drink Responsibly</h1>
         </div>
     </section>
+    <script src="./ageVarification/AgeVarification.js"></script>
 
     <?php include('footer/footer.php') ?>
 
